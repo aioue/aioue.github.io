@@ -5,7 +5,7 @@ date: '2013-03-08 13:58:55'
 ---
 
 Error:  
-```user@host:~$ sudo gem install aws-sdk
+```shelluser@host:~$ sudo gem install aws-sdk
 Building native extensions. This could take a while...
 ERROR: Error installing aws-sdk:
 ERROR: Failed to build gem native extension.
@@ -17,6 +17,6 @@ libxml2 is missing. please visit http://nokogiri.org/tutorials/installing_nokogi
 
 Solve by installing the required libraries  
 
-    $ apt-get install libxml2-dev libxslt1-dev
-    
+    apt-get install libxml2-dev libxslt1-dev
+
 [Source](https://discussion.dreamhost.com/post-119253.html)
