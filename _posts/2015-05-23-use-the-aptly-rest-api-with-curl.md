@@ -11,9 +11,17 @@ date: '2015-05-23 01:56:35'
 
   Given a package called `apackage.deb` and repo `arepo` that we've got on the aptly server itself for convenience, let's get that up onto our aptly repo using the API.
 
-  `curl -v -X POST -F file=@apackage.deb http://localhost:8080/api/files/apackage`
-  `curl -v -X POST http://localhost:8080/api/repos/arepo/file/apackage`
-  `curl -v -X PUT -H 'Content-Type: application/json' --data '{}' http://localhot:8080/api/publish/arepo/trusty`
+  * upload a local file to aptly's staging area
+
+    `curl -v -X POST -F file=@apackage.deb http://localhost:8080/api/files/apackage`
+
+  * import everything in that directory to a local repo
+
+      `curl -v -X POST http://localhost:8080/api/repos/arepo/file/apackage`
+
+  * update the published repo from the local repo
+
+    `curl -v -X PUT -H 'Content-Type: application/json' --data '{}' http://localhot:8080/api/publish/arepo/trusty`
 
 * remove package from an aptly repo
 
