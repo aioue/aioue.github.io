@@ -11,7 +11,6 @@ deployPkg is sometimes needed for guest customization and is missing from `open-
 Import the VMware packaging public keys, add their (slow as molasses) repo to the repo list and install the package.
 
 ```shell
-
 mkdir keys
 cd keys
 wget http://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-DSA-KEY.pub
