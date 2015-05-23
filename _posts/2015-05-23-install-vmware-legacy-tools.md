@@ -9,6 +9,7 @@ VMware are moving away from the classic VMware tooling to `open-vm-tools`, avail
 If you need the legacy tools, attach the ISO in the UI, and then:
 
 ```shell
+
 sudo mkdir /mnt/cdrom
 sudo mount /dev/cdrom /mnt/cdrom
 cp /mnt/cdrom/VMwareTools-* /tmp
