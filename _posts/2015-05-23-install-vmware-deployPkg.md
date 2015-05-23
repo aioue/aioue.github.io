@@ -1,24 +1,22 @@
 ---
 layout: post
-title: Install VMware deployPkg
-date: '2015-05-23 01:01:17'
+title: Install aptly with Ansible
+date: '2015-05-23 01:13:21'
 ---
 
-deployPkg is sometimes needed for guest customization and is missing from `open-vm-tools` for no good reason.
+[aptly](http://www.aptly.info/) is the best thing to happen to debian repository management since sliced bread.
 
-[The raw files are located here.](http://packages.vmware.com/packages/ubuntu/dists/trusty/main/binary-amd64/index.html)
+Plently of apps are not good enough in repo management land - they are often badly documented and difficult to set up. Repositories need to be simple and straightforward - they are a often a critical but lightweight component in a much larger infrastructure.
 
-Import the VMware packaging public keys, add their (slow as molasses) repo to the repo list and install the package.
+* [reprepro](https://mirrorer.alioth.debian.org/)
+* [mini-dinstall](https://github.com/shartge/mini-dinstall)
+* ftpsync
+* debmirror
 
-```shell
-mkdir keys
-cd keys
-wget http://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-DSA-KEY.pub
-wget http://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-RSA-KEY.pub
-sudo apt-key add VMWARE-PACKAGING-GPG-DSA-KEY.pub
-sudo apt-key add VMWARE-PACKAGING-GPG-RSA-KEY.pub
-touch /etc/apt/sources.list.d/vmware-tools.list
-echo deb http://packages.vmware.com/packages/ubuntu precise main > /etc/apt/sources.list.d/vmware-tools.list
-sudo apt-get update
-sudo apt-get install open-vm-tools-deploypkg
-```
+I wanted something that installed quickly, and was easy to install. aptly was halfway there with an available package and some **very** good documentation.
+
+Want to spin it up on a box without having to fuss with gpg and trawl the API docs?
+
+Use [this role](https://galaxy.ansible.com/list#/roles/3898) availble on [ansible-galaxy](https://galaxy.ansible.com/) and you'll be setup within in minutes. A suite of tests use simple curl requests to add packages to the repo, list existing packages and remove indiviual files to demonstrate the shniy new API.
+
+It's [open source](https://github.com/smira/aptly). Thank [Andrey Smirnov](https://twitter.com/smira) for his excellent work.
