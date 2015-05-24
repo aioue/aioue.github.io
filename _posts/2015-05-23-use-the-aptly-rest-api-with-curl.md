@@ -19,9 +19,9 @@ date: '2015-05-23 01:56:35'
 
   * import everything in that directory to a local repo
 
-      ```shell
-      curl -v -X POST http://localhost:8080/api/repos/arepo/file/apackage
-      ```
+    ```shell
+    curl -v -X POST http://localhost:8080/api/repos/arepo/file/apackage
+    ```
 
   * update the published repo from the local repo
 
