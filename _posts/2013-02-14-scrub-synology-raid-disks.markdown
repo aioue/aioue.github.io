@@ -17,7 +17,7 @@ where _[x]_ is the array you want to check (the first array on an RS3412xs is md
     cat /sys/block/md[x]/md/mismatch_cnt
 
 To fix these errors (in a naive way, md isn't clever about which block it decides is correct from a disk group), run  
-
+˜
     echo repair > /sys/block/md[x]/md/sync_action
 
 A further check afterwards will reset the mismatch count to zero if no more errors have crept in in the meanwhile. Running a repair regularly will cause all blocks to be read, potentially catching failing disk areas and causing them to be safely remapped before they become a problem. The scrub has the added benefit (vs fsck) of allowing your Synology to remain online and the services available while it happens. Errors for the all the individual disks can been displayed with  
@@ -29,23 +29,24 @@ If these regularly rise after a sync, consider replacing the disk.
 ### Fsck  
 
 Commands for performing an offline fsck (SSH as root):  
-```
+
+```shell
 syno_poweroff_task -d  
 
-# if you have volume group devices use these 2 lines:
+# if you have volume group devices
 vgchange -ay
 fsck.ext4 -yvf -C0 /dev/vg1000/lv  
 
 # OR  
-
-# if you have simple software raid devices:
+# if you have simple software raid devices
 fsck.ext4 -pvf -C0 /dev/md[x]  
 
 reboot
 ```
+
 The poweroff task (with debug switch to keep it from shutting down SSH) performs some unmounts (volume 1 etc.). Then you perform the usual Linux fsck.  
 
-I have a simple setup with 'mount' run before syno_poweroff_task showing '/dev/md2 on /volume1 type ext4'. People with volume groups will need to enable the volume with vgchange and then run the second commented command against whatever device their Synology is mounting.  
+I have a simple setup with `mount` run before `syno_poweroff_task` showing `/dev/md2 on /volume1 type ext4`. People with volume groups will need to enable the volume with `vgchange` and then run the second commented command against whatever device their Synology is mounting.  
 
 If you have questions or corrections please comment.
 
