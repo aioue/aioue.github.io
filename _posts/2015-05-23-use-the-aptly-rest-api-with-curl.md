@@ -48,3 +48,20 @@ date: '2015-05-23 01:56:35'
     ```shell
     curl -X PUT -H 'Content-Type: application/json' --data '{}' http://localhost:8080/api/publish/arepo/trusty
     ```
+* unpublish a repo
+
+```shell
+curl -X DELETE -H 'Content-Type: application/json' --data '{}' http://localhost:8080/api/publish/arepo/trusty
+```
+
+* show packages
+
+```shell
+curl -X GET http://localhost:8080/api/repos/packages
+```
+
+* list repos
+
+```shell
+curl -X GET http://localhost:8080/api/repos
+```
