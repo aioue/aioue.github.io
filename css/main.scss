@@ -1,7 +1,12 @@
+@charset "utf-8";
+
 body{text-align:center;}
 
 .site-header {
     position: relative;
     background: black;
     color: white;
+}
+.site-nav {
+    display: none;
 }
