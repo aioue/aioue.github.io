@@ -10,12 +10,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed libero erat. Mau
 
 <span class="posts">
   
-<a href="{{ post.url | prepend: site.baseurl }}">
 {% for post in site.posts %}
+<a href="{{ post.url | prepend: site.baseurl }}">
 {{ post.date | date: "%b %-d, %Y" }}<br>
 <span class="post-title">{{ post.title }}</span>
-{% endfor %}
 </a><br>
+{% endfor %}
   
 </span><br>
 
