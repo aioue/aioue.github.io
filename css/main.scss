@@ -1,36 +1,52 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-@charset "utf-8";
-
-
-
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   20px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-body{text-align:center;}
-
-.site-header {
-    position: relative;
-    background: black;
-    color: white;
+body {
+  text-align: center;
+  margin: 0;
+  font-family: monospace;
 }
-.site-nav {
-    display: none;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.header {
+  display: block;
+  margin-top: 30px;
+}
+.title {
+  font-size: 30px;
+  padding: 10px;
+  display: inline-block;
+}
+.menu a {
+  display: inline-block;
+  padding: 10px;
+}
+.intro {
+  display: inline-block;
+  margin: 30px 0 50px;
+  width: 500px;
+  line-height: 2;
+}
+.profile {
+  width: 200px;
+  border-radius: 100%;
+  margin-bottom: 20px;
+}
+.name {
+  font-size: 20px;
+}
+.posts a {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.post-title {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.top {
+  display: inline-block;
+  padding: 10px 0;
+  border-bottom: solid 1px;
+  margin: 30px 0 100px;
+  cursor: pointer;
 }
