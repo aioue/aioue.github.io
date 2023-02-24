@@ -67,3 +67,6 @@ code {
     display: block;
     margin: 10px 0;
 }
+.post-meta {
+    font-weight: bold;
+}
