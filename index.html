@@ -20,3 +20,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed libero erat. Mau
 </span><br>
 
 <a class="top">Back to top</a>
+
+<script>
+$(function() {
+    $('.top').bind('click', function(event) {
+        $('html, body').stop().animate({
+            scrollTop: 0
+        }, 100, '');
+        event.preventDefault();
+    });    
+});
+</script>
