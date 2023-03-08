@@ -25,6 +25,7 @@ a {
   margin: 30px 0 50px;
   width: 500px;
   line-height: 2;
+  max-width: 90%;
 }
 .profile {
   width: 200px;
@@ -40,8 +41,9 @@ a {
 }
 .post-title {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 20px;
+  line-height: 1.5;
 }
 .top {
   display: inline-block;
@@ -50,23 +52,55 @@ a {
   margin: 30px 0 100px;
   cursor: pointer;
 }
+.posts {
+  text-align: left;
+  display: inline-block;
+  width: 500px;
+  max-width: 90%;
+}
 .post {
-    text-align: left;
-    display: inline-block;
-    width: 1000px;
-    line-height: 2;
-    padding-bottom: 100px;
+  text-align: left;
+  display: inline-block;
+  width: 1000px;
+  line-height: 2;
+  padding-bottom: 100px;
+  max-width: 90%;
 }
 .post .post-title {
-    margin: 30px 0 0;
+  margin: 30px 0 0;
 }
 code {
-    white-space: break-spaces;
-    background: #dedede;
-    padding: 10px;
-    display: block;
-    margin: 10px 0;
+  white-space: break-spaces;
+  background: #dedede;
+  padding: 10px;
+  display: block;
+  margin: 10px 0;
 }
 .post-meta {
-    font-weight: bold;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .intro {
+    max-width: 90%;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .posts a {
+    font-size: 11px;
+  }
+  .post-title {
+    margin-top: 5px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  code {
+    word-break: break-word;
+  }
+  .post {
+    line-height: 1.7;
+    font-size: 12px;
+  }
+  .post .post-title {
+    line-height: 1.5;
+  }
 }
