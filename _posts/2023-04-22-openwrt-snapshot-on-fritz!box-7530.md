@@ -49,6 +49,15 @@ sysupgrade -n openwrt-<foo>.bin
     - Encapsulation `PTM`
     - DSL line mode `VDSL`
 
+1. Edit the `wan` interface
+
+    - Protocol `PPPoE`
+    - Device `dsl0.101`
+    - Add username and password
+    - Add DNS servers in `Advanced Settings` tab
+
+## Raw Config Output
+
 ```
 root@OpenWrt:~# cat /etc/config/network
 
