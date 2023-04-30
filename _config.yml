@@ -30,6 +30,13 @@ github_username:  aioue
 
 # Build settings
 theme: minima
+minima:
+  skin: dark
+
+show_excerpts: true
+
+google_analytics: UA-63012505-1
+
 plugins:
   - jekyll-feed
 
