@@ -16,7 +16,8 @@ date: '2023-04-22 21:45:00'
 Prepare the files on your client, following the TFTP process.
 
 At the TFTP section, follow [TFTP on OS X](https://rick.cogley.info/post/run-a-tftp-server-on-mac-osx/) guide.<br/>
-```
+
+```shell
 sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
 sudo cp FRITZ7530.bin /private/tftpboot
 ```
@@ -29,8 +30,9 @@ Snapshots, don't come with LUCI GUI, so expand `Customize installed packages`, a
 
 Click `Request Build`, and when complete, download the `SYSUPGRADE` image. Make a note of the sha256sum on the download page.
 
-Follow the [LuCI upgrade process](https://openwrt.org/toh/avm/avm_fritz_box_7530), or SCP the sysupgrade file to `/tmp/` and run a sysupgrade. **ALL CONFIG SETTINGS WILL BE LOST WITH THIS METHOD**
-```
+Follow the [LuCI upgrade process](https://openwrt.org/toh/avm/avm_fritz_box_7530), or SCP the sysupgrade file to `/tmp/` and run a sysupgrade. **ALL CONFIG SETTINGS WILL BE LOST WITH THIS (-n) METHOD**
+
+```shell
 sysupgrade -n openwrt-<foo>.bin
 ```
 
@@ -56,7 +58,7 @@ sysupgrade -n openwrt-<foo>.bin
     - Add username and password
     - Add DNS servers in `Advanced Settings` tab
 
-## Raw Config Output
+## Resulting Config Output
 
 ```conf
 root@OpenWrt:~# cat /etc/config/network
