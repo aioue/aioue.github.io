@@ -32,6 +32,8 @@ github_username:  aioue
 remote_theme: jekyll/minima
 minima:
   skin: auto
+  social_links:
+    - { platform: github,  user_url: "https://github.com/aioue/" }
 
 google_analytics: UA-63012505-1
 
