@@ -58,7 +58,7 @@ sysupgrade -n openwrt-<foo>.bin
 
 ## Raw Config Output
 
-```
+```conf
 root@OpenWrt:~# cat /etc/config/network
 
 config interface 'loopback'
