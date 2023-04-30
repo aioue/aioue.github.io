@@ -4,7 +4,7 @@ title: OpenWrt Snapshot on FRITZ!Box 7530
 date: '2023-04-22 21:45:00'
 ---
 
-#### Install OpenWrt 22.03.4 release on FRITZ!Box 7530, then sysupgrade to SNAPSHOT to enable the VRX518 VDSL modem.
+**Install OpenWrt 22.03.4 release on FRITZ!Box 7530, then sysupgrade to SNAPSHOT to enable the VRX518 VDSL modem.**
 
 **Client machine:** Mac OS X, 12.5.1, Monterey
 **Snapshot target:** (r22618-21be2c26d5) @ 2023-04-22
@@ -18,7 +18,7 @@ Prepare the files on your client, following the TFTP process.
 At the TFTP section, follow [TFTP on OS X](https://rick.cogley.info/post/run-a-tftp-server-on-mac-osx/) guide.<br/>
 ```
 sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
-sudo cp FRITZ7430.bin /private/tftpboot
+sudo cp FRITZ7530.bin /private/tftpboot
 ```
 
 ## Once OWRT installed successfully, install latest SNAPSHOT build
@@ -39,7 +39,7 @@ sysupgrade -n openwrt-<foo>.bin
 1. Create a new VLAN (802.1q) device on base device of `dsl0`
 
     - `VLAN ID` of `101`
-    - `MTU` of `1492`
+    - `MTU` of `1500`
     - Enable IPv6
 
 1. Configure `DSL` tab
@@ -61,6 +61,15 @@ sysupgrade -n openwrt-<foo>.bin
 ```
 root@OpenWrt:~# cat /etc/config/network
 
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'foo::/48'
+
 config dsl 'dsl'
 	option annex 'b'
 	option line_mode 'vdsl'
@@ -68,9 +77,24 @@ config dsl 'dsl'
 	option xfer_mode 'ptm'
 
 config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'lan1'
+	list ports 'lan2'
+	list ports 'lan3'
+	list ports 'lan4'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+config device
 	option name 'dsl0'
-	option macaddr 'DC:39:6F:32:F5:06'
-	option mtu '1492'
+	option macaddr 'foo'
+	option mtu '1500'
 
 config interface 'wan'
 	option device 'dsl0.101'
@@ -97,6 +121,11 @@ config device
 	option ifname 'dsl0'
 	option vid '101'
 	option name 'dsl0.101'
+
+config device
+	option name 'pppoe-wan'
+	option mtu '1500'
+	option mtu6 '1280'
 ```
 
 
