@@ -31,7 +31,7 @@ github_username:  aioue
 # Build settings
 remote_theme: jekyll/minima
 minima:
-  skin: solarized
+  skin: auto
 
 google_analytics: UA-63012505-1
 
