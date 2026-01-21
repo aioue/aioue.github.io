@@ -23,6 +23,7 @@ Site will be available at `http://localhost:4000`
 
 ```
 _posts/           # Blog posts (markdown)
+_layouts/         # Custom layouts (post.html with Utterances comments)
 _includes/        # Custom includes (head.html for GA4, favicon, SEO)
 assets/css/       # Custom CSS (syntax.css for Monokai highlighting)
 _config.yml       # Site configuration
