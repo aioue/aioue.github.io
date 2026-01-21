@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Headless RDP with GNOME Remote Desktop on Ubuntu 24.04
+title: Headless Wayland RDP with GNOME Remote Desktop on Ubuntu 24.04
 date: '2026-01-21 15:00:00'
 tags: [gnome-remote-desktop, ansible, guacamole, rdp]
 ---
@@ -137,7 +137,7 @@ The `winpr-utils` package provides `winpr-makecert` for generating TLS certifica
 
 ### 3. Boot Configuration
 
-Setting `graphical.target` and removing `nomodeset` from GRUB ensures the system boots into a graphical environment with proper driver detection.
+Setting `graphical.target` and removing `nomodeset` from GRUB ensures the system boots into a graphical environment with proper driver detection. Not needed if you started off with a Desktop system rather than installing `ubuntu-desktop-minimal` [over a server install]({% post_url 2026-01-21-wayland-gnome-remote-desktop-under-opennebula %}).
 
 ### 4. TLS Certificates
 
