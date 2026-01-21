@@ -31,7 +31,9 @@ remote_theme: jekyll/minima
 minima:
   skin: auto
   social_links:
-    - { platform: github, user_url: "https://github.com/aioue/" }
+    - title: GitHub
+      icon: github
+      url: "https://github.com/aioue"
 
 # Syntax highlighting
 markdown: kramdown
