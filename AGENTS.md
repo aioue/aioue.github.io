@@ -82,3 +82,30 @@ Store images and files in `ext/` directory, organized by source domain if applic
 - Comments: Utterances (GitHub issues-based) via custom `_layouts/post.html`
 - Social link: GitHub profile (aioue)
 - URL: https://aioue.net
+
+## Commit Message Convention
+
+Use [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+```
+<type>: <short summary>
+
+<optional body with motivation/context>
+```
+
+**Types:**
+- `feat:` — New feature or post
+- `fix:` — Bug fix
+- `docs:` — Documentation changes
+- `style:` — Formatting, CSS changes
+- `refactor:` — Code restructuring
+- `chore:` — Maintenance tasks
+
+**Examples:**
+```
+feat: add post on Ubuntu RDP setup
+
+docs: update AGENTS.md with commit conventions
+
+fix: correct syntax highlighting for bash blocks
+```
