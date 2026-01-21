@@ -5,7 +5,7 @@ date: '2026-01-21 15:00:00'
 tags: [gnome-remote-desktop, ansible, guacamole, rdp]
 ---
 
-Set up headless multi-user RDP access on Ubuntu 24.04 using GNOME Remote Desktop, following [official GNOME documentation](https://gitlab.gnome.org/GNOME/gnome-remote-desktop). Working Ansible configuration.
+Set up headless multi-user RDP access on Ubuntu 24.04 using GNOME Remote Desktop, following [official GNOME documentation](https://gitlab.gnome.org/GNOME/gnome-remote-desktop). Ansible configuration below.
 
 If you're working on OpenNebula [you'll need to modify the template first]({% post_url 2026-01-21-wayland-gnome-remote-desktop-under-opennebula %})
 
@@ -17,7 +17,7 @@ GNOME Remote Desktop provides native RDP support in Ubuntu, making it ideal for:
 - Multi-user remote login to a graphical desktop
 - Hardware-accelerated graphics with virtio-gpu
 
-## Working Config
+## Ansible Config
 
 ```yaml
 # Configure Ubuntu desktop for Guacamole RDP access
