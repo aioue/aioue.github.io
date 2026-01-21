@@ -42,10 +42,12 @@ Posts go in `_posts/` with filename format: `YYYY-MM-DD-slug.md` or `.markdown`
 layout: post
 title: Your Post Title
 date: 'YYYY-MM-DD HH:MM:SS'
+categories: [category1, category2]
+tags: [tag1, tag2, tag3]
 ---
 ```
 
-**Note:** Do NOT use categories or tags in front matter — existing posts don't use them.
+Categories and tags are optional but encouraged for new posts.
 
 ### Content Style
 
@@ -77,5 +79,6 @@ Store images and files in `ext/` directory, organized by source domain if applic
 
 - `show_excerpts: true` — Homepage shows post excerpts
 - Google Analytics: GA4 (G-QXZ0K52W9G) via custom `_includes/head.html`
+- Comments: Utterances (GitHub issues-based) via custom `_layouts/post.html`
 - Social link: GitHub profile (aioue)
 - URL: https://aioue.net
