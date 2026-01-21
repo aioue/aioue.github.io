@@ -23,9 +23,10 @@ Site will be available at `http://localhost:4000`
 
 ```
 _posts/           # Blog posts (markdown)
-_layouts/         # Custom layouts (post.html with Utterances comments)
+_layouts/         # Custom layouts (default.html, post.html with Utterances)
 _includes/        # Custom includes (head.html for GA4, favicon, SEO)
 assets/css/       # Custom CSS (syntax.css for Monokai highlighting)
+assets/main.scss  # Theme CSS import (imports minima)
 _config.yml       # Site configuration
 ext/              # External assets (images, files)
 about.markdown    # About page
@@ -88,23 +89,38 @@ Store images and files in `ext/` directory, organized by source domain if applic
 
 **CRITICAL:** Always use `remote_theme: jekyll/minima` in `_config.yml`, NOT `theme: minima`. GitHub Pages requires `remote_theme` and the `jekyll-remote-theme` plugin.
 
-Theme CSS is auto-generated at `/assets/main.css` by Jekyll. Custom `_includes/head.html` must link to this path, not `/assets/css/style.css`.
+**CRITICAL:** This site requires custom `_layouts/default.html` to properly include `head.html`. The remote theme's default layout doesn't automatically use our custom `_includes/head.html` for all pages. Without a local `default.html`, post pages will be unstyled.
+
+Theme CSS requires `assets/main.scss` with:
+```scss
+---
+---
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize"
+;
+```
+
+Custom `_includes/head.html` must link to `/assets/main.css` (generated from main.scss).
 
 If the site appears "bare" or unstyled:
 1. Verify `remote_theme: jekyll/minima` in `_config.yml`
-2. Verify `jekyll-remote-theme` is in both `Gemfile` and `plugins:` list
-3. Check `_includes/head.html` links to `/assets/main.css` (not `/assets/css/style.css`)
-4. Ensure `jekyll-remote-theme` plugin is installed: `bundle install`
+2. Verify `_layouts/default.html` exists and includes `{%- include head.html -%}`
+3. Verify `assets/main.scss` exists with the Minima imports
+4. Check `_includes/head.html` links to `/assets/main.css`
+5. **Do NOT create `assets/css/style.scss`** — this causes build failures with remote_theme
 
 ## Troubleshooting
 
 ### Theme Not Loading / Bare Appearance
 
 If the site appears unstyled:
+- **Check `_layouts/default.html`:** Must exist and include `{%- include head.html -%}` — this is the most common cause
+- **Check `assets/main.scss`:** Must exist with proper Minima imports (see Theme Configuration above)
 - **Check `_config.yml`:** Must use `remote_theme: jekyll/minima`, NOT `theme: minima`
-- **Check plugins:** `jekyll-remote-theme` must be in both `Gemfile` and `plugins:` list
-- **Check CSS path:** `_includes/head.html` must link to `/assets/main.css` (theme-generated), not `/assets/css/style.css`
+- **Check CSS path:** `_includes/head.html` must link to `/assets/main.css`
 - **Rebuild:** After changes, GitHub Pages rebuilds automatically (1-2 min), or restart local server
+- **Cache busting:** Add `?nocache=123` to URL to bypass browser cache when testing
 
 ### Local Development Issues
 
@@ -148,8 +164,10 @@ fix: correct syntax highlighting for bash blocks
 ## Important Notes for AI Agents
 
 - **Never use `theme:` in `_config.yml`** — always use `remote_theme:` for GitHub Pages compatibility
+- **Custom `_layouts/default.html` is required** — the remote theme won't use our `head.html` without it
 - **Custom `head.html` overrides theme defaults** — must include all meta tags, SEO, feed_meta, and CSS links
-- **Theme CSS is auto-generated** — don't create `assets/css/style.scss` manually
+- **Never create `assets/css/style.scss`** — this causes build failures; use `assets/main.scss` instead
 - **Double-space line breaks are intentional** — preserve `  ` in posts (author preference for mobile typing)
-- **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`
+- **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`; use tags only for cleaner URLs
+- **Tags don't affect URLs** — use tags for metadata without changing the URL structure
 - **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.
