@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu Desktop VM for RDP on OpenNebula
-date: '2026-01-21 14:00:00'
+date: '2026-01-21 17:00:00'
 tags: [opennebula, ubuntu, rdp, gnome-remote-desktop, virtualization]
 ---
 
@@ -67,17 +67,7 @@ systemctl set-default graphical.target
 
 Required when converting a server install to desktop.
 
-Shutdown and save your VM as a new desktop template, start up a new VM with it, and proceed with [Part 2]({% post_url 2026-01-21-gnome-remote-desktop-rdp-ubuntu-24.04 %})
-
-## macOS RDP Client Fix
-
-If using Windows App (formerly Microsoft Remote Desktop) on macOS, edit your `.rdp` file:
-
-```
-use redirection server name:i:1
-```
-
-See: <https://www.reddit.com/r/Ubuntu/comments/1n8pq1e/rdp_to_ubuntu_from_the_windows_app_on_macos/>
+Shutdown and save your VM as a new desktop template, [start up a new VM with it, and proceed with Part 2]({% post_url 2026-01-21-gnome-remote-desktop-rdp-ubuntu-24.04 %})
 
 ## Troubleshooting: Black Screen
 

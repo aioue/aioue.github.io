@@ -169,6 +169,16 @@ RDP:
     Password: rdppass
 ```
 
+## macOS RDP Client Fix
+
+If using Windows App (formerly Microsoft Remote Desktop) on macOS, edit your `.rdp` file:
+
+```
+use redirection server name:i:1
+```
+
+See: <https://www.reddit.com/r/Ubuntu/comments/1n8pq1e/rdp_to_ubuntu_from_the_windows_app_on_macos/>
+
 ## Ubuntu 25.10 Considerations
 
 A [detailed troubleshooting guide for Ubuntu 25.10](https://ezone.co.uk/blog/working-headless-rdp-with-gnome-remote-desktop-on-ubuntu-25-10.html) documents some differences that may require changes:
