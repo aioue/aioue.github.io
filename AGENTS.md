@@ -5,10 +5,10 @@ This is a Jekyll blog hosted on GitHub Pages at **aioue.net**.
 ## Stack
 
 - **Jekyll** with `github-pages` gem (~228)
-- **Theme:** Minima (remote theme, auto skin)
+- **Theme:** Minima via `remote_theme: jekyll/minima` (CRITICAL: must use `remote_theme`, not `theme:` for GitHub Pages)
 - **Hosting:** GitHub Pages with custom domain via CNAME
-- **Plugins:** jekyll-feed, jekyll-seo-tag
-- **Syntax highlighting:** Rouge with Monokai theme
+- **Plugins:** jekyll-feed, jekyll-seo-tag, jekyll-remote-theme
+- **Syntax highlighting:** Rouge with Monokai theme (custom CSS in `assets/css/syntax.css`)
 
 ## Local Development
 
@@ -84,6 +84,40 @@ Store images and files in `ext/` directory, organized by source domain if applic
 - Social link: GitHub profile (aioue)
 - URL: https://aioue.net
 
+### Theme Configuration
+
+**CRITICAL:** Always use `remote_theme: jekyll/minima` in `_config.yml`, NOT `theme: minima`. GitHub Pages requires `remote_theme` and the `jekyll-remote-theme` plugin.
+
+Theme CSS is auto-generated at `/assets/main.css` by Jekyll. Custom `_includes/head.html` must link to this path, not `/assets/css/style.css`.
+
+If the site appears "bare" or unstyled:
+1. Verify `remote_theme: jekyll/minima` in `_config.yml`
+2. Verify `jekyll-remote-theme` is in both `Gemfile` and `plugins:` list
+3. Check `_includes/head.html` links to `/assets/main.css` (not `/assets/css/style.css`)
+4. Ensure `jekyll-remote-theme` plugin is installed: `bundle install`
+
+## Troubleshooting
+
+### Theme Not Loading / Bare Appearance
+
+If the site appears unstyled:
+- **Check `_config.yml`:** Must use `remote_theme: jekyll/minima`, NOT `theme: minima`
+- **Check plugins:** `jekyll-remote-theme` must be in both `Gemfile` and `plugins:` list
+- **Check CSS path:** `_includes/head.html` must link to `/assets/main.css` (theme-generated), not `/assets/css/style.css`
+- **Rebuild:** After changes, GitHub Pages rebuilds automatically (1-2 min), or restart local server
+
+### Local Development Issues
+
+If `bundle install` fails:
+- Ensure Ruby 3.3+ is installed (check with `ruby --version`)
+- Install libffi: `brew install libffi` (macOS)
+- Set PATH: `export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"`
+
+If Jekyll build fails:
+- Clear cache: `rm -rf .jekyll-cache _site`
+- Reinstall gems: `bundle install --force`
+- Check Ruby version compatibility with `github-pages` gem
+
 ## Commit Message Convention
 
 Use [Conventional Commits](https://www.conventionalcommits.org/) format:
@@ -110,3 +144,11 @@ docs: update AGENTS.md with commit conventions
 
 fix: correct syntax highlighting for bash blocks
 ```
+
+## Important Notes for AI Agents
+
+- **Never use `theme:` in `_config.yml`** — always use `remote_theme:` for GitHub Pages compatibility
+- **Custom `head.html` overrides theme defaults** — must include all meta tags, SEO, feed_meta, and CSS links
+- **Theme CSS is auto-generated** — don't create `assets/css/style.scss` manually
+- **Double-space line breaks are intentional** — preserve `  ` in posts (author preference for mobile typing)
+- **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`
