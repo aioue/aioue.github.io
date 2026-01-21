@@ -170,4 +170,5 @@ fix: correct syntax highlighting for bash blocks
 - **Double-space line breaks are intentional** — preserve `  ` in posts (author preference for mobile typing)
 - **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`; use tags only for cleaner URLs
 - **Tags don't affect URLs** — use tags for metadata without changing the URL structure
+- **Liquid tags in code blocks need `{% raw %}` wrapper** — wrap code blocks containing `{{ }}` or `{% %}` in `{% raw %}` and `{% endraw %}` to prevent Jekyll from processing them
 - **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.
