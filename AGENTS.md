@@ -152,3 +152,4 @@ fix: correct syntax highlighting for bash blocks
 - **Theme CSS is auto-generated** — don't create `assets/css/style.scss` manually
 - **Double-space line breaks are intentional** — preserve `  ` in posts (author preference for mobile typing)
 - **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`
+- **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.

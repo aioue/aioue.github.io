@@ -2,7 +2,6 @@
 layout: post
 title: Headless RDP with GNOME Remote Desktop on Ubuntu 24.04
 date: '2026-01-21 15:00:00'
-categories: [ubuntu, rdp, automation]
 tags: [gnome-remote-desktop, ansible, guacamole, rdp]
 ---
 
