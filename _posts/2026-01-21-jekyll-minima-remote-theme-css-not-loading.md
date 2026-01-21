@@ -21,6 +21,7 @@ When you use `remote_theme`, Jekyll pulls the theme files from GitHub. But if yo
 
 Create `_layouts/default.html`:
 
+{% raw %}
 ```html
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
@@ -36,9 +37,11 @@ Create `_layouts/default.html`:
   </body>
 </html>
 ```
+{% endraw %}
 
 Create `assets/main.scss`:
 
+{% raw %}
 ```scss
 ---
 ---
@@ -48,12 +51,15 @@ Create `assets/main.scss`:
   "minima/initialize"
 ;
 ```
+{% endraw %}
 
 Your `_includes/head.html` should link to `/assets/main.css`:
 
+{% raw %}
 ```html
 <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 ```
+{% endraw %}
 
 ## What NOT to Do
 
