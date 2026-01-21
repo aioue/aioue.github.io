@@ -24,21 +24,26 @@ description: >- # this means to ignore newlines until "baseurl:"
   Technical notes.
   Nondescript.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://aioue.net" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
-github_username:  aioue
+url: "https://aioue.net"
+github_username: aioue
 
 # Build settings
-remote_theme: jekyll/minima
+theme: minima
 minima:
   skin: auto
   social_links:
-    - { platform: github,  user_url: "https://github.com/aioue/" }
+    - { platform: github, user_url: "https://github.com/aioue/" }
 
-google_analytics: UA-63012505-1
+# Syntax highlighting
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # If you want to link only specific pages in your header, uncomment this and add the path to the pages in
 # order as they should show up.
@@ -58,14 +63,6 @@ show_excerpts: true
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - AGENTS.md
+  - Gemfile.lock

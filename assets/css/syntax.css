@@ -1,0 +1,138 @@
+/* Monokai syntax highlighting for Rouge */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kc {
+  color: #ae81ff;
+}
+.highlight .kt {
+  color: #ae81ff;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #e6db74;
+}
+.highlight .sa {
+  color: #f92672;
+}
+.highlight .sr {
+  color: #a6e22e;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .nv, .highlight .vm, .highlight .vi, .highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f4bf75;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #66d9ef;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .gu {
+  color: #75715e;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+
+/* Code block styling */
+div.highlighter-rouge, figure.highlight {
+  background-color: #272822;
+  border-radius: 4px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+pre.highlight {
+  background-color: #272822;
+  padding: 1em;
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+code.highlighter-rouge {
+  background-color: #3c3d38;
+  color: #f8f8f2;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
