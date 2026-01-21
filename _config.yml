@@ -27,7 +27,7 @@ url: "https://aioue.net"
 github_username: aioue
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
 minima:
   skin: auto
   social_links:
@@ -43,6 +43,7 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
 
 # If you want to link only specific pages in your header, uncomment this and add the path to the pages in
 # order as they should show up.
