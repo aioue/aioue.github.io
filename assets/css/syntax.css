@@ -1,9 +1,10 @@
 /* Monokai syntax highlighting for Rouge */
+/* Use !important to override Minima theme in both light and dark modes */
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
+  color: #f8f8f2 !important;
+  background-color: #272822 !important;
 }
 .highlight .err {
   color: #272822;
@@ -114,16 +115,16 @@
   font-weight: bold;
 }
 
-/* Code block styling */
+/* Code block styling - force dark background in both light and dark modes */
 div.highlighter-rouge, figure.highlight {
-  background-color: #272822;
+  background-color: #272822 !important;
   border-radius: 4px;
   margin: 1em 0;
   padding: 0;
 }
 
 pre.highlight {
-  background-color: #272822;
+  background-color: #272822 !important;
   padding: 1em;
   margin: 0;
   overflow-x: auto;
@@ -131,8 +132,8 @@ pre.highlight {
 }
 
 code.highlighter-rouge {
-  background-color: #3c3d38;
-  color: #f8f8f2;
+  background-color: #3c3d38 !important;
+  color: #f8f8f2 !important;
   padding: 2px 5px;
   border-radius: 3px;
 }
