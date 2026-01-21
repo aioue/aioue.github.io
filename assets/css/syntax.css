@@ -1,5 +1,10 @@
 /* Monokai syntax highlighting for Rouge */
-/* Use !important to override Minima theme in both light and dark modes */
+/* Override Minima's CSS variables for code blocks */
+div.highlighter-rouge,
+figure.highlight {
+  --minima-code-background-color: #272822;
+}
+
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
@@ -121,9 +126,22 @@ figure.highlight,
 div.highlighter-rouge pre,
 figure.highlight pre,
 div.highlighter-rouge pre.highlight,
-figure.highlight pre.highlight {
+figure.highlight pre.highlight,
+.post-content div.highlighter-rouge,
+.post-content figure.highlight,
+.post-content div.highlighter-rouge pre,
+.post-content figure.highlight pre {
   background-color: #272822 !important;
   border-color: #272822 !important;
+}
+
+/* Target pre and code inside highlighter more specifically */
+div.highlighter-rouge > div.highlight > pre,
+div.highlighter-rouge > div.highlight > pre > code,
+figure.highlight > pre,
+figure.highlight > pre > code {
+  background-color: #272822 !important;
+  color: #f8f8f2 !important;
 }
 
 div.highlighter-rouge, figure.highlight {
