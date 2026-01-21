@@ -116,24 +116,34 @@
 }
 
 /* Code block styling - force dark background in both light and dark modes */
-div.highlighter-rouge, figure.highlight {
+div.highlighter-rouge,
+figure.highlight,
+div.highlighter-rouge pre,
+figure.highlight pre,
+div.highlighter-rouge pre.highlight,
+figure.highlight pre.highlight {
   background-color: #272822 !important;
+  border-color: #272822 !important;
+}
+
+div.highlighter-rouge, figure.highlight {
   border-radius: 4px;
   margin: 1em 0;
   padding: 0;
 }
 
 pre.highlight {
-  background-color: #272822 !important;
   padding: 1em;
   margin: 0;
   overflow-x: auto;
   border-radius: 4px;
 }
 
+/* Inline code - subtle dark styling */
 code.highlighter-rouge {
   background-color: #3c3d38 !important;
   color: #f8f8f2 !important;
+  border-color: #3c3d38 !important;
   padding: 2px 5px;
   border-radius: 3px;
 }
