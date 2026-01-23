@@ -1,4 +1,11 @@
 <link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+<style>
+  .site-footer .social-media-list {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+  }
+</style>
 <footer class="site-footer h-card">
   <data class="u-url" value="{{ '/' | relative_url }}"></data>
 
@@ -9,7 +16,7 @@
       </div>
     </div>
 
-    <div class="social-links" style="display: flex; justify-content: flex-end;">
+    <div class="social-links">
       {%- include social.html -%}
     </div>
 
