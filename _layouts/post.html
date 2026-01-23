@@ -20,6 +20,10 @@ layout: default
     {{ content }}
   </div>
 
+  <p class="post-meta" style="margin-top: 2em;">
+    <a href="https://github.com/aioue/aioue.github.io/edit/master/{{ page.path }}">Edit on GitHub</a>
+  </p>
+
   {%- if site.disqus.shortname -%}
     {%- include disqus.html -%}
   {%- endif -%}
