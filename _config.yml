@@ -30,6 +30,7 @@ github_username: aioue
 remote_theme: jekyll/minima
 minima:
   skin: auto
+  show_excerpts: true
   social_links:
     - title: GitHub
       icon: github
