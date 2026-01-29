@@ -28,6 +28,7 @@ github_username: aioue
 
 # Build settings
 remote_theme: jekyll/minima
+permalink: pretty
 minima:
   skin: auto
   show_excerpts: true
