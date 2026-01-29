@@ -5,7 +5,7 @@ date: '2026-01-29T15:55:00+07:00'
 tags: [personal, travel, holiday]
 ---
 
-# 2026-01-29 15:55 [ICT] (Indochina Time)
+**2026-01-29 15:55 [ICT] (Indochina Time)**
 
 Travel here not as hard work as expected. Singapore Air flights were comfortable and the 12+ hour flight to Singapore went surprisingly quickly. Food was particularly tasty. Entertainment system worked with the airline adapter cable provided by my Sennheiser headphones. Noise cancelling made the audio for media easy to hear without boosting the volume. No discernible impact on 🦻T.
 
