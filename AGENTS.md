@@ -48,6 +48,7 @@ title: Your Post Title
 date: 'YYYY-MM-DD HH:MM:SS'
 categories: [category1, category2]
 tags: [tag1, tag2, tag3]
+hidden: false
 ---
 ```
 
@@ -111,24 +112,18 @@ Theme CSS requires `assets/main.scss` with:
 
 Custom `_includes/head.html` must link to `/assets/main.css` (generated from main.scss).
 
-If the site appears "bare" or unstyled:
-1. Verify `remote_theme: jekyll/minima` in `_config.yml`
-2. Verify `_layouts/default.html` exists and includes `{%- include head.html -%}`
-3. Verify `assets/main.scss` exists with the Minima imports
-4. Check `_includes/head.html` links to `/assets/main.css`
-5. **Do NOT create `assets/css/style.scss`** — this causes build failures with remote_theme
-
 ## Troubleshooting
 
 ### Theme Not Loading / Bare Appearance
 
 If the site appears unstyled:
-- **Check `_layouts/default.html`:** Must exist and include `{%- include head.html -%}` — this is the most common cause
-- **Check `assets/main.scss`:** Must exist with proper Minima imports (see Theme Configuration above)
-- **Check `_config.yml`:** Must use `remote_theme: jekyll/minima`, NOT `theme: minima`
-- **Check CSS path:** `_includes/head.html` must link to `/assets/main.css`
-- **Rebuild:** After changes, GitHub Pages rebuilds automatically (1-2 min), or restart local server
-- **Cache busting:** Add `?nocache=123` to URL to bypass browser cache when testing
+1. **Check `_layouts/default.html`:** Must exist and include `{%- include head.html -%}` — this is the most common cause
+2. **Check `_config.yml`:** Must use `remote_theme: jekyll/minima`, NOT `theme: minima`
+3. **Check `assets/main.scss`:** Must exist with proper Minima imports (see Theme Configuration above)
+4. **Check CSS path:** `_includes/head.html` must link to `/assets/main.css`
+5. **Do NOT create `assets/css/style.scss`** — this causes build failures with remote_theme
+6. **Rebuild:** After changes, GitHub Pages rebuilds automatically (1-2 min), or restart local server
+7. **Cache busting:** Add `?nocache=123` to URL to bypass browser cache when testing
 
 ### Local Development Issues
 
