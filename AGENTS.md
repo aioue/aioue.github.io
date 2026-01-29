@@ -37,6 +37,8 @@ index.markdown    # Homepage (uses home layout)
 
 Posts go in `_posts/` with filename format: `YYYY-MM-DD-slug.md` or `.markdown`
 
+**CRITICAL:** The filename MUST use dashes (`-`) to separate the date from the slug, not underscores. Jekyll will silently ignore files like `2026-01-29_my-post.md` — they won't appear on the site.
+
 ### Front Matter Template
 
 ```yaml
@@ -47,6 +49,11 @@ date: 'YYYY-MM-DD HH:MM:SS'
 categories: [category1, category2]
 tags: [tag1, tag2, tag3]
 ---
+```
+
+For posts with timezone, use ISO 8601 format with offset:
+```yaml
+date: '2026-01-29T15:55:00+07:00'  # ICT (Indochina Time, UTC+7)
 ```
 
 Categories and tags are optional but encouraged for new posts.
@@ -79,6 +86,7 @@ Store images and files in `ext/` directory, organized by source domain if applic
 
 ## Configuration Notes
 
+- `permalink: pretty` — Clean URLs without `.html` extension (e.g. `/2026/01/29/my-post/`)
 - `show_excerpts: true` — Homepage shows post excerpts
 - Google Analytics: GA4 (G-QXZ0K52W9G) via custom `_includes/head.html`
 - Comments: Utterances (GitHub issues-based) via custom `_layouts/post.html`
@@ -163,6 +171,7 @@ fix: correct syntax highlighting for bash blocks
 
 ## Important Notes for AI Agents
 
+- **Post filenames MUST use dashes after the date** — `2026-01-29-slug.md` works; `2026-01-29_slug.md` silently fails (Jekyll ignores it)
 - **Never use `theme:` in `_config.yml`** — always use `remote_theme:` for GitHub Pages compatibility
 - **Custom `_layouts/default.html` is required** — the remote theme won't use our `head.html` without it
 - **Custom `head.html` overrides theme defaults** — must include all meta tags, SEO, feed_meta, and CSS links
