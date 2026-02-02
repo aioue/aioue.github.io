@@ -64,4 +64,4 @@ After that we drove on the motorcycles to a dumpling place. Very good dumplings,
 
 Then we went home and chilled out before bed.
 
-Sunday was a very lazy day. I had paced myself quite well - only had 6 beers or so the whole day but I still needed 10 hours kip to recharge. M and I ordered hearty UK style pies for dinner. C had a curry. Matt played a bit of Arc Raiders on the playstation and we then retired to Bedfordshire.
+Sunday was a very lazy day. I had paced myself quite well - only had 6 beers or so the whole day but I still needed 10 hours kip to recharge. M and I ordered hearty UK style pies for dinner. C had a curry. M played a bit of Arc Raiders on the playstation and we then retired to Bedfordshire.
