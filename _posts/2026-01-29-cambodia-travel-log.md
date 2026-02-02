@@ -6,7 +6,7 @@ tags: [personal, travel, holiday]
 hidden: true
 ---
 
-**2026-01-29 15:55 [ICT] (Indochina Time)**
+## 2026-01-29 15:55 [ICT] (Indochina Time)
 
 Travel here not as hard work as expected. Singapore Air flights were comfortable and the 12+ hour flight to Singapore went surprisingly quickly. Food was particularly tasty. Entertainment system worked with the airline adapter cable provided by my Sennheiser headphones. Noise cancelling made the audio for media easy to hear without boosting the volume. No discernible impact on 🦻T.
 
@@ -23,7 +23,7 @@ It's sunny and warm here. I'm sitting on my bed with fan on and the shutters ope
 Photo album link available on request.
 
 
-**2026-01-30 10:41 [ICT] (Indochina Time)**
+## 2026-01-30 10:41 [ICT] (Indochina Time)
 
 M & C went to a birthday early evening while I was working. There is quite a big ex-pat community that they are friends with. Tied to drinking culture, although there is gym, golf, bouldering etc that brings people together. They host poker and board games at their house.
 
@@ -42,3 +42,26 @@ We drove motorcycles to the city to get some coffee, have a walk, and do some sh
 We got coffees (and a lychee tea for myself) at a clean air-conditioned place. Then I went with C to a newly opened shopping place that might as well have been Marks and Spencer. Eggs, bread, and some cheeky Korean chocolate ice cream later, C took a tuk tuk back with the shopping and I rode home.
 
 Time for work. I'm going to hopefully sleep well this evening - fading a little and it's only the 'start' of the work day at 3PM.
+
+
+## 2026-02-02 16:49 [ICT]
+
+It's Monday and I'm working again. Today we went to a different spa type place for sauna and plunge pool. It wasn't very busy, half full with ex-pats who I assume are Cambodian or Chinese businessmen. I guess this is how rich people live in the UK - going to places where everything is quite cozy and not super busy.
+
+The sauna and steam room had herbs into colander things over the rocks making them smell alternately like lemongrass and the curry I had for breakfast.
+
+You could get a coconut opened for you with a straw in. It was very nice.
+
+We then went to a 'healthy' restaurant for some lunch. Turmeric in everything.
+
+--
+
+The Saturday was fun, we started off with a massage. You change into a tshirt and Cambodian pantaloons - very wide waisted which I attempted to tie a knot into. The lady ended up doing it for me, you fold it over then roll it down, much like a towel in a gym.
+
+The massage options were Thai and Khmer ("kam-eye"), and possibly both have stretch and no-stretch options. You can also have oil or no-oil. I initially opted for no-oil no-stretch which seemed to be Thai, but the lady seemed disappointed to do no-stretch so we swapped to stretch. It was moderate intensity, and a full body treatment with arms and legs being stretched - like a lay-down exercise warm-up, interleaved with 'normal' massage. At some points the person sat in the middle of my legs and held a foot while pressing against my thigh - quite physical! As someone who doesn't get touched very much in my life it was surprisingly easy to relax and go with the flow. I sometimes get a massage in Norwich, maybe twice a year, and this felt less "trained", but nonetheless very nice.
+
+After that we drove on the motorcycles to a dumpling place. Very good dumplings, big portions for like $6. We met up with some ex-pats there and then all went to play minigolf on the edge of town. Good music at the golf, lot of classic rock. Then went to a bar owned by a friend of theirs for drinks and snacks, then another bar. Good chats and some pool - American sized table, but UK sized balls and cues which made it quite tricky.
+
+Then we went home and chilled out before bed.
+
+Sunday was a very lazy day. I had paced myself quite well - only had 6 beers or so the whole day but I still needed 10 hours kip to recharge. M and I ordered hearty UK style pies for dinner. C had a curry. Matt played a bit of Arc Raiders on the playstation and we then retired to Bedfordshire.
