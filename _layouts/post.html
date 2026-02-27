@@ -13,6 +13,10 @@ layout: default
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}
+      {%- assign words = content | number_of_words -%}
+      {%- assign mins = words | divided_by: 250 -%}
+      {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+      • {{ mins }} min read
     </p>
     <p class="post-meta">
       <a href="https://github.com/aioue/aioue.github.io/edit/master/{{ page.path }}" title="Edit on GitHub">
