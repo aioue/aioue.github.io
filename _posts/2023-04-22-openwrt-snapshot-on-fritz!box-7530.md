@@ -133,8 +133,8 @@ config device
 
 
 ## Enable Smart Queue Management (SQM) to eliminate bufferbloat
- 
+
 [Bufferbloat mitigation](https://openwrt.org/docs/guide-user/network/traffic-shaping/sqm)
 
 
-   
+

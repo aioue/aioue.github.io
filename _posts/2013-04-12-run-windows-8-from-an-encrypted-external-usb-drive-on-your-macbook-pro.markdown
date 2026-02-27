@@ -5,7 +5,7 @@ date: '2013-04-12 16:11:49'
 ---
 
 I need windows for work and gaming and I didn't want to give up space to bootcamp on my internal drive so I installed Windows on an external USB drive by doing this:  
-  
+
 1.  <span style="line-height:14px;">Find or create a Windows 8 Enterprise computer.</span>  
 2.  Get a desktop/laptop SSD drive (I used a 128GB Samsung 830) and plug it in via USB.  
 3.  Install Windows To Go on the SSD drive from the Windows 8 Enterprise computer. Optionally select whether you would like the drive encrypted using BitLocker full disk encryption.  
@@ -21,7 +21,7 @@ I need windows for work and gaming and I didn't want to give up space to bootcam
 13.  Reboot and set the resolution up to maximum.  
 14.  Enjoy.  
 Windows 8 looks terrible on the Retina display - far too small but you can adjust the text size up a bit. Gaming works fine, I've played XCOM and Portal 2 over USB2.  
-  
+
 _EDIT: _Have upgraded to an [Anker USB 3.0 to SATA Adapter Cable](http://www.amazon.co.uk/Anker%C2%AE-Uspeed-Converter-Adapter-External/dp/B006J2L0ZM/) and now get hundreds of MB/second transfer speed. As fast as an internal drive.  
-  
+
 Any questions please comment. Like if the solution worked for you.

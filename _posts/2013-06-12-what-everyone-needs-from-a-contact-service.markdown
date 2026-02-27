@@ -9,9 +9,9 @@ Like not being able to talk to your non-iPhone wielding friends with iMessage?
 Like not using WhatsApp on more than 1 device?
 
 No, I didn't think so.  
-  
+
 Here's what they need, combined under a royalty free, open source license.  
-  
+
 * Send text  
 * Send files
 * Send photos

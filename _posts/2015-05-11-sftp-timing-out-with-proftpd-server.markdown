@@ -13,7 +13,7 @@ On the proftpd logs:
 mod_sftp/0.9.8[6628]: message format error: unable to write 1025 bytes of mpint (buflen = 1023)  
 mod_sftp/0.9.8[6628]: disconnecting (Application error)  
 ```
-  
+
 Client running verbose:  
 ```
 debug1: SSH2_MSG_KEX_DH_GEX_REQUEST(1024<8192<8192) sent  
