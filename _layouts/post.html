@@ -26,18 +26,22 @@ layout: default
     {{ content }}
   </div>
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus.html -%}
-  {%- endif -%}
-
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
-<!-- Utterances comments -->
-<script src="https://utteranc.es/client.js"
-        repo="aioue/aioue.github.io"
-        issue-term="pathname"
-        theme="github-light"
+<!-- Giscus comments (GitHub Discussions) -->
+<script src="https://giscus.app/client.js"
+        data-repo="aioue/aioue.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzMjE4NzM3Ng=="
+        data-category="Comments"
+        data-category-id="DIC_kwDOAesj8M4C3S5p"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
         crossorigin="anonymous"
         async>
 </script>

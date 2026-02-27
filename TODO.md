@@ -1,1 +1,0 @@
-- Migrate utterenc.es to Giscus for extra permission granularity and avoidance of abandonware.
