@@ -15,10 +15,10 @@ layout: default
       {%- endif -%}
       {%- if page.last_modified_at %}
         • <em>updated {{ page.last_modified_at | date: date_format }}</em>
-      {%- endif %}
+      {%- endif -%}
       {%- assign words = content | number_of_words -%}
       {%- assign mins = words | divided_by: 250 -%}
-      {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+      {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif %}
       • {{ mins }} min read
     </p>
     <p class="post-meta">
