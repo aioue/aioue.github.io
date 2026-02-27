@@ -2,6 +2,7 @@
 layout: post
 title: Use the aptly REST API with curl
 date: '2015-05-23 01:56:35'
+hidden: false
 ---
 
 [aptly](http://www.aptly.info/) is good. Very good. If you've [got it installed](http://aioue.net/2015/05/23/install-aptly-with-ansible.html), use the REST API to get your work done.

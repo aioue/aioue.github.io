@@ -5,3 +5,31 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize"
 ;
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid $border-color-01;
+  font-size: 0.9em;
+}
+
+.post-nav-prev,
+.post-nav-next {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-nav-next {
+  text-align: right;
+}
+
+.post-nav-label {
+  display: block;
+  color: $text-color;
+  opacity: 0.6;
+  font-size: 0.85em;
+  margin-bottom: 0.25rem;
+}

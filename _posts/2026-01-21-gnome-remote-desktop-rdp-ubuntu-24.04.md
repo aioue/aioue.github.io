@@ -2,7 +2,9 @@
 layout: post
 title: Headless Wayland RDP with GNOME Remote Desktop on Ubuntu 24.04
 date: '2026-01-21 15:00:00'
+last_modified_at: '2026-01-23'
 tags: [gnome-remote-desktop, ansible, guacamole, rdp]
+hidden: false
 ---
 
 Set up headless multi-user RDP access on Ubuntu 24.04 using GNOME Remote Desktop, following [official GNOME documentation](https://gitlab.gnome.org/GNOME/gnome-remote-desktop). Ansible configuration below.

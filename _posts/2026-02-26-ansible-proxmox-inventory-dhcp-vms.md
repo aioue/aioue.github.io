@@ -3,6 +3,7 @@ layout: post
 title: Ansible Proxmox Inventory and DHCP VMs
 date: '2026-02-26 23:00:00'
 tags: [ansible, proxmox, inventory, qemu, dhcp]
+hidden: false
 ---
 
 Fix for `community.general.proxmox` (now `community.proxmox.proxmox`) dynamic inventory not setting `ansible_host` for QEMU VMs with DHCP networking. Without this, you need `-e ansible_host=192.168.1.x` every time you target the VM.

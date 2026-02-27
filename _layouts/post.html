@@ -13,6 +13,9 @@ layout: default
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}
+      {%- if page.last_modified_at -%}
+        • Updated {{ page.last_modified_at | date: date_format }}
+      {%- endif -%}
       {%- assign words = content | number_of_words -%}
       {%- assign mins = words | divided_by: 250 -%}
       {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
@@ -32,6 +35,23 @@ layout: default
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+{%- if page.previous or page.next -%}
+<nav class="post-navigation">
+  <div class="post-nav-prev">
+    {%- if page.previous -%}
+      <span class="post-nav-label">← Previous</span>
+      <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a>
+    {%- endif -%}
+  </div>
+  <div class="post-nav-next">
+    {%- if page.next -%}
+      <span class="post-nav-label">Next →</span>
+      <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a>
+    {%- endif -%}
+  </div>
+</nav>
+{%- endif -%}
 
 <!-- Giscus comments (GitHub Discussions) -->
 <script src="https://giscus.app/client.js"

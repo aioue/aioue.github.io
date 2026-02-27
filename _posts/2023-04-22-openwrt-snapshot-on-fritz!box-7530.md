@@ -2,6 +2,7 @@
 layout: post
 title: OpenWrt Snapshot on FRITZ!Box 7530
 date: '2023-04-22 21:45:00'
+hidden: false
 ---
 
 **Install OpenWrt 22.03.4 release on FRITZ!Box 7530, then sysupgrade to SNAPSHOT to enable the VRX518 VDSL modem.**

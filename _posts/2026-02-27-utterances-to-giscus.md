@@ -3,6 +3,7 @@ layout: post
 title: Moving blog comments from Utterances to Giscus
 date: '2026-02-27 21:00:00'
 tags: [github-pages, giscus, utterances, security]
+hidden: false
 ---
 
 This blog used [Utterances](https://utteranc.es/) for comments, which stores them as GitHub Issues. It worked well, but I've switched to [Giscus](https://giscus.app/), which uses GitHub Discussions instead. The main reason is security.

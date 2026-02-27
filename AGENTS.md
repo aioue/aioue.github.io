@@ -46,11 +46,14 @@ Posts go in `_posts/` with filename format: `YYYY-MM-DD-slug.md` or `.markdown`
 layout: post
 title: Your Post Title
 date: 'YYYY-MM-DD HH:MM:SS'
+last_modified_at: 'YYYY-MM-DD'
 categories: [category1, category2]
 tags: [tag1, tag2, tag3]
 hidden: false
 ---
 ```
+
+`last_modified_at` is optional — only add it when updating an existing post. The post layout displays "Updated Jan 29, 2026" between the date and reading time when present.
 
 For posts with timezone, use ISO 8601 format with offset:
 ```yaml

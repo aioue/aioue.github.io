@@ -3,6 +3,7 @@ layout: post
 title: Jekyll Minima remote_theme CSS not loading on GitHub Pages
 date: '2026-01-21 16:00:00'
 tags: [jekyll, github-pages, minima, css]
+hidden: false
 ---
 
 Fix for Jekyll sites using `remote_theme: jekyll/minima` where CSS loads on the homepage but not on post pages.
