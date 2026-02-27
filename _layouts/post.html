@@ -13,9 +13,9 @@ layout: default
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}
-      {%- if page.last_modified_at -%}
-        • Updated {{ page.last_modified_at | date: date_format }}
-      {%- endif -%}
+      {%- if page.last_modified_at %}
+        • <em>updated {{ page.last_modified_at | date: date_format }}</em>
+      {%- endif %}
       {%- assign words = content | number_of_words -%}
       {%- assign mins = words | divided_by: 250 -%}
       {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
