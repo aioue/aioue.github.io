@@ -7,6 +7,7 @@ This is a Jekyll blog hosted on GitHub Pages at **aioue.net**.
 - **Jekyll** with `github-pages` gem (~228)
 - **Theme:** Minima via `remote_theme: jekyll/minima` (CRITICAL: must use `remote_theme`, not `theme:` for GitHub Pages)
 - **Hosting:** GitHub Pages with custom domain via CNAME
+- **CI:** `.github/workflows/jekyll-gh-pages.yml` builds with `actions/jekyll-build-pages@v1` (not the default dynamic `pages build and deployment` workflow). Uses `actions/checkout@v6`, `upload-pages-artifact@v4`, and `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` for [Node 20 action deprecation](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/). After adding or changing this file, confirm **Settings - Pages - Build and deployment** uses **GitHub Actions** and this workflow is selected if multiple are listed.
 - **Plugins:** jekyll-feed, jekyll-seo-tag, jekyll-remote-theme
 - **Syntax highlighting:** Rouge with Monokai theme (custom CSS in `assets/css/syntax.css`)
 
@@ -37,7 +38,7 @@ index.markdown    # Homepage (uses home layout)
 
 Posts go in `_posts/` with filename format: `YYYY-MM-DD-slug.md` or `.markdown`
 
-**CRITICAL:** The filename MUST use dashes (`-`) to separate the date from the slug, not underscores. Jekyll will silently ignore files like `2026-01-29_my-post.md` — they won't appear on the site.
+**CRITICAL:** The filename MUST use dashes (`-`) to separate the date from the slug, not underscores. Jekyll will silently ignore files like `2026-01-29_my-post.md` - they won't appear on the site.
 
 ### Front Matter Template
 
