@@ -1,0 +1,11 @@
+---
+description: Writing style rules for blog posts and documentation
+globs:
+  - _posts/**
+  - *.md
+alwaysApply: false
+---
+
+# Writing Style
+
+- Use normal hyphens (`-`) instead of em-dashes (`—`). Write ` - ` (space-hyphen-space) where an em-dash would typically go.

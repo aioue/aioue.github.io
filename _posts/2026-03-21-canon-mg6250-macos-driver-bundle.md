@@ -6,7 +6,7 @@ tags: [macos, printing, scanning, canon, drivers]
 hidden: false
 ---
 
-Canon dropped macOS support for the PIXMA MG6250 after High Sierra (10.13). The hardware still works fine, but there are no official drivers for anything newer. I put together [canon-mg6250-mac-driver-bundle](https://github.com/aioue/canon-mg6250-mac-driver-bundle) — a set of shell scripts that extract and install Canon's last official drivers on current macOS, including Apple Silicon via Rosetta 2.
+Canon dropped macOS support for the PIXMA MG6250 after High Sierra (10.13). The hardware still works fine, but there are no official drivers for anything newer. I put together [canon-mg6250-mac-driver-bundle](https://github.com/aioue/canon-mg6250-mac-driver-bundle) - a set of shell scripts that extract and install Canon's last official drivers on current macOS, including Apple Silicon via Rosetta 2.
 
 ## The problem
 
@@ -16,11 +16,11 @@ Canon's High Sierra `.dmg` installers ship unsigned `.pkg` files that Gatekeeper
 
 The repo contains Canon's original DMGs alongside install scripts that handle the extraction and placement:
 
-- **Printer** — `deploy_printer_canon_full.sh` mounts the DMG, extracts the full `BJPrinter` tree and the official gzipped PPD, and copies them into `/Library`. A separate script creates a CUPS queue using Bonjour/IPP discovery via `ippfind`, so you don't need to know the printer's IP address.
+- **Printer** - `deploy_printer_canon_full.sh` mounts the DMG, extracts the full `BJPrinter` tree and the official gzipped PPD, and copies them into `/Library`. A separate script creates a CUPS queue using Bonjour/IPP discovery via `ippfind`, so you don't need to know the printer's IP address.
 
-- **Scanner** — `deploy_canon_scanner.sh` does the equivalent for the ICA scanner bundle: mount, extract, codesign removal (the old signatures fail validation on newer macOS), and install to `/Library/Image Capture/Devices`.
+- **Scanner** - `deploy_canon_scanner.sh` does the equivalent for the ICA scanner bundle: mount, extract, codesign removal (the old signatures fail validation on newer macOS), and install to `/Library/Image Capture/Devices`.
 
-Everything runs through `hdiutil`, `pkgutil`, and `lpadmin` — no third-party dependencies.
+Everything runs through `hdiutil`, `pkgutil`, and `lpadmin` - no third-party dependencies.
 
 ## Quick start
 
@@ -40,7 +40,7 @@ The printer script finds the device on the network automatically. The scanner re
 
 ## Tested on
 
-This has been verified on macOS Tahoe 26.3 (Apple Silicon) for both printing and scanning. The printer filters run under Rosetta 2 — if you haven't installed it yet, macOS will prompt you.
+This has been verified on macOS Tahoe 26.3 (Apple Silicon) for both printing and scanning. The printer filters run under Rosetta 2 - if you haven't installed it yet, macOS will prompt you.
 
 ## Caveats
 
