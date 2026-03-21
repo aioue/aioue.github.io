@@ -90,8 +90,8 @@ Store images and files in `ext/` directory, organized by source domain if applic
 
 ## Configuration Notes
 
-- `permalink: pretty` — Clean URLs without `.html` extension (e.g. `/2026/01/29/my-post/`)
-- `show_excerpts: true` — Homepage shows post excerpts
+- `permalink: pretty` - Clean URLs without `.html` extension (e.g. `/2026/01/29/my-post/`)
+- `minima.show_excerpts: true` in `_config.yml` - Homepage lists short text snippets (see `_layouts/home.html`; uses `site.minima.show_excerpts`, not `site.show_excerpts`)
 - Google Analytics: GA4 (G-QXZ0K52W9G) via custom `_includes/head.html`
 - Comments: Utterances (GitHub issues-based) via custom `_layouts/post.html`
 - Social link: GitHub profile (aioue)

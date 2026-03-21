@@ -34,4 +34,22 @@
   margin-bottom: 0.25rem;
 }
 
+// Homepage post list: short plain-text blurbs under each title
+.post-snippet {
+  margin: 0.4rem 0 0.15rem;
+  font-size: 0.92em;
+  line-height: 1.45;
+  color: $text-color;
+  opacity: 0.88;
+}
+
+.post-snippet-more {
+  margin: 0 0 0.5rem;
+  font-size: 0.85em;
+
+  a {
+    font-weight: 500;
+  }
+}
+
 
