@@ -2,13 +2,19 @@
 (function () {
   function addCopyButtons() {
     document.querySelectorAll('div.highlighter-rouge, figure.highlight').forEach(function (block) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      block.parentNode.insertBefore(wrapper, block);
+      wrapper.appendChild(block);
+
       var btn = document.createElement('button');
       btn.className = 'copy-code-btn';
       btn.textContent = 'copy';
       btn.setAttribute('aria-label', 'Copy code to clipboard');
 
       btn.addEventListener('click', function () {
-        var code = block.querySelector('pre').innerText;
+        var pre = block.querySelector('pre');
+        var code = pre ? pre.innerText : '';
         navigator.clipboard.writeText(code).then(function () {
           btn.textContent = 'copied!';
           btn.classList.add('copied');
@@ -22,7 +28,7 @@
         });
       });
 
-      block.appendChild(btn);
+      wrapper.appendChild(btn);
     });
   }
 
