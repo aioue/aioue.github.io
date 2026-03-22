@@ -8,8 +8,6 @@ Cloud Architect and DevOps Manager with 19 years of AWS experience. I build effi
 
 🌍 Fully remote. Currently UK-based, relocating to SE Asia mid-2026 (Available for UK, EU & APAC timezones).
 
-💼 Looking for technical leadership or consulting? Let's talk at cloudhaul.com.
+💼 Looking for technical leadership or consulting? Let's talk at [cloudhaul.com](https://cloudhaul.com).
 
-[cloudhaul.com](https://cloudhaul.com)
-
-[github.com/aioue](https://github.com/aioue)
+<i class="fa-brands fa-github" style="margin-right:4px;"></i>[github.com/aioue](https://github.com/aioue)
