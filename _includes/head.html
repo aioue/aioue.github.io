@@ -5,10 +5,23 @@
 <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 <link rel="stylesheet" href="{{ "/assets/css/syntax.css" | relative_url }}">
 <style>
-  code.highlighter-rouge {
-    background-color: transparent !important;
-    border: none !important;
-    padding: 0 !important;
+  @media (prefers-color-scheme: light) {
+    code.highlighter-rouge {
+      background-color: #e8e8e4 !important;
+      color: #272822 !important;
+      border: none !important;
+      padding: 2px 5px !important;
+      border-radius: 3px !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    code.highlighter-rouge {
+      background-color: #3c3d38 !important;
+      color: #f8f8f2 !important;
+      border: none !important;
+      padding: 2px 5px !important;
+      border-radius: 3px !important;
+    }
   }
 </style>
 {%- feed_meta -%}

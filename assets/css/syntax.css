@@ -156,12 +156,3 @@ pre.highlight {
   overflow-x: auto;
   border-radius: 4px;
 }
-
-/* Inline code - subtle dark styling */
-code.highlighter-rouge {
-  background-color: #3c3d38 !important;
-  color: #f8f8f2 !important;
-  border-color: #3c3d38 !important;
-  padding: 2px 5px;
-  border-radius: 3px;
-}
