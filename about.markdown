@@ -4,6 +4,12 @@ title: about
 permalink: /about/
 ---
 
-Technical notes. Mostly for my future self.
+Cloud Architect and DevOps Manager with 19 years of AWS experience. I build efficient, best-practice cloud infrastructure and lead distributed engineering teams across the globe. From hands-on Python development to managing enterprise cloud budgets, I focus on methodical, low-friction technical delivery.
+
+🌍 Fully remote. Currently UK-based, relocating to SE Asia mid-2026 (Available for UK, EU & APAC timezones).
+
+💼 Looking for technical leadership or consulting? Let's talk at cloudhaul.com.
+
+[cloudhaul.com](https://cloudhaul.com)
 
 [github.com/aioue](https://github.com/aioue)
