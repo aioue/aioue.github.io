@@ -148,6 +148,42 @@ div.highlighter-rouge, figure.highlight {
   border-radius: 4px;
   margin: 1em 0;
   padding: 0;
+  position: relative;
+}
+
+/* Copy button */
+.copy-code-btn {
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  padding: 0.2em 0.5em;
+  font-size: 0.75em;
+  font-family: sans-serif;
+  background: #3d3d2f;
+  color: #a8a8a0;
+  border: 1px solid #555544;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
+  user-select: none;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+div.highlighter-rouge:hover .copy-code-btn,
+figure.highlight:hover .copy-code-btn {
+  opacity: 1;
+}
+
+.copy-code-btn:hover {
+  background: #555544;
+  color: #f8f8f2;
+}
+
+.copy-code-btn.copied {
+  color: #a6e22e;
+  border-color: #a6e22e;
 }
 
 pre.highlight {
