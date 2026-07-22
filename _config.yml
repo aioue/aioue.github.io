@@ -75,3 +75,4 @@ defaults:
 exclude:
   - AGENTS.md
   - Gemfile.lock
+  - vendor
