@@ -1,7 +1,7 @@
 ---
 layout: post
 title: UniFi OS behind Caddy 2.11 - fixing the permanent loading bar
-date: '2026-07-22 23:30:00'
+date: '2026-07-22 22:00:00'
 tags: [caddy, unifi, homelab, reverse-proxy, websocket]
 hidden: false
 ---
