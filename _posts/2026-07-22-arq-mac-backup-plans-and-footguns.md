@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arq on macOS - backup plan footguns, logs, and arqc
-date: '2026-07-22 20:00:00'
+date: '2026-07-22T19:00:00+01:00'
 tags: [arq, backup, macos, homelab]
 hidden: false
 ---
