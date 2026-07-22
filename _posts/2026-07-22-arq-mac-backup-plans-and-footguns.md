@@ -130,9 +130,15 @@ fi
 
 A few things I would have liked to know before spending an afternoon on this:
 
-**Premium email reports are cloud-plan only.** Arq Premium's built-in error email relay works on cloud destinations. Local plans (my NVMe backup) do not get the Premium email server option even on a paid subscription. For local failure alerts, use something else - Apprise, a cron job wrapping `arqc`, Home Assistant, whatever you already run.
+**Premium email reports are cloud-plan only.** Arq Premium's built-in error email relay works on cloud destinations. Local plans (my NVMe backup) do not get the Premium email server option even on a paid subscription - the radio button is greyed out on the Report tab:
 
-**"Also start backup when a volume is connected"** (Schedule tab) has no tooltip. It means: if a volume **involved in this plan** connects, start the backup. For a cloud plan whose source is an internal APFS volume and destination is Arq Cloud Storage, plugging in an unrelated external drive does nothing. This is not "retry when cloud storage comes back after an outage." I left it disabled on the cloud plan.
+![Arq Report tab on a local backup plan: Use Arq Premium server is greyed out](/ext/arq/report-local-premium-greyed.png)
+
+For local failure alerts, use something else - Apprise, a cron job wrapping `arqc`, Home Assistant, whatever you already run.
+
+**"Also start backup when a volume is connected"** (Schedule tab) has no tooltip. It means: if a volume **involved in this plan** connects, start the backup. For a cloud plan whose source is an internal APFS volume and destination is Arq Cloud Storage, plugging in an unrelated external drive does nothing. This is not "retry when cloud storage comes back after an outage." I left it disabled on the cloud plan:
+
+![Arq Schedule tab on cloud plan: volume-connected option unchecked, last backup succeeded](/ext/arq/schedule-cloud.png)
 
 **Report tab greys out Premium email** when Send is set to "never", with no explanation. The fix is obvious once you know it; the UI does not tell you.
 
