@@ -18,7 +18,10 @@ jobs:
           bundler-cache: false
 
       - name: Update lockfile
-        run: bundle lock --update
+        run: |
+          bundle config set --local frozen false
+          bundle lock --update
+          bundle install
 
       - name: Verify build
         run: bundle exec jekyll build
