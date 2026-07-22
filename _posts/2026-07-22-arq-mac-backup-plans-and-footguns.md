@@ -130,17 +130,17 @@ fi
 
 A few things I would have liked to know before spending an afternoon on this:
 
-**Premium email reports are cloud-plan only.** Arq Premium's built-in error email relay works on cloud destinations. Local plans (my NVMe backup) do not get the Premium email server option even on a paid subscription - the radio button is greyed out on the Report tab:
+**Premium email is cloud-plan only.** Arq Premium includes a built-in error email relay, but it only works for backups to Arq Cloud Storage. On a local destination (my NVMe plan), **Use Arq Premium server** is permanently greyed out on the Report tab even with Send set to "only when errors occur" and an active Premium subscription:
 
 ![Arq Report tab on a local backup plan: Use Arq Premium server is greyed out](/ext/arq/report-local-premium-greyed.png)
 
-For local failure alerts, use something else - Apprise, a cron job wrapping `arqc`, Home Assistant, whatever you already run.
+You can still use a custom SMTP server for local plans, but not the Premium relay. For local failure alerts, use something else - Apprise, a cron job wrapping `arqc`, Home Assistant, whatever you already run.
+
+**Report tab when Send is "never".** The Premium and SMTP options stay visible but greyed out, with no explanation. Hiding the whole email section when reporting is disabled would be clearer.
 
 **"Also start backup when a volume is connected"** (Schedule tab) has no tooltip. It means: if a volume **involved in this plan** connects, start the backup. For a cloud plan whose source is an internal APFS volume and destination is Arq Cloud Storage, plugging in an unrelated external drive does nothing. This is not "retry when cloud storage comes back after an outage." I left it disabled on the cloud plan:
 
 ![Arq Schedule tab on cloud plan: volume-connected option unchecked, last backup succeeded](/ext/arq/schedule-cloud.png)
-
-**Report tab greys out Premium email** when Send is set to "never", with no explanation. The fix is obvious once you know it; the UI does not tell you.
 
 **No full-plan duplicate.** Import/Export on Files is helpful for exclusions but does not sync Options like dataless-file handling. Align those manually when cloning a plan's intent across destinations.
 
