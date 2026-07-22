@@ -41,3 +41,5 @@ The `P2.20B` BIOS did exactly what I needed for IOMMU grouping. Both NVMe drives
 The less useful surprise was that one expected `Setup` efivar was not exposed on the live host, and one `Power Supply Idle Control` offset read back as a value outside the IFR option list. That is exactly why I prefer a read-only collector and staged changes over writing NVRAM directly from a table of offsets.
 
 Source and notes: [aioue/asrock-x300m-stx-bios](https://github.com/aioue/asrock-x300m-stx-bios)
+
+**Follow-up (July 2026):** I ran the staged tuning for real — IKEA plug measurements, headless NVRAM byte writes, and an LLM agent doing the tedious reboot loops. Write-up: [Teaching an LLM to tune idle power on a DeskMini](/2026/07/22/deskmini-idle-power-tuning-with-an-llm/).
