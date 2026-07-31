@@ -12,7 +12,7 @@ This post documents a **headless path**: seed the loader config over SSH, reboot
 
 Scripts: **[arc-loader-automated](https://github.com/aioue/arc-loader-automated)**
 
-> **Upstream pending:** Several small fixes are [open as PRs](https://github.com/AuxXxilium/arc/pulls?q=is%3Apr+author%3Aaioue) against [AuxXxilium/arc](https://github.com/AuxXxilium/arc). The scripts include workarounds until those merge.
+The scripts include small workarounds for headless use (p1 `/automated`, `arc.offline`, and similar). I tried upstream first — see [Upstream](#upstream) below.
 
 ## Who this is for
 
@@ -130,6 +130,12 @@ VM create/import time (copying `arc.img` to storage) is extra on first run; subs
 - DSM first-boot wizard (`:5000`)
 - Storage pool on the data disk
 - SSH enable in DSM, packages, backup tasks — your use case
+
+## Upstream
+
+Before publishing [arc-loader-automated](https://github.com/aioue/arc-loader-automated), I opened small PRs against [AuxXxilium/arc](https://github.com/AuxXxilium/arc) — bug fixes, docs, and helpers — each with repro steps on Arc 3.1.0. Example: [#9536](https://github.com/AuxXxilium/arc/pull/9536) (p1 `/automated` for grub `automated_arc`). They were closed without merge.
+
+That is fine. The useful pattern in open source is: try upstream first, then ship what works in your own repo so others do not rediscover the same traps. These scripts are that layer — workarounds baked in, no dependency on Arc accepting the patches.
 
 ## Links
 
