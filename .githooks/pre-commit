@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Block commits that add/update images with embedded metadata under ext/.
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "${ROOT}"
+
+mapfile -t staged_images < <(
+  git diff --cached --name-only --diff-filter=ACM \
+    | grep -E '^ext/.+\.(jpg|jpeg|png|webp|gif|tiff|tif|heic|avif)$' || true
+)
+
+if [[ ${#staged_images[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+if [[ ! -x "${ROOT}/script/check-image-metadata.sh" ]]; then
+  echo "pre-commit: script/check-image-metadata.sh missing or not executable" >&2
+  exit 1
+fi
+
+"${ROOT}/script/check-image-metadata.sh" "${staged_images[@]}"

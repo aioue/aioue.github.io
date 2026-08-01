@@ -87,6 +87,22 @@ Looking at existing posts, common themes include:
 Store images and files in `ext/` directory, organized by source domain if applicable:
 - `ext/geocaching.com/`
 - `ext/forums.teamphoenixrising.net/`
+- `ext/m5stack/`
+
+**Image metadata:** Before committing photos, strip embedded EXIF/XMP/GPS/ICC data:
+
+```bash
+./script/strip-image-metadata.sh photo.jpg -o ext/m5stack/photo.jpg
+./script/check-image-metadata.sh ext/
+```
+
+Enable the git hook (once per clone):
+
+```bash
+git config core.hooksPath .githooks
+```
+
+CI runs `script/check-image-metadata.sh` on every push/PR — commits with metadata-bearing images under `ext/` will fail the build.
 
 ## Configuration Notes
 
