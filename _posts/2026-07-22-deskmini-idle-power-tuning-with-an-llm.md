@@ -36,19 +36,19 @@ Load-gated v2 rows (the ones worth trusting):
 
 ## What didn't pay off
 
-**`pcie_aspm=force`** — kernel enables the global policy, but Renoir GPP bridges to M.2 and the NIC advertise `ASPM not supported`. Endpoint `LnkCtl` stays ASPM Disabled. Force does not invent bridge capability.
+**`pcie_aspm=force`** - kernel enables the global policy, but Renoir GPP bridges to M.2 and the NIC advertise `ASPM not supported`. Endpoint `LnkCtl` stays ASPM Disabled. Force does not invent bridge capability.
 
-**PM L1 SS** — NVRAM sticks at L1.1+L1.2, but L1 substates need ASPM L1 on the link first. Same bridge problem → no measurable plug delta. Left enabled; no harm.
+**PM L1 SS** - NVRAM sticks at L1.1+L1.2, but L1 substates need ASPM L1 on the link first. Same bridge problem → no measurable plug delta. Left enabled; no harm.
 
-**CPPC / DF Cstates** — deterministic Enabled instead of Auto. Still **C3 max**, no CC6. Package deep idle likely needs Power Supply Idle (`0x0FC`), which we deferred (live `0xFF`, USB boot risk).
+**CPPC / DF Cstates** - deterministic Enabled instead of Auto. Still **C3 max**, no CC6. Package deep idle likely needs Power Supply Idle (`0x0FC`), which we deferred (live `0xFF`, USB boot risk).
 
-**PowerTOP watts** — unavailable on AC desktops without a battery. Useful for tunables audit only; the plug is the wall meter.
+**PowerTOP watts** - unavailable on AC desktops without a battery. Useful for tunables audit only; the plug is the wall meter.
 
 ## Measurement gotchas
 
 - Sample only after **`loadavg < 1` for 2 consecutive checks** and no ZFS scrub/send or active zrepl sync. Early post-reboot samples look like "regressions".
 - The IKEA plug can stick (15× identical 19.6 W) then jump; compare medians at matched idle load.
-- Strict plug-spread settle loops can run for an hour on this meter — load+ZFS gating is enough.
+- Strict plug-spread settle loops can run for an hour on this meter - load+ZFS gating is enough.
 
 ## LLM in the loop
 

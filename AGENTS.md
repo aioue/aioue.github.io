@@ -53,7 +53,7 @@ hidden: false
 ---
 ```
 
-`last_modified_at` is optional — only add it when updating an existing post. The post layout displays "Updated Jan 29, 2026" between the date and reading time when present.
+`last_modified_at` is optional - only add it when updating an existing post. The post layout displays "Updated Jan 29, 2026" between the date and reading time when present.
 
 For posts with timezone, use ISO 8601 format with offset:
 ```yaml
@@ -64,13 +64,14 @@ Categories and tags are optional but encouraged for new posts.
 
 ### Content Style
 
-This blog contains **technical notes** — short, practical how-to guides and reference documentation. Posts are typically:
+This blog contains **technical notes** - short, practical how-to guides and reference documentation. Posts are typically:
 
-- Concise and direct — get to the commands fast
+- Concise and direct - get to the commands fast
 - Command-line focused with fenced code blocks (not `<pre>` tags)
 - No "Overview" sections or numbered headers
 - No fluff or lengthy explanations
-- Double-space line breaks (`  `) are intentional — keep them
+- Double-space line breaks (`  `) are intentional - keep them
+- **No em-dashes** (Unicode `—`); use ASCII hyphen (`-`) or rephrase. CI runs `./script/check-no-em-dashes.sh`
 - Written for the author's future self (and others searching for solutions)
 
 ### Example Topics
@@ -102,7 +103,7 @@ Enable the git hook (once per clone):
 git config core.hooksPath .githooks
 ```
 
-CI runs `script/check-image-metadata.sh` on every push/PR — commits with metadata-bearing images under `ext/` will fail the build.
+CI runs `script/check-image-metadata.sh` on every push/PR - commits with metadata-bearing images under `ext/` will fail the build.
 
 ## Configuration Notes
 
@@ -136,11 +137,11 @@ Custom `_includes/head.html` must link to `/assets/main.css` (generated from mai
 ### Theme Not Loading / Bare Appearance
 
 If the site appears unstyled:
-1. **Check `_layouts/default.html`:** Must exist and include `{%- include head.html -%}` — this is the most common cause
+1. **Check `_layouts/default.html`:** Must exist and include `{%- include head.html -%}` - this is the most common cause
 2. **Check `_config.yml`:** Must use `remote_theme: jekyll/minima`, NOT `theme: minima`
 3. **Check `assets/main.scss`:** Must exist with proper Minima imports (see Theme Configuration above)
 4. **Check CSS path:** `_includes/head.html` must link to `/assets/main.css`
-5. **Do NOT create `assets/css/style.scss`** — this causes build failures with remote_theme
+5. **Do NOT create `assets/css/style.scss`** - this causes build failures with remote_theme
 6. **Rebuild:** After changes, GitHub Pages rebuilds automatically (1-2 min), or restart local server
 7. **Cache busting:** Add `?nocache=123` to URL to bypass browser cache when testing
 
@@ -167,12 +168,12 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) format:
 ```
 
 **Types:**
-- `feat:` — New feature or post
-- `fix:` — Bug fix
-- `docs:` — Documentation changes
-- `style:` — Formatting, CSS changes
-- `refactor:` — Code restructuring
-- `chore:` — Maintenance tasks
+- `feat:` - New feature or post
+- `fix:` - Bug fix
+- `docs:` - Documentation changes
+- `style:` - Formatting, CSS changes
+- `refactor:` - Code restructuring
+- `chore:` - Maintenance tasks
 
 **Examples:**
 ```
@@ -185,13 +186,13 @@ fix: correct syntax highlighting for bash blocks
 
 ## Important Notes for AI Agents
 
-- **Post filenames MUST use dashes after the date** — `2026-01-29-slug.md` works; `2026-01-29_slug.md` silently fails (Jekyll ignores it)
-- **Never use `theme:` in `_config.yml`** — always use `remote_theme:` for GitHub Pages compatibility
-- **Custom `_layouts/default.html` is required** — the remote theme won't use our `head.html` without it
-- **Custom `head.html` overrides theme defaults** — must include all meta tags, SEO, feed_meta, and CSS links
-- **Never create `assets/css/style.scss`** — this causes build failures; use `assets/main.scss` instead
-- **Double-space line breaks are intentional** — preserve `  ` in posts (author preference for mobile typing)
-- **Categories create URL paths** — posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`; use tags only for cleaner URLs
-- **Tags don't affect URLs** — use tags for metadata without changing the URL structure
-- **Liquid tags in code blocks need `{% raw %}` wrapper** — wrap code blocks containing `{{ }}` or `{% %}` in `{% raw %}` and `{% endraw %}` to prevent Jekyll from processing them
+- **Post filenames MUST use dashes after the date** - `2026-01-29-slug.md` works; `2026-01-29_slug.md` silently fails (Jekyll ignores it)
+- **Never use `theme:` in `_config.yml`** - always use `remote_theme:` for GitHub Pages compatibility
+- **Custom `_layouts/default.html` is required** - the remote theme won't use our `head.html` without it
+- **Custom `head.html` overrides theme defaults** - must include all meta tags, SEO, feed_meta, and CSS links
+- **Never create `assets/css/style.scss`** - this causes build failures; use `assets/main.scss` instead
+- **Double-space line breaks are intentional** - preserve `  ` in posts (author preference for mobile typing)
+- **Categories create URL paths** - posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`; use tags only for cleaner URLs
+- **Tags don't affect URLs** - use tags for metadata without changing the URL structure
+- **Liquid tags in code blocks need `{% raw %}` wrapper** - wrap code blocks containing `{{ }}` or `{% %}` in `{% raw %}` and `{% endraw %}` to prevent Jekyll from processing them
 - **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.

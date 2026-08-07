@@ -11,12 +11,32 @@ mapfile -t staged_images < <(
 )
 
 if [[ ${#staged_images[@]} -eq 0 ]]; then
-  exit 0
+  :
+else
+  if [[ ! -x "${ROOT}/script/check-image-metadata.sh" ]]; then
+    echo "pre-commit: script/check-image-metadata.sh missing or not executable" >&2
+    exit 1
+  fi
+
+  "${ROOT}/script/check-image-metadata.sh" "${staged_images[@]}"
 fi
 
-if [[ ! -x "${ROOT}/script/check-image-metadata.sh" ]]; then
-  echo "pre-commit: script/check-image-metadata.sh missing or not executable" >&2
-  exit 1
+mapfile -t staged_posts < <(
+  git diff --cached --name-only --diff-filter=ACM \
+    | grep -E '^_posts/.+\.(md|markdown)$' || true
+)
+
+if [[ ${#staged_posts[@]} -gt 0 ]]; then
+  if [[ ! -x "${ROOT}/script/check-no-em-dashes.sh" ]]; then
+    echo "pre-commit: script/check-no-em-dashes.sh missing or not executable" >&2
+    exit 1
+  fi
+
+  if matches="$(grep -n $'—' "${staged_posts[@]}" 2>/dev/null || true)" && [[ -n "${matches}" ]]; then
+    echo "pre-commit: em-dashes (—) in staged posts; use ASCII hyphen (-) instead:" >&2
+    echo "${matches}" >&2
+    exit 1
+  fi
 fi
 
-"${ROOT}/script/check-image-metadata.sh" "${staged_images[@]}"
+exit 0

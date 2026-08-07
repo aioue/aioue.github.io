@@ -10,7 +10,7 @@ This blog used [Utterances](https://utteranc.es/) for comments, which stores the
 
 ## The permission problem
 
-Utterances is a GitHub OAuth App. When you sign in to leave a comment, it requests the `public_repo` scope. That's a broad permission — it grants read and write access to **all** of your public repositories, not just the one you're commenting on. If the Utterances token were ever compromised, an attacker could create, modify, or delete issues and code across any of your public repos.
+Utterances is a GitHub OAuth App. When you sign in to leave a comment, it requests the `public_repo` scope. That's a broad permission - it grants read and write access to **all** of your public repositories, not just the one you're commenting on. If the Utterances token were ever compromised, an attacker could create, modify, or delete issues and code across any of your public repos.
 
 Giscus is a GitHub App, which uses a fundamentally different permission model. It can only access repositories where the owner has explicitly installed it. When you sign in to comment on this blog, Giscus can only interact with this blog's repository. It has no access to your personal repositories unless you've specifically installed Giscus there yourself.
 

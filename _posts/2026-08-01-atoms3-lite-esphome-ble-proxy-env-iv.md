@@ -6,7 +6,7 @@ tags: [esphome, home-assistant, bluetooth, homelab, m5stack]
 hidden: false
 ---
 
-I wanted a small Bluetooth proxy near two [Vent-Axia Svara](https://www.vent-axia.com/) extractors ([Pax](https://github.com/eriknn/ha-pax_ble) BLE fans) and a cheap way to read temperature, humidity, and pressure in the same spot. M5Stack's **AtomS3 Lite** (~£9) (ESP32-S3) plus the **Unit ENV IV** (~£6; [EOL from M5Stack](https://shop.m5stack.com/products/env-iv-unit-with-temperature-humidity-air-pressure-sensor-sht40-bmp280), still findable from resellers) (SHT40 + BMP280 on Grove I2C) turned out to be one ESPHome device that does both — about **£15** of hardware in total.
+I wanted a small Bluetooth proxy near two [Vent-Axia Svara](https://www.vent-axia.com/) extractors ([Pax](https://github.com/eriknn/ha-pax_ble) BLE fans) and a cheap way to read temperature, humidity, and pressure in the same spot. M5Stack's **AtomS3 Lite** (~£9) (ESP32-S3) plus the **Unit ENV IV** (~£6; [EOL from M5Stack](https://shop.m5stack.com/products/env-iv-unit-with-temperature-humidity-air-pressure-sensor-sht40-bmp280), still findable from resellers) (SHT40 + BMP280 on Grove I2C) turned out to be one ESPHome device that does both  -  about **£15** of hardware in total.
 
 This post covers what the hardware is, what it reports to Home Assistant, how much RAM the firmware uses, and the sanitized YAML I run.
 
@@ -32,14 +32,14 @@ In practice that means: enough flash for ESP-IDF + BLE proxy + sensors, dual-cor
 
 Grove/STEMMA QT breakout with:
 
-- **Sensirion SHT40** — temperature and relative humidity (0x44 on I2C)
-- **Bosch BMP280** — barometric pressure (0x76 on I2C)
+- **Sensirion SHT40**  -  temperature and relative humidity (0x44 on I2C)
+- **Bosch BMP280**  -  barometric pressure (0x76 on I2C)
 
-On the AtomS3 Lite the Grove port maps to **SDA = GPIO2**, **SCL = GPIO1**. A short Grove cable is enough; if I2C scan finds nothing, swap the yellow/white data lines — AtomS3 Grove pin order is not always the cable default.
+On the AtomS3 Lite the Grove port maps to **SDA = GPIO2**, **SCL = GPIO1**. A short Grove cable is enough; if I2C scan finds nothing, swap the yellow/white data lines  -  AtomS3 Grove pin order is not always the cable default.
 
 ## What it does in Home Assistant
 
-Primary job: **ESPHome Bluetooth proxy** so Home Assistant can reach Pax fans that only speak BLE GATT, not Wi-Fi. I use Erik Nordby's community integration [**ha-pax_ble**](https://github.com/eriknn/ha-pax_ble) — actively maintained, responsive on issues/PRs, and the right layer for Vent-Axia Svara hardware without a official HA integration.
+Primary job: **ESPHome Bluetooth proxy** so Home Assistant can reach Pax fans that only speak BLE GATT, not Wi-Fi. I use Erik Nordby's community integration [**ha-pax_ble**](https://github.com/eriknn/ha-pax_ble)  -  actively maintained, responsive on issues/PRs, and the right layer for Vent-Axia Svara hardware without a official HA integration.
 
 Secondary job: publish room environment every five minutes (I kept env reads slow so the chip stays cool and I2C traffic stays out of the way of BLE).
 
@@ -47,7 +47,7 @@ After OTA to firmware **1.1.1** (ESPHome 2026.7.3), a typical live snapshot:
 
 | Check | Status |
 | --- | --- |
-| ESPHome integration | Loaded — AtomS3 Lite Temp 5e5b70 |
+| ESPHome integration | Loaded  -  AtomS3 Lite Temp 5e5b70 |
 | Firmware | **1.1.1** (ESPHome 2026.7.3) |
 | Connectivity (Status) | On |
 | Uptime | ~5 min (post-OTA) |
@@ -69,7 +69,7 @@ With the Atom on the IoT VLAN and the proxy active, both Svara units stay reacha
 | `top_bathroom_extractor` | Trickle ventilation | 1000 | 25.4 °C |
 | `tom_bedroom_ensuite_extractor` | Trickle ventilation | 1641 | 22.9 °C |
 
-Home Assistant sees full Pax entities (flow, humidity sensor on the unit, boost mode, silent hours, etc.) through [ha-pax_ble](https://github.com/eriknn/ha-pax_ble). The Atom does not run the Pax logic — it forwards BLE so the integration on the HA host can connect.
+Home Assistant sees full Pax entities (flow, humidity sensor on the unit, boost mode, silent hours, etc.) through [ha-pax_ble](https://github.com/eriknn/ha-pax_ble). The Atom does not run the Pax logic  -  it forwards BLE so the integration on the HA host can connect.
 
 ## RAM and flash budget
 
@@ -80,23 +80,23 @@ RAM:   [====      ]  42.6% (used 145515 bytes from 341760 bytes)
 Flash: [========  ]  75.1% (used 1377767 bytes from 1835008 bytes)
 ```
 
-That leaves comfortable headroom for three BLE connection slots (Pax may hold active GATT sessions), Wi-Fi, captive portal fallback, and the LED/env automation scripts. I stayed on three slots rather than four — each slot costs roughly 1 KB RAM and Wi-Fi proxies rarely need more unless you are saturating connections.
+That leaves comfortable headroom for three BLE connection slots (Pax may hold active GATT sessions), Wi-Fi, captive portal fallback, and the LED/env automation scripts. I stayed on three slots rather than four  -  each slot costs roughly 1 KB RAM and Wi-Fi proxies rarely need more unless you are saturating connections.
 
 ## LED feedback (v1.1.1)
 
 The four WS2812 LEDs under the button are status-only:
 
-- **Blue** — Wi-Fi connected to HA
-- **Red pulse** — fallback AP / Wi-Fi down
-- **Green 10 s** — env reading published and HA API reachable
-- **Red 10 s (solid)** — reading OK but Wi-Fi or API unreachable
-- **Short press** — toggle LED; **long press ~1 s** — reboot
+- **Blue**  -  Wi-Fi connected to HA
+- **Red pulse**  -  fallback AP / Wi-Fi down
+- **Green 10 s**  -  env reading published and HA API reachable
+- **Red 10 s (solid)**  -  reading OK but Wi-Fi or API unreachable
+- **Short press**  -  toggle LED; **long press ~1 s**  -  reboot
 
 Handy when the puck is on a USB charger away from the desk and you want to know it is still talking to HA.
 
 ## Sanitized ESPHome config
 
-Secrets (`wifi_ssid`, `wifi_password`, `api_encryption_key`, fallback AP password) live in `secrets.yaml` on the HA host — not in git. Example placeholders:
+Secrets (`wifi_ssid`, `wifi_password`, `api_encryption_key`, fallback AP password) live in `secrets.yaml` on the HA host  -  not in git. Example placeholders:
 
 ```yaml
 wifi_ssid: "your-ssid"
@@ -107,7 +107,7 @@ wifi_ap_password: "fallback-ap-password"
 
 Full public YAML (no credentials):
 
-<details>
+<details markdown="1">
 <summary><code>atoms3-lite-temp.yaml</code> (click to expand)</summary>
 
 ```yaml
@@ -358,20 +358,20 @@ button:
 
 Broad structure:
 
-- **ESP-IDF** on ESP32-S3 (not Arduino — lower RAM use for BLE + Wi-Fi)
+- **ESP-IDF** on ESP32-S3 (not Arduino  -  lower RAM use for BLE + Wi-Fi)
 - **`bluetooth_proxy`** with `active: true`, `cache_services: true`, `connection_slots: 3`
 - **SHT4x + BMP280** on Grove I2C, 300 s update interval
 - Derived **absolute humidity**, **dew point**, **altitude** templates
 - **Wi-Fi signal** and **uptime** sensors for placement debugging
 - **Captive portal** + named fallback AP for recovery
 
-Official BLE proxy starting point: [esphome/bluetooth-proxies — M5Stack Atom S3](https://github.com/esphome/bluetooth-proxies/tree/main/m5stack).
+Official BLE proxy starting point: [esphome/bluetooth-proxies  -  M5Stack Atom S3](https://github.com/esphome/bluetooth-proxies/tree/main/m5stack).
 
 ## Links
 
 - Pax BLE for Home Assistant: [github.com/eriknn/ha-pax_ble](https://github.com/eriknn/ha-pax_ble)
 - ESPHome Bluetooth proxies: [github.com/esphome/bluetooth-proxies](https://github.com/esphome/bluetooth-proxies)
-- M5Stack AtomS3 Lite: [docs.m5stack.com — AtomS3 Lite](https://docs.m5stack.com/en/core/AtomS3%20Lite)
-- M5Stack Unit ENV IV: [docs.m5stack.com — Unit ENV IV](https://docs.m5stack.com/en/unit/env%20IV)
+- M5Stack AtomS3 Lite: [docs.m5stack.com  -  AtomS3 Lite](https://docs.m5stack.com/en/core/AtomS3%20Lite)
+- M5Stack Unit ENV IV: [docs.m5stack.com  -  Unit ENV IV](https://docs.m5stack.com/en/unit/env%20IV)
 
 If you are running Vent-Axia fans and HA, ha-pax_ble is worth a star.

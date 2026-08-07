@@ -10,7 +10,7 @@ Fix for Jekyll sites using `remote_theme: jekyll/minima` where CSS loads on the 
 
 ## The Problem
 
-Homepage styled correctly. Post pages completely bare — no CSS at all. The `<head>` section was empty except for Utterances styles injected by JavaScript.
+Homepage styled correctly. Post pages completely bare - no CSS at all. The `<head>` section was empty except for Utterances styles injected by JavaScript.
 
 ## The Cause
 
@@ -64,7 +64,7 @@ Your `_includes/head.html` should link to `/assets/main.css`:
 
 ## What NOT to Do
 
-Don't create `assets/css/style.scss` with `@import "minima"` — this causes build failures because `minima` isn't in the Sass load path when using `remote_theme`.
+Don't create `assets/css/style.scss` with `@import "minima"` - this causes build failures because `minima` isn't in the Sass load path when using `remote_theme`.
 
 ## Debugging Tips
 

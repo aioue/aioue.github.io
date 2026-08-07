@@ -23,13 +23,13 @@ compose:
   ansible_host: proxmox_ipconfig0.ip | default(proxmox_net0.ip) | ipaddr('address')
 ```
 
-doesn't help — `"dhcp"` isn't an IP, and `proxmox_net0` only contains the MAC address and bridge config, not an IP.
+doesn't help - `"dhcp"` isn't an IP, and `proxmox_net0` only contains the MAC address and bridge config, not an IP.
 
 ## The Solution
 
 If the QEMU guest agent is running (`agent: 1` in the VM config), the inventory plugin populates `proxmox_agent_interfaces` with live network data from inside the VM. This includes actual DHCP-assigned addresses.
 
-The tricky part: the agent data uses hyphenated keys (`ip-addresses`, `mac-address`) which Jinja2 interprets as subtraction. You can't use `map(attribute='ip-addresses')` — it parses as `attribute='ip' - addresses`. Use `.get('ip-addresses', [])` instead.
+The tricky part: the agent data uses hyphenated keys (`ip-addresses`, `mac-address`) which Jinja2 interprets as subtraction. You can't use `map(attribute='ip-addresses')` - it parses as `attribute='ip' - addresses`. Use `.get('ip-addresses', [])` instead.
 
 ```yaml
 compose:
@@ -50,7 +50,7 @@ What this does:
 4. Strips the CIDR suffix (`192.168.1.83/24` → `192.168.1.83`)
 5. Falls back to existing `ansible_host` or `inventory_hostname` for hosts without agent data
 
-The `default(..., true)` at the end is important — without the second argument, Jinja2's `default` only triggers on undefined variables, not on `None` or `False`. The `ipaddr` filter returns `False` for invalid input, and `want_proxmox_nodes_ansible_host` can set `ansible_host` to `None`.
+The `default(..., true)` at the end is important - without the second argument, Jinja2's `default` only triggers on undefined variables, not on `None` or `False`. The `ipaddr` filter returns `False` for invalid input, and `want_proxmox_nodes_ansible_host` can set `ansible_host` to `None`.
 
 ## Requirements
 

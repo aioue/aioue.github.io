@@ -6,7 +6,7 @@ tags: [opennebula, ubuntu, rdp, gnome-remote-desktop, virtualization]
 hidden: false
 ---
 
-Transform the [OpenNebula Marketplace](https://marketplace.opennebula.io/) Ubuntu Server 24.04 image into an RDP-capable desktop VM. This is part 1 of getting RDP working — see [part 2 for GNOME Remote Desktop configuration]({% post_url 2026-01-21-gnome-remote-desktop-rdp-ubuntu-24.04 %}).
+Transform the [OpenNebula Marketplace](https://marketplace.opennebula.io/) Ubuntu Server 24.04 image into an RDP-capable desktop VM. This is part 1 of getting RDP working - see [part 2 for GNOME Remote Desktop configuration]({% post_url 2026-01-21-gnome-remote-desktop-rdp-ubuntu-24.04 %}).
 
 ## VM Template Configuration
 

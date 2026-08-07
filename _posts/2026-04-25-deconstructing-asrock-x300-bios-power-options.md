@@ -42,4 +42,4 @@ The less useful surprise was that one expected `Setup` efivar was not exposed on
 
 Source and notes: [aioue/asrock-x300m-stx-bios](https://github.com/aioue/asrock-x300m-stx-bios)
 
-**Follow-up (July 2026):** I ran the staged tuning for real — IKEA plug measurements, headless NVRAM byte writes, and an LLM agent doing the tedious reboot loops. Write-up: [Teaching an LLM to tune idle power on a DeskMini](/2026/07/22/deskmini-idle-power-tuning-with-an-llm/).
+**Follow-up (July 2026):** I ran the staged tuning for real - IKEA plug measurements, headless NVRAM byte writes, and an LLM agent doing the tedious reboot loops. Write-up: [Teaching an LLM to tune idle power on a DeskMini](/2026/07/22/deskmini-idle-power-tuning-with-an-llm/).
