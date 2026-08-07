@@ -89,6 +89,9 @@ figure.highlight {
 .highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
+.highlight .n {
+  color: #f8f8f2;
+}
 .highlight .nv, .highlight .vm, .highlight .vi, .highlight .vc {
   color: #f8f8f2;
 }
