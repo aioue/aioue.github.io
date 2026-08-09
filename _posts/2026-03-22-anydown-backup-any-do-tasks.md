@@ -6,9 +6,9 @@ tags: [python, any.do, backup, docker]
 hidden: false
 ---
 
-I've used [Any.do](https://www.any.do/) for task management for years. It's simple and stays out of the way, which is what I want. But it has no export or backup feature - [their own support page confirms it](https://support.any.do/en/articles/8635961-printing-and-exporting-items). If the service disappeared tomorrow, or I accidentally deleted a list, everything would be gone.
+I've used [Any.do](https://www.any.do/) for task management for years. It is simple and stays out of the way. It also has no export or backup ([their support page confirms it](https://support.any.do/en/articles/8635961-printing-and-exporting-items)), so a deleted list or a dead service would take the data with it.
 
-[any.down](https://github.com/aioue/any.down) is a small Python CLI I wrote to fix that. It logs into Any.do's web API, pulls your tasks, and saves them as timestamped JSON and Markdown files. Run it once a day (or let Docker do it for you) and you've got a local paper trail of everything.
+[any.down](https://github.com/aioue/any.down) is a small Python CLI that logs into Any.do's web API, pulls tasks, and writes timestamped JSON and Markdown. Run it on a schedule (or via Docker) and you keep a local copy.
 
 ## How it works
 
@@ -33,17 +33,15 @@ docker compose up -d
 
 There's also a `--watch` flag if you'd rather run the process directly without Docker - it syncs every 90 minutes or so with some random jitter.
 
-## Bonus: duplicate cleaner
+## Duplicate cleaner
 
-Any.do occasionally creates duplicate tasks - maybe from sync conflicts across devices, maybe from the API being weird. any.down ships with a separate `anydown-dupes` command that finds exact duplicates (matching title, list, note, and subtasks) and lets you clean them up:
+Any.do occasionally creates duplicate tasks (sync conflicts or API oddities). `anydown-dupes` finds exact duplicates (same title, list, note, and subtasks) and can delete them:
 
 ```bash
 uv run anydown-dupes               # dry run
 uv run anydown-dupes --delete      # prompt before deleting
 ```
 
-## Why not just use the app?
-
-Mostly peace of mind. I don't distrust Any.do, but I've been burned before by services that shut down or lose data. Having a local copy of my tasks - in plain text formats I can read without any special tooling - means I'm not locked in. If I ever move to a different system, the data is already there.
+I keep the local exports because plain JSON/Markdown survives vendor churn and is easy to move to another system later.
 
 Source: [aioue/any.down](https://github.com/aioue/any.down)

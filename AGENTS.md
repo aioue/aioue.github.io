@@ -73,6 +73,7 @@ This blog contains **technical notes** - short, practical how-to guides and refe
 - Double-space line breaks (`  `) are intentional - keep them
 - **No em-dashes** (Unicode `—`); use ASCII hyphen (`-`) or rephrase. CI runs `./script/check-no-em-dashes.sh`
 - Written for the author's future self (and others searching for solutions)
+- **AI trope check:** before publishing new or rewritten prose, skim [tropes.md](https://tropes.fyi/tropes-md) and remove egregious AI tells (negative parallelism, bold-first bullets, dash addiction, "let's unpack" / signposted conclusions, etc.). Homelab Cursor rule: `blog-aioue.mdc`
 
 ### Example Topics
 

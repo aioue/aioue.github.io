@@ -6,9 +6,9 @@ tags: [proxmox, bios, homelab, power]
 hidden: false
 ---
 
-My Proxmox host is built around an ASRock X300M-STX with a Ryzen 5 PRO 5650G. It's a neat little always-on box: small, quiet, and powerful enough for a handful of VMs and containers. The annoying part is that the most interesting power and virtualisation controls live in the BIOS, behind labels that are not always obvious.
+My Proxmox host is an ASRock X300M-STX with a Ryzen 5 PRO 5650G: always on, quiet, enough for a handful of VMs and containers. The power and virtualisation knobs that matter live in the BIOS, often under opaque labels.
 
-ASRock supplied a `P2.20B` BIOS for this board with ACS/ARI behaviour enabled. That's useful for Proxmox because PCIe devices land in cleaner IOMMU groups without needing `pcie_acs_override`. I wanted to keep that benefit, but also understand what the board was doing for idle power.
+ASRock's `P2.20B` BIOS for this board enables ACS/ARI behaviour, so PCIe devices land in cleaner IOMMU groups without `pcie_acs_override`. I wanted to keep that and still figure out what the board does for idle power.
 
 ## Pulling the BIOS apart
 
@@ -34,12 +34,12 @@ The other high-value candidates were more mundane:
 - Disable unused HD audio on a headless server, but only after confirming the live variable path.
 - Treat ECO mode as a load-power cap, not an idle-power fix.
 
-## The useful surprise
+## IOMMU and caveats
 
-The `P2.20B` BIOS did exactly what I needed for IOMMU grouping. Both NVMe drives, LAN, Wi-Fi, iGPU functions, USB controllers, and SATA all appeared in separate groups without kernel ACS override. That is the thing I would not want to break while chasing a watt or two.
+On `P2.20B`, both NVMe drives, LAN, Wi-Fi, iGPU functions, USB controllers, and SATA land in separate IOMMU groups without a kernel ACS override. I would not trade that away for a watt or two.
 
-The less useful surprise was that one expected `Setup` efivar was not exposed on the live host, and one `Power Supply Idle Control` offset read back as a value outside the IFR option list. That is exactly why I prefer a read-only collector and staged changes over writing NVRAM directly from a table of offsets.
+Less helpful: one expected `Setup` efivar was missing on the live host, and one `Power Supply Idle Control` offset read back outside the IFR option list. That is why I prefer a read-only collector and staged changes over writing NVRAM from a table of offsets.
 
 Source and notes: [aioue/asrock-x300m-stx-bios](https://github.com/aioue/asrock-x300m-stx-bios)
 
-**Follow-up (July 2026):** I ran the staged tuning for real - IKEA plug measurements, headless NVRAM byte writes, and an LLM agent doing the tedious reboot loops. Write-up: [Teaching an LLM to tune idle power on a DeskMini](/2026/07/22/deskmini-idle-power-tuning-with-an-llm/).
+July 2026 follow-up (IKEA plug measurements, headless NVRAM writes, LLM-driven reboot loops): [Teaching an LLM to tune idle power on a DeskMini](/2026/07/22/deskmini-idle-power-tuning-with-an-llm/).

@@ -20,9 +20,9 @@ Scripts and results live in [asrock-x300m-stx-bios](https://github.com/aioue/asr
 
 ## Result
 
-Settled idle at the plug (`loadavg < 1`, no ZFS scrub/zrepl in flight): **~23–26 W**.
+Settled idle at the plug (`loadavg < 1`, no ZFS scrub/zrepl in flight): **~23-26 W**.
 
-Credible savings vs the first good scripted baseline (~26 W): **about 2–3 W**. The earlier "~45–50 W" figure was mostly measurement regime (post-boot load, stuck MQTT samples), not a single BIOS win.
+Credible savings vs the first good scripted baseline (~26 W): **about 2-3 W**. The earlier "~45-50 W" figure was mostly measurement regime (post-boot load, stuck MQTT samples), not a single BIOS win.
 
 Load-gated v2 rows (the ones worth trusting):
 
@@ -36,13 +36,13 @@ Load-gated v2 rows (the ones worth trusting):
 
 ## What didn't pay off
 
-**`pcie_aspm=force`** - kernel enables the global policy, but Renoir GPP bridges to M.2 and the NIC advertise `ASPM not supported`. Endpoint `LnkCtl` stays ASPM Disabled. Force does not invent bridge capability.
+`pcie_aspm=force` - kernel enables the global policy, but Renoir GPP bridges to M.2 and the NIC advertise `ASPM not supported`. Endpoint `LnkCtl` stays ASPM Disabled. Force does not invent bridge capability.
 
-**PM L1 SS** - NVRAM sticks at L1.1+L1.2, but L1 substates need ASPM L1 on the link first. Same bridge problem → no measurable plug delta. Left enabled; no harm.
+PM L1 SS - NVRAM sticks at L1.1+L1.2, but L1 substates need ASPM L1 on the link first. Same bridge problem -> no measurable plug delta. Left enabled; no harm.
 
-**CPPC / DF Cstates** - deterministic Enabled instead of Auto. Still **C3 max**, no CC6. Package deep idle likely needs Power Supply Idle (`0x0FC`), which we deferred (live `0xFF`, USB boot risk).
+CPPC / DF Cstates - deterministic Enabled instead of Auto. Still **C3 max**, no CC6. Package deep idle likely needs Power Supply Idle (`0x0FC`), which we deferred (live `0xFF`, USB boot risk).
 
-**PowerTOP watts** - unavailable on AC desktops without a battery. Useful for tunables audit only; the plug is the wall meter.
+PowerTOP watts - unavailable on AC desktops without a battery. Useful for tunables audit only; the plug is the wall meter.
 
 ## Measurement gotchas
 
@@ -52,6 +52,6 @@ Load-gated v2 rows (the ones worth trusting):
 
 ## LLM in the loop
 
-Good at staged protocol, parsing `lspci` / NVRAM read-back, and writing scripts. Bad at treating a 70 W post-reboot spike as causal without checking load, and at trusting PowerTOP for watts. Pattern that worked: **human sets policy, agent executes and logs, human sanity-checks when MQTT and physics disagree.**
+Good at staged protocol, parsing `lspci` / NVRAM read-back, and writing scripts. Bad at treating a 70 W post-reboot spike as causal without checking load, and at trusting PowerTOP for watts. I set policy; the agent ran steps and logged; I checked when MQTT and the plug disagreed.
 
-Final applied profile (for BIOS flash recovery): [FINAL-APPLIED-SETTINGS.md](https://github.com/aioue/asrock-x300m-stx-bios/blob/main/FINAL-APPLIED-SETTINGS.md). Prior art: [BIOS deconstruction](/2026/04/25/deconstructing-asrock-x300-bios-power-options/).
+Final applied profile (for BIOS flash recovery): [FINAL-APPLIED-SETTINGS.md](https://github.com/aioue/asrock-x300m-stx-bios/blob/main/FINAL-APPLIED-SETTINGS.md). Earlier BIOS notes: [BIOS deconstruction](/2026/04/25/deconstructing-asrock-x300-bios-power-options/).

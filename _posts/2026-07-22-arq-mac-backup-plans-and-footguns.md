@@ -32,9 +32,9 @@ The local plan logged:
 Skipped N dataless (cloud-only) files because the backup plan's dataless-files behavior is set to ignore.
 ```
 
-The cloud plan did not. Same machine, same home folder tree, different **Options → Dataless files** setting. Cloud was set to materialize; local was set to ignore.
+The cloud plan did not. Same machine, same home folder tree, different **Options -> Dataless files** setting. Cloud was set to materialize; local was set to ignore.
 
-**Fix:** set Dataless files to **Ignore** on the cloud plan (matching local), and add exclusions for the iCloud app paths that were still being walked.
+Fix: set Dataless files to Ignore on the cloud plan (matching local), and add exclusions for the iCloud app paths that were still being walked.
 
 ## Wildcard exclusions do not cover iCloud Mobile Documents
 
@@ -106,7 +106,7 @@ arqc latestBackupActivityJSON 92F098C5-8D16-4642-85D9-B18993DA1FA4
 arqc latestBackupActivityLog 92F098C5-8D16-4642-85D9-B18993DA1FA4
 ```
 
-The JSON includes `errorCount`, `maxErrorSeverity`, `message`, and `activityLogPath`. Set an app password in Arq → Preferences if you want scripted access without warnings.
+The JSON includes `errorCount`, `maxErrorSeverity`, `message`, and `activityLogPath`. Set an app password in Arq -> Preferences if you want scripted access without warnings.
 
 Example check: exit non-zero when the latest cloud plan activity has errors:
 
@@ -126,32 +126,30 @@ fi
 
 `arqc` can also start and stop plans (`startBackupPlan`, `stopBackupPlan`) and pause all backups (`pauseBackups` / `resumeBackups`). There is no documented read-only "list all activities" endpoint beyond the latest per plan - enough for a simple last-run-ok check, not a full audit trail.
 
-## UX nits worth knowing upfront
+## UX nits
 
-A few things I would have liked to know before spending an afternoon on this:
+Things I wish I had known before spending an afternoon on this:
 
-**Premium email is cloud-plan only.** Arq Premium includes a built-in error email relay, but it only works for backups to Arq Cloud Storage. On a local destination (my NVMe plan), **Use Arq Premium server** is permanently greyed out on the Report tab even with Send set to "only when errors occur" and an active Premium subscription:
+Premium error email is cloud-plan only. Arq Premium's built-in relay only works for Arq Cloud Storage. On a local destination (my NVMe plan), "Use Arq Premium server" stays greyed out on the Report tab even with Send set to "only when errors occur" and an active Premium subscription:
 
 ![Arq Report tab on a local backup plan: Use Arq Premium server is greyed out](/ext/arq/report-local-premium-greyed.png)
 
-You can still use a custom SMTP server for local plans, but not the Premium relay. For local failure alerts, use something else - Apprise, a cron job wrapping `arqc`, Home Assistant, whatever you already run.
+Custom SMTP still works for local plans; the Premium relay does not. For local failure alerts I use Apprise, a cron job wrapping `arqc`, or Home Assistant.
 
-**Report tab when Send is "never".** The Premium and SMTP options stay visible but greyed out, with no explanation. Hiding the whole email section when reporting is disabled would be clearer.
+When Send is "never", Premium and SMTP options stay visible but greyed out with no explanation. Hiding the email section would be clearer.
 
-**"Also start backup when a volume is connected"** (Schedule tab) has no tooltip. It means: if a volume **involved in this plan** connects, start the backup. For a cloud plan whose source is an internal APFS volume and destination is Arq Cloud Storage, plugging in an unrelated external drive does nothing. This is not "retry when cloud storage comes back after an outage." I left it disabled on the cloud plan:
+"Also start backup when a volume is connected" (Schedule tab) has no tooltip. It means: if a volume involved in this plan connects, start the backup. For a cloud plan whose source is an internal APFS volume and destination is Arq Cloud Storage, plugging in an unrelated external drive does nothing. It is not "retry when cloud storage comes back after an outage." I left it disabled on the cloud plan:
 
 ![Arq Schedule tab on cloud plan: volume-connected option unchecked, last backup succeeded](/ext/arq/schedule-cloud.png)
 
-**No full-plan duplicate.** Import/Export on Files is helpful for exclusions but does not sync Options like dataless-file handling. Align those manually when cloning a plan's intent across destinations.
+There is no full-plan duplicate. Import/Export on Files covers exclusions but not Options such as dataless-file handling. Align those manually when mirroring a plan across destinations.
 
 ## Checklist for a second plan
 
 If you add a cloud plan alongside a working local one:
 
-1. **Files tab** - import/export exclusions, or paste the same wildcard list; add `Library/Mobile Documents/...` rules if backing up a user home folder on macOS.
-2. **Options tab** - set **Dataless files → Ignore** unless you have a specific reason to materialize iCloud placeholders.
-3. **Schedule tab** - decide whether "when a volume is connected" applies (usually no for cloud-only plans).
-4. **Report tab** - Premium email only applies to cloud; plan a separate alert path for local failures.
-5. **Verify** - run a backup, then check `arqc latestBackupActivityJSON <uuid>` for `errorCount: 0` and read `/Library/Application Support/ArqAgent/logs/backup/backup-*` if not.
-
-Arq is solid once the plans are aligned. The footguns are mostly about assuming two plans share more configuration than they actually do, and about macOS iCloud's `Mobile Documents` tree sitting outside the exclusion patterns that work everywhere else.
+1. Files tab: import/export exclusions, or paste the same wildcard list; add `Library/Mobile Documents/...` rules if backing up a user home folder on macOS.
+2. Options tab: set Dataless files to Ignore unless you have a reason to materialize iCloud placeholders.
+3. Schedule tab: decide whether "when a volume is connected" applies (usually no for cloud-only plans).
+4. Report tab: Premium email only applies to cloud; plan a separate alert path for local failures.
+5. Verify: run a backup, check `arqc latestBackupActivityJSON <uuid>` for `errorCount: 0`, and read `/Library/Application Support/ArqAgent/logs/backup/backup-*` if not.

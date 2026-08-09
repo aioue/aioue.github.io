@@ -6,11 +6,11 @@ tags: [ansible, vault, secrets, python, cli]
 hidden: false
 ---
 
-If you run Ansible at any scale, you eventually want to **search across vaulted files** or edit several secrets in one sitting. `ansible-vault edit` is fine for one file at a time. Grep does not help much when everything is ciphertext. And if you decrypt files manually, it is easy to forget one on the way out.
+If you run Ansible at any scale, you eventually want to search across vaulted files or edit several secrets in one sitting. `ansible-vault edit` is one file at a time. Grep is useless on ciphertext. Decrypting by hand makes it easy to leave a file open.
 
-[pilfer](https://github.com/aioue/pilfer) is a small CLI I maintain for the workflow I actually wanted: **`pilfer open`** decrypts every vault file in the tree (and optionally inline `!vault` values), you edit or search in plaintext, then **`pilfer close`** re-encrypts only what changed. Unchanged files go back to their original ciphertext byte-for-byte.
+[pilfer](https://github.com/aioue/pilfer) is the CLI I wanted for that: `pilfer open` decrypts every vault file in the tree (and optionally inline `!vault` values), you edit or search in plaintext, then `pilfer close` re-encrypts only what changed. Unchanged files keep their original ciphertext byte-for-byte.
 
-Uses Ansible's own vault implementation - no custom crypto.
+It uses Ansible's own vault implementation (no custom crypto).
 
 ## Install
 
@@ -90,25 +90,25 @@ pilfer rekey \
 
 Drop `--dry-run` when the plan looks right. It prompts before mutating files.
 
-## Fail closed on purpose
+## Fail closed
 
-pilfer errs on the side of leaving secrets visible rather than silently corrupting them:
+pilfer prefers leaving secrets visible over silently corrupting them:
 
 - refuses a second `open` while a session exists
 - refuses `close` with the wrong password (no accidental re-key)
-- keeps `.vault/` backups if `close` fails partway - fix the issue and run `close` again
-- refuses ambiguous edits (for example stripping a `# pilfer:vault:N` marker but leaving plaintext behind)
+- keeps `.vault/` backups if `close` fails partway; fix the issue and run `close` again
+- refuses ambiguous edits (for example stripping a `# pilfer:vault:N` marker but leaving plaintext)
 
-That can feel fussy when you are in a hurry. It is deliberate.
+That is fussy when you are in a hurry, on purpose.
 
 ## When I use it
 
-Ansible repos with vault files scattered under `inventory/`, `group_vars/`, and role `vars/`. Typical jobs:
+Ansible repos with vault files under `inventory/`, `group_vars/`, and role `vars/`:
 
 - bulk find/replace after a token rotation
 - editing several role secrets in one pass
 - checking what is still referenced before deleting a key
 
-If you only ever edit one vault file, stick with `ansible-vault edit`. If you have ever thought *I wish I could decrypt all the secrets in this repo at once*, pilfer is for that.
+For a single vault file, `ansible-vault edit` is enough. For decrypt-the-whole-tree editing, use pilfer.
 
 Source: [aioue/pilfer](https://github.com/aioue/pilfer) · PyPI: [pilfer](https://pypi.org/project/pilfer/)

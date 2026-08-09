@@ -14,13 +14,13 @@ Scripts: **[arc-loader-automated](https://github.com/aioue/arc-loader-automated)
 
 The scripts include small workarounds for headless use (p1 `/automated`, `arc.offline`, and similar). I tried upstream first - see [Upstream](#upstream) below.
 
-## Who this is for
+## Prerequisites
 
-- You already run **Proxmox** and want a disposable DSM VM for backups, testing, or lab work.
-- You know your **model**, **platform**, and **PAT URL/hash** (or can copy them from a working Arc install).
-- You are comfortable SSHing to Proxmox and the Arc loader (`root` / `arc`).
+- Proxmox, and a disposable DSM VM for backups, testing, or lab work
+- Model, platform, and PAT URL/hash (or copies from a working Arc install)
+- SSH to Proxmox and the Arc loader (`root` / `arc`)
 
-Not covered here: picking a Synology model, licensing grey areas, or production hardening. Arc is community tooling; treat lab VMs as disposable.
+Out of scope: choosing a Synology model, licensing, production hardening. Treat lab VMs as disposable.
 
 ## What you need
 
@@ -110,9 +110,9 @@ Measured **2026-07-31** on Proxmox, disposable test VM:
 
 | Phase | Approx. |
 |-------|---------|
-| Loader first boot → SSH ready | ~30–45 s |
-| Seed + automated reboot + PAT build | ~75–90 s |
-| **First loader boot → DSM `:5000`** | **~2 min** |
+| Loader first boot -> SSH ready | ~30-45 s |
+| Seed + automated reboot + PAT build | ~75-90 s |
+| **First loader boot -> DSM `:5000`** | **~2 min** |
 
 VM create/import time (copying `arc.img` to storage) is extra on first run; subsequent rebuilds skip import if you use `--skip-create`.
 
@@ -125,22 +125,18 @@ VM create/import time (copying `arc.img` to storage) is extra on first run; subs
 | SSH script exits silently | `set -u` in trigger script | Arc libs use unset vars; trigger avoids `-u` |
 | SSH fails after reboot | Stale Proxmox `known_hosts` | Cleared before each hop |
 
-## What's still manual
+## Still manual
 
 - DSM first-boot wizard (`:5000`)
 - Storage pool on the data disk
-- SSH enable in DSM, packages, backup tasks - your use case
+- SSH in DSM, packages, backup tasks
 
 ## Upstream
 
-Before publishing [arc-loader-automated](https://github.com/aioue/arc-loader-automated), I opened small PRs against [AuxXxilium/arc](https://github.com/AuxXxilium/arc) - bug fixes, docs, and helpers - each with repro steps on Arc 3.1.0. Example: [#9536](https://github.com/AuxXxilium/arc/pull/9536) (p1 `/automated` for grub `automated_arc`). They were closed without merge.
-
-That is fine. The useful pattern in open source is: try upstream first, then ship what works in your own repo so others do not rediscover the same traps. These scripts are that layer - workarounds baked in, no dependency on Arc accepting the patches.
+Before publishing [arc-loader-automated](https://github.com/aioue/arc-loader-automated), I opened small PRs against [AuxXxilium/arc](https://github.com/AuxXxilium/arc) (bug fixes, docs, helpers) with repro steps on Arc 3.1.0. Example: [#9536](https://github.com/AuxXxilium/arc/pull/9536) (p1 `/automated` for grub `automated_arc`). They closed without merge, so the workarounds live in this repo instead.
 
 ## Links
 
 - Scripts: [github.com/aioue/arc-loader-automated](https://github.com/aioue/arc-loader-automated)
 - Arc Loader: [github.com/AuxXxilium/arc](https://github.com/AuxXxilium/arc)
 - Issues: [github.com/aioue/arc-loader-automated/issues](https://github.com/aioue/arc-loader-automated/issues)
-
-Questions or improvements: open an issue on the repo.

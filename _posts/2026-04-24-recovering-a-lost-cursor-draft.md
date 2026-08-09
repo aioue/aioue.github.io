@@ -6,13 +6,9 @@ tags: [cursor, sqlite, debugging, productivity]
 hidden: false
 ---
 
-I use [Cursor](https://www.cursor.com/) heavily to manage a personal knowledge base and job search tracker. Tasks, notes, checklists - the Cursor chat box acts like a command interface. I type a block of items, hit send, the agent processes them.
+I use [Cursor](https://www.cursor.com/) as a command interface for a personal knowledge base and job search tracker: type a block of tasks or notes, send, let the agent process them.
 
-Except this time I hit the wrong key and wiped the message before sending.
-
-I'd been adding to that draft over the course of the morning. I knew some of what was in it, but not all of it. I retyped what I could remember and submitted that, but I had a nagging feeling I'd lost something. So I asked a Cursor agent in the same repo to try to recover the original.
-
-What followed was a pretty good piece of detective work through Cursor's internals.
+This time I hit the wrong key and wiped the message before sending. I had been building that draft all morning. I retyped what I remembered and sent that, then asked a Cursor agent in the same repo to dig for the original.
 
 ## The search
 
@@ -27,13 +23,11 @@ Next it went looking in Cursor's SQLite databases on disk. macOS stores Cursor's
 
 The submitted bubbles were all there in `globalStorage/state.vscdb`, but that's only the sent messages. The unsent draft wasn't among them - which makes sense, since I never submitted it.
 
-## The key insight
+## `composerData` in the backup
 
-At this point I mentioned I had hour-old backups of the Cursor app support folder. The agent asked for two specific files from the backup. I restored them to `Cursor_0906/` and `Cursor_1006/` (the timestamps refer to when the backups were taken).
+I mentioned hour-old backups of the Cursor app support folder. The agent asked for two files from the backup; I restored them to `Cursor_0906/` and `Cursor_1006/` (backup times).
 
-That's when it found something interesting: a key called `composerData:<composerId>` in `globalStorage/state.vscdb`.
-
-This key stores the **unsent rich text draft** of the Cursor chat input box as a [Lexical](https://lexical.dev/) editor JSON blob. Lexical is the rich text framework Cursor uses for the chat input. It persists the draft state across quits and restarts - so if you close Cursor mid-thought and reopen it, your unsent message is still there.
+Those copies had a key `composerData:<composerId>` in `globalStorage/state.vscdb`. It holds the unsent rich text draft of the chat input as [Lexical](https://lexical.dev/) JSON. Cursor keeps that draft across quits, which is why an unsent message can still be there after a restart.
 
 The structure looks roughly like this:
 
@@ -56,7 +50,7 @@ The structure looks roughly like this:
 }
 ```
 
-The `text` fields in the Lexical node tree contained the full original message. Compared to what I'd retyped from memory, there were four extra items I'd completely forgotten about and were meaningful thing to have back.
+The `text` fields in the Lexical node tree held the full original message. Against what I had retyped from memory, four extra items came back that I had forgotten.
 
 ## What to check if this happens to you
 
@@ -72,10 +66,10 @@ If you clear an unsent Cursor message and want to recover it:
 
 The composerId you want corresponds to the chat composer where you were typing. If you know the chat session, you can cross-reference the submitted bubble keys (`bubbleId:<composerId>:...`) to confirm which composerId is the right one.
 
-## Luck required
+## Caveat
 
-This only worked because I had a recent backup. If Cursor had already overwritten the `composerData` key - which presumably happens once you open a new composer or send a new message - the draft would be gone from disk too.
+This only worked because of a recent backup. If Cursor had already overwritten `composerData` (likely when you open a new composer or send another message), the draft would be gone from disk too.
 
-The lesson: if you accidentally wipe an important Cursor draft, **stop using Cursor immediately** and back up `~/Library/Application Support/Cursor/` before doing anything else. The draft might still be in `state.vscdb`.
+If you wipe an important unsent draft: stop using Cursor and copy `~/Library/Application Support/Cursor/` first. The text may still sit in `state.vscdb`.
 
-Cursor agent doing forensics on its own app's storage files is a slightly strange loop, but it worked.
+Having a Cursor agent dig through its own storage files is a slightly strange loop, but it worked.
