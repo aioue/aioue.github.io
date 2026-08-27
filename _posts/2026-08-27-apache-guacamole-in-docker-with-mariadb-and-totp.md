@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Apache Guacamole in Docker with MariaDB and TOTP
-date: '2026-08-27 19:00:00'
+date: '2026-08-27 12:00:00'
 tags: [guacamole, ansible, docker, mariadb, totp]
 hidden: false
 ---
