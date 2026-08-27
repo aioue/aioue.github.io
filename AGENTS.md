@@ -75,7 +75,6 @@ This blog contains **technical notes** - short, practical how-to guides and refe
 - **No em-dashes** (Unicode `—`); use ASCII hyphen (`-`) or rephrase. CI runs `./script/check-no-em-dashes.sh`
 - Written for the author's future self (and others searching for solutions)
 - **AI trope check:** before publishing new or rewritten prose, skim [tropes.md](https://tropes.fyi/tropes-md) and remove egregious AI tells (negative parallelism, bold-first bullets, dash addiction, "let's unpack" / signposted conclusions, etc.). Homelab Cursor rule: `blog-aioue.mdc`
-- **Live GitHub snippets:** prefer `{% include github-embed.html repo="owner/name" file="path/in/repo" start="1" end="20" %}` over pasting code that will rot. `start`/`end` are optional 1-based line numbers. The include fetches `raw.githubusercontent.com` in the browser. Wrap fenced blocks that contain `{{` or `{%` in `{% raw %}`.
 
 ### Example Topics
 
