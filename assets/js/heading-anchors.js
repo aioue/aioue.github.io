@@ -8,7 +8,7 @@
       link.href = '#' + heading.id;
       link.setAttribute('aria-label', 'Link to this section');
       link.textContent = '#';
-      heading.appendChild(link);
+      heading.insertBefore(link, heading.firstChild);
     });
   }
 
