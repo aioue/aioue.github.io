@@ -24,7 +24,8 @@ Site will be available at `http://localhost:4000`
 ```
 _posts/           # Blog posts (markdown)
 _layouts/         # Custom layouts (default.html, post.html with Utterances)
-_includes/        # Custom includes (head.html for GA4, favicon, SEO)
+_includes/        # Custom includes (head.html for GA4, favicon, SEO;
+                  # github-embed.html for live GitHub file snippets)
 assets/css/       # Custom CSS (syntax.css for Monokai highlighting)
 assets/main.scss  # Theme CSS import (imports minima)
 _config.yml       # Site configuration
@@ -74,7 +75,6 @@ This blog contains **technical notes** - short, practical how-to guides and refe
 - **No em-dashes** (Unicode `—`); use ASCII hyphen (`-`) or rephrase. CI runs `./script/check-no-em-dashes.sh`
 - Written for the author's future self (and others searching for solutions)
 - **AI trope check:** before publishing new or rewritten prose, skim [tropes.md](https://tropes.fyi/tropes-md) and remove egregious AI tells (negative parallelism, bold-first bullets, dash addiction, "let's unpack" / signposted conclusions, etc.). Homelab Cursor rule: `blog-aioue.mdc`
-- **Live GitHub snippets:** prefer `{% include github-embed.html repo="owner/name" file="path/in/repo" start="1" end="20" %}` over pasting code that will rot. `start`/`end` are optional 1-based line numbers. The include fetches `raw.githubusercontent.com` in the browser. Wrap fenced blocks that contain `{{` or `{%` in `{% raw %}`.
 
 ### Example Topics
 
@@ -197,4 +197,5 @@ fix: correct syntax highlighting for bash blocks
 - **Categories create URL paths** - posts with categories appear at `/category1/category2/YYYY/MM/DD/slug.html`; use tags only for cleaner URLs
 - **Tags don't affect URLs** - use tags for metadata without changing the URL structure
 - **Liquid tags in code blocks need `{% raw %}` wrapper** - wrap code blocks containing `{{ }}` or `{% %}` in `{% raw %}` and `{% endraw %}` to prevent Jekyll from processing them
+- **Live GitHub snippets:** `{% include github-embed.html repo="owner/name" file="path/to/file" %}` fetches the file from `raw.githubusercontent.com` at page load. Optional `ref` (default `main`), `start` and `end` (1-based line numbers). Prefer this over copying long Ansible/YAML into a post when the source of truth is a public repo. Script is `assets/js/github-embed.js`, loaded from `_layouts/default.html`.
 - **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.
