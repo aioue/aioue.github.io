@@ -1,0 +1,20 @@
+{%- assign gh_ref = include.ref | default: 'main' -%}
+{%- assign gh_blob = 'https://github.com/' | append: include.repo | append: '/blob/' | append: gh_ref | append: '/' | append: include.file -%}
+{%- if include.start -%}
+  {%- assign gh_blob = gh_blob | append: '#L' | append: include.start -%}
+  {%- if include.end -%}
+    {%- assign gh_blob = gh_blob | append: '-L' | append: include.end -%}
+  {%- endif -%}
+{%- endif -%}
+<div class="github-embed" data-repo="{{ include.repo }}" data-ref="{{ gh_ref }}" data-file="{{ include.file }}"{% if include.start %} data-start="{{ include.start }}"{% endif %}{% if include.end %} data-end="{{ include.end }}"{% endif %}>
+  <p class="github-embed-meta">
+    <a href="{{ gh_blob }}">{{ include.file }}{% if include.start %} (lines {{ include.start }}{% if include.end %}-{{ include.end }}{% endif %}){% endif %}</a>
+    on
+    <a href="https://github.com/{{ include.repo }}">{{ include.repo }}</a>
+  </p>
+  <div class="highlighter-rouge">
+    <div class="highlight">
+      <pre class="highlight"><code>Loading {{ include.file }}…</code></pre>
+    </div>
+  </div>
+</div>

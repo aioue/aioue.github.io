@@ -199,3 +199,13 @@ pre.highlight {
   overflow-x: auto;
   border-radius: 4px;
 }
+
+/* Live GitHub file embeds (see _includes/github-embed.html) */
+.github-embed-meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.85em;
+}
+
+.github-embed .highlighter-rouge pre {
+  max-height: 36rem;
+}
