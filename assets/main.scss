@@ -52,4 +52,32 @@
   }
 }
 
+// Permalink hashes on kramdown heading ids (h2-h6)
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+  scroll-margin-top: 1.25rem;
+}
+
+.heading-anchor {
+  margin-left: 0.35em;
+  font-weight: 400;
+  font-size: 0.85em;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.3;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor,
+.heading-anchor:hover,
+.heading-anchor:focus {
+  opacity: 0.75;
+}
+
 
