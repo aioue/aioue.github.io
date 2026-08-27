@@ -52,37 +52,12 @@
   }
 }
 
-// GitHub-style heading permalinks: # sits in the left gutter and is
-// visible only while the heading is hovered (or the link is focused).
-// Same layout as github-markdown-css / Ben Balter's GH Pages write-up.
 h2[id],
 h3[id],
 h4[id],
 h5[id],
 h6[id] {
-  position: relative;
   scroll-margin-top: 1.25rem;
-}
-
-.heading-anchor {
-  float: left;
-  margin-left: -1em;
-  padding-right: 0.25em;
-  font-weight: 400;
-  text-decoration: none;
-  color: inherit;
-  opacity: 0;
-  user-select: none;
-  transition: opacity 0.15s ease-in-out;
-}
-
-h2:hover .heading-anchor,
-h3:hover .heading-anchor,
-h4:hover .heading-anchor,
-h5:hover .heading-anchor,
-h6:hover .heading-anchor,
-.heading-anchor:focus {
-  opacity: 0.7;
 }
 
 
