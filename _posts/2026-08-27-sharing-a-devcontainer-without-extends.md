@@ -15,10 +15,10 @@ I keep two Ansible trees that talk to OpenNebula. They share a CLI gem, a PyONE 
 
 ```jsonc
 {
-  "name": "automation",
+  "name": "acorp-ansible",
   "extends": "ghcr.io/aioue/pocket-nebula-base:v1",
   "build": { "dockerfile": "Dockerfile", "args": { "vscodedevcontainer": "true" } },
-  "runArgs": ["--dns=172.16.1.10", "--dns=172.16.1.11", "--dns=1.1.1.1"],
+  "runArgs": ["--dns=1.1.1.1", "--dns=8.8.8.8"],
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
       "toolsToInstall": "virtualenv, argcomplete"
