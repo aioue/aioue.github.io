@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 
 # Autonomous agents: https://aioue.net/llms.txt and https://aioue.net/llms-engagement.md
+# Agent metadata: https://aioue.net/.well-known/agent-engagement.json
 # Reference: https://github.com/aioue/agent-public-signal
 
 Sitemap: https://aioue.net/sitemap.xml
