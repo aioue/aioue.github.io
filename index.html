@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="design-v1"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>aioue.net | Technical notes. Nondescript.</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="aioue.net" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Technical notes. Nondescript." />
+<meta property="og:description" content="Technical notes. Nondescript." />
+<link rel="canonical" href="https://aioue.net/" />
+<meta property="og:url" content="https://aioue.net/" />
+<meta property="og:site_name" content="aioue.net" />
+<meta property="og:image" content="https://aioue.net/og-image.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://aioue.net/og-image.png" />
+<meta property="twitter:title" content="aioue.net" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Technical notes. Nondescript.","headline":"aioue.net","image":"https://aioue.net/og-image.png","name":"aioue.net","url":"https://aioue.net/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/aioue/aioue.github.io/design-preview/assets/main.css">
+<link rel="stylesheet" href="/aioue/aioue.github.io/design-preview/assets/css/syntax.css"><link rel="stylesheet" href="/aioue/aioue.github.io/design-preview/assets/css/design-theme.css"><link type="application/atom+xml" rel="alternate" href="https://aioue.net/feed.xml" title="aioue.net" /><link rel="icon" type="image/x-icon" href="/aioue/aioue.github.io/design-preview/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/aioue/aioue.github.io/design-preview/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/aioue/aioue.github.io/design-preview/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/aioue/aioue.github.io/design-preview/apple-touch-icon.png">
+<link rel="manifest" href="/aioue/aioue.github.io/design-preview/site.webmanifest">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXZ0K52W9G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QXZ0K52W9G');
+</script>
+<body><p class="design-preview-banner" role="status">
+  Design preview <strong>morphe-supabase</strong> — not production.
+  <a href="https://aioue.net/">Live site</a>
+</p><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/aioue/aioue.github.io/design-preview/">aioue.net</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+          <a class="nav-item" href="/aioue/aioue.github.io/design-preview/about/">about</a>
+        </div>
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+
+  <ul class="post-list"><li><span class="post-meta">Aug 27, 2026 • 4 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/08/27/sharing-a-devcontainer-without-extends/">
+              Sharing a devcontainer without extends
+            </a>
+          </h3><p class="post-snippet">I keep two Ansible trees that talk to OpenNebula. They share a CLI gem, a PyONE pin, Cursor rules, and bind-mounts for ~/.one and ~/.ssh. Copying .devcontainer/ between them lasted until the first non-trivial fix landed in only one copy.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/08/27/sharing-a-devcontainer-without-extends/">Continue reading</a></p></li><li><span class="post-meta">Aug 27, 2026 • 4 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/08/27/apache-guacamole-in-docker-with-mariadb-and-totp/">
+              Apache Guacamole in Docker with MariaDB and TOTP
+            </a>
+          </h3><p class="post-snippet">Companion to headless Wayland RDP with GNOME Remote Desktop. That post configures RDP targets; this one runs Apache Guacamole in Docker so you can reach them from a browser.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/08/27/apache-guacamole-in-docker-with-mariadb-and-totp/">Continue reading</a></p></li><li><span class="post-meta">Aug 7, 2026 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/08/07/pilfer-bulk-ansible-vault-edit/">
+              Bulk edit Ansible vault files with pilfer
+            </a>
+          </h3><p class="post-snippet">If you run Ansible at any scale, you eventually want to search across vaulted files or edit several secrets in one sitting. ansible-vault edit is one file at a time. Grep is useless on ciphertext. Decrypting by hand makes it easy to leave a file open.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/08/07/pilfer-bulk-ansible-vault-edit/">Continue reading</a></p></li><li><span class="post-meta">Aug 1, 2026 • 8 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/08/01/atoms3-lite-esphome-ble-proxy-env-iv/">
+              AtomS3 Lite + ENV IV: ESPHome BLE proxy and room sensors in one box
+            </a>
+          </h3><p class="post-snippet">I wanted a Bluetooth proxy near two Vent-Axia Svara extractors (Pax BLE fans), plus temperature, humidity, and pressure in the same spot. An M5Stack AtomS3 Lite (~£9, ESP32-S3) and Unit ENV IV (~£6; EOL from M5Stack, still sold by resellers) cover both in one ESPHome firmware for about...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/08/01/atoms3-lite-esphome-ble-proxy-env-iv/">Continue reading</a></p></li><li><span class="post-meta">Jul 31, 2026 • 3 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/07/31/proxmox-headless-arc-zero-to-dsm/">
+              Zero to Synology DSM on Proxmox: headless Arc install in about 2 minutes
+            </a>
+          </h3><p class="post-snippet">Arc Loader can run Synology DSM in a Proxmox VM without Synology hardware. The usual install path is Config Mode in a browser (http://&lt;ip&gt;:7080) - fine once, tedious if you rebuild test VMs or want reproducible lab setups.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/07/31/proxmox-headless-arc-zero-to-dsm/">Continue reading</a></p></li><li><span class="post-meta">Jul 23, 2026 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/07/23/home-assistant-voice-pe-self-hosted-assist/">
+              Home Assistant Voice PE on a self-hosted Assist pipeline
+            </a>
+          </h3><p class="post-snippet">I wanted a local voice puck without reviving a lapsed Nabu Casa subscription. The Home Assistant Voice Preview Edition is ESP32-S3 hardware with Wyoming STT/TTS into Assist on my HA VM (101 on Proxmox, Ryzen 5650G). After an evening of USB and language-code friction it works. I skipped...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/07/23/home-assistant-voice-pe-self-hosted-assist/">Continue reading</a></p></li><li><span class="post-meta">Jul 22, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/07/22/deskmini-idle-power-tuning-with-an-llm/">
+              Teaching an LLM to tune idle power on a DeskMini
+            </a>
+          </h3><p class="post-snippet">In April I mapped the ASRock X300 BIOS knobs. In July I ran the experiment for real: one change per reboot, wall power from a Zigbee IKEA plug, with a Cursor agent doing SSH, NVRAM writes, and CSV logging.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/07/22/deskmini-idle-power-tuning-with-an-llm/">Continue reading</a></p></li><li><span class="post-meta">Jul 22, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/07/22/unifi-os-caddy-reverse-proxy-websocket/">
+              UniFi OS behind Caddy 2.11 - fixing the permanent loading bar
+            </a>
+          </h3><p class="post-snippet">I proxy my UCG Max through Caddy on a small Ubuntu VM. The login page loaded fine; after signing in, the UI sat on a permanent loading bar.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/07/22/unifi-os-caddy-reverse-proxy-websocket/">Continue reading</a></p></li><li><span class="post-meta">Jul 22, 2026 • 5 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/07/22/arq-mac-backup-plans-and-footguns/">
+              Arq on macOS - backup plan footguns, logs, and arqc
+            </a>
+          </h3><p class="post-snippet">I run Arq 7 on a Mac with two backup plans: a local destination on an external NVMe, and an Arq Premium cloud plan backing up /Users/tom to Arq Cloud Storage. Local backups worked fine. The cloud plan failed repeatedly while uploading hundreds of megabytes of data -...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/07/22/arq-mac-backup-plans-and-footguns/">Continue reading</a></p></li><li><span class="post-meta">Apr 25, 2026 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/04/25/deconstructing-asrock-x300-bios-power-options/">
+              Deconstructing an ASRock X300 BIOS for Proxmox power tuning
+            </a>
+          </h3><p class="post-snippet">My Proxmox host is an ASRock X300M-STX with a Ryzen 5 PRO 5650G: always on, quiet, enough for a handful of VMs and containers. The power and virtualisation knobs that matter live in the BIOS, often under opaque labels.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/04/25/deconstructing-asrock-x300-bios-power-options/">Continue reading</a></p></li><li><span class="post-meta">Apr 24, 2026 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/04/24/recovering-a-lost-cursor-draft/">
+              Recovering a lost Cursor chat draft with SQLite and Lexical JSON
+            </a>
+          </h3><p class="post-snippet">I use Cursor as a command interface for a personal knowledge base and job search tracker: type a block of tasks or notes, send, let the agent process them.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/04/24/recovering-a-lost-cursor-draft/">Continue reading</a></p></li><li><span class="post-meta">Mar 22, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/03/22/anydown-backup-any-do-tasks/">
+              Backing up Any.do tasks with any.down
+            </a>
+          </h3><p class="post-snippet">I’ve used Any.do for task management for years. It is simple and stays out of the way. It also has no export or backup (their support page confirms it), so a deleted list or a dead service would take the data with it.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/03/22/anydown-backup-any-do-tasks/">Continue reading</a></p></li><li><span class="post-meta">Mar 22, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/03/22/ansible-unifi-inventory-plugin/">
+              Dynamic Ansible inventory from a UniFi controller
+            </a>
+          </h3><p class="post-snippet">aioue.network is an Ansible collection that turns your UniFi OS controller into a dynamic inventory source. It queries clients (and optionally devices) from a UDM, UCG, or similar controller and makes them available as Ansible hosts, grouped by connection type, VLAN, SSID, and network name.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/03/22/ansible-unifi-inventory-plugin/">Continue reading</a></p></li><li><span class="post-meta">Mar 21, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/03/21/canon-mg6250-macos-driver-bundle/">
+              Keeping a Canon PIXMA MG6250 alive on modern macOS
+            </a>
+          </h3><p class="post-snippet">Canon dropped macOS support for the PIXMA MG6250 after High Sierra (10.13). The hardware still works fine, but there are no official drivers for anything newer. I put together canon-mg6250-mac-driver-bundle - a set of shell scripts that extract and install Canon’s last official drivers on current macOS, including...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/03/21/canon-mg6250-macos-driver-bundle/">Continue reading</a></p></li><li><span class="post-meta">Feb 27, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/02/27/utterances-to-giscus/">
+              Moving blog comments from Utterances to Giscus
+            </a>
+          </h3><p class="post-snippet">This blog used Utterances for comments, which stores them as GitHub Issues. It worked well, but I’ve switched to Giscus, which uses GitHub Discussions instead. The main reason is security.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/02/27/utterances-to-giscus/">Continue reading</a></p></li><li><span class="post-meta">Feb 26, 2026 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/02/26/ansible-proxmox-inventory-dhcp-vms/">
+              Ansible Proxmox Inventory and DHCP VMs
+            </a>
+          </h3><p class="post-snippet">Fix for community.general.proxmox (now community.proxmox.proxmox) dynamic inventory not setting ansible_host for QEMU VMs with DHCP networking. Without this, you need -e ansible_host=192.168.1.x every time you target the VM.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/02/26/ansible-proxmox-inventory-dhcp-vms/">Continue reading</a></p></li><li><span class="post-meta">Jan 21, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/01/21/wayland-gnome-remote-desktop-under-opennebula/">
+              Ubuntu Desktop VM for RDP on OpenNebula
+            </a>
+          </h3><p class="post-snippet">Transform the OpenNebula Marketplace Ubuntu Server 24.04 image into an RDP-capable desktop VM. This is part 1 of getting RDP working - see part 2 for GNOME Remote Desktop configuration.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/01/21/wayland-gnome-remote-desktop-under-opennebula/">Continue reading</a></p></li><li><span class="post-meta">Jan 21, 2026 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/01/21/jekyll-minima-remote-theme-css-not-loading/">
+              Jekyll Minima remote_theme CSS not loading on GitHub Pages
+            </a>
+          </h3><p class="post-snippet">Fix for Jekyll sites using remote_theme: jekyll/minima where CSS loads on the homepage but not on post pages.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/01/21/jekyll-minima-remote-theme-css-not-loading/">Continue reading</a></p></li><li><span class="post-meta">Jan 21, 2026 • 4 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2026/01/21/gnome-remote-desktop-rdp-ubuntu-24.04/">
+              Headless Wayland RDP with GNOME Remote Desktop on Ubuntu 24.04
+            </a>
+          </h3><p class="post-snippet">Set up headless multi-user RDP access on Ubuntu 24.04 using GNOME Remote Desktop, following official GNOME documentation. Ansible configuration below.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2026/01/21/gnome-remote-desktop-rdp-ubuntu-24.04/">Continue reading</a></p></li><li><span class="post-meta">Apr 22, 2023 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2023/04/22/openwrt-snapshot-on-fritz!box-7530/">
+              OpenWrt Snapshot on FRITZ!Box 7530
+            </a>
+          </h3><p class="post-snippet">Install OpenWrt 22.03.4 release on FRITZ!Box 7530, then sysupgrade to SNAPSHOT to enable the VRX518 VDSL modem.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2023/04/22/openwrt-snapshot-on-fritz!box-7530/">Continue reading</a></p></li><li><span class="post-meta">May 23, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/23/use-the-aptly-rest-api-with-curl/">
+              Use the aptly REST API with curl
+            </a>
+          </h3><p class="post-snippet">aptly is good. Very good. If you’ve got it installed, use the REST API to get your work done.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/23/use-the-aptly-rest-api-with-curl/">Continue reading</a></p></li><li><span class="post-meta">May 23, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/23/install-aptly-with-ansible/">
+              Install aptly with Ansible
+            </a>
+          </h3><p class="post-snippet">aptly is the best thing to happen to debian repository management since sliced bread.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/23/install-aptly-with-ansible/">Continue reading</a></p></li><li><span class="post-meta">May 23, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/23/install-vmware-deployPkg/">
+              Install VMware deployPkg
+            </a>
+          </h3><p class="post-snippet">deployPkg is sometimes needed for guest customization and is missing from open-vm-tools for no good reason.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/23/install-vmware-deployPkg/">Continue reading</a></p></li><li><span class="post-meta">May 23, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/23/install-vmware-legacy-tools/">
+              Install VMware legacy tools
+            </a>
+          </h3><p class="post-snippet">VMware are moving away from the classic VMware tooling to open-vm-tools, available in most distros as standard. This is a Good Thing (tm).</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/23/install-vmware-legacy-tools/">Continue reading</a></p></li><li><span class="post-meta">May 23, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/23/start-a-simple-http-server-with-python/">
+              Start a simple http server with python
+            </a>
+          </h3><p class="post-snippet">python -mSimpleHTTPServer</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/23/start-a-simple-http-server-with-python/">Continue reading</a></p></li><li><span class="post-meta">May 22, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/22/testing-prose.io/">
+              Testing Prose.io
+            </a>
+          </h3><p class="post-snippet">Basic, WYSIWYG markdown editor.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/22/testing-prose.io/">Continue reading</a></p></li><li><span class="post-meta">May 11, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/11/download-the-deb-file-from-a-ppa/">
+              Download a deb file from a PPA
+            </a>
+          </h3><p class="post-snippet">haproxy example</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/11/download-the-deb-file-from-a-ppa/">Continue reading</a></p></li><li><span class="post-meta">May 11, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/11/get-oracle-java-zip-and-turn-it-into-a-debian-package/">
+              Get Oracle Java zip and turn it into a debian package
+            </a>
+          </h3><p class="post-snippet">get JRE/JDK from Oracle’s site
+  rename its extension to ‘tar.gz’
+  install java-package
+sudo apt-get install java-package
+  build a .deb file
+fakeroot make-jpkg server-jre-8u40-linux-x64.tar.gz</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/11/get-oracle-java-zip-and-turn-it-into-a-debian-package/">Continue reading</a></p></li><li><span class="post-meta">May 11, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/05/11/sftp-timing-out-with-proftpd-server/">
+              sftp timing out with ProFTPD server
+            </a>
+          </h3><p class="post-snippet">Old version of ProFTPD doesn’t support the default key exchange set so sftp was timing out.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/05/11/sftp-timing-out-with-proftpd-server/">Continue reading</a></p></li><li><span class="post-meta">Apr 13, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/04/13/command-line-smtp-server-test/">
+              Command line SMTP server test
+            </a>
+          </h3><p class="post-snippet">Swaks - Swiss Army Knife for SMTP</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/04/13/command-line-smtp-server-test/">Continue reading</a></p></li><li><span class="post-meta">Feb 5, 2015 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2015/02/05/get-users-without-a-profile-photo-on-google-apps/">
+              Get users without a profile photo on Google Apps
+            </a>
+          </h3><p class="post-snippet">To find users without a profile photo or avatar, run this in the Google Apps Script editor:</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2015/02/05/get-users-without-a-profile-photo-on-google-apps/">Continue reading</a></p></li><li><span class="post-meta">Sep 24, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/09/24/add-second-nic-with-dhcp-interface-to-vmware-vcenter-server-appliance/">
+              Add second NIC with DHCP interface to VMware vCenter Server Appliance
+            </a>
+          </h3><p class="post-snippet">Add the NIC to the box in the vCenter client
+  Reboot the box
+  SSH in
+  In [/etc/sysconfig/network/dhcp] change DHCLIENT_HOSTNAME_OPTION from AUTO to hostname (e.g. foo.domain)
+  Copy [/etc/sysconfig/network/ifcfg-eth0] to ifcfg-eth1
+  run sudo /opt/vmware/share/vami/vami_config_net and set config for eth1 to DHCP
+  service network restart</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/09/24/add-second-nic-with-dhcp-interface-to-vmware-vcenter-server-appliance/">Continue reading</a></p></li><li><span class="post-meta">Aug 22, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/08/22/show-what-files-are-installed-by-an-rpm-package/">
+              Show what files are installed by an rpm package
+            </a>
+          </h3><p class="post-snippet">rpm –ql &lt;package name&gt;</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/08/22/show-what-files-are-installed-by-an-rpm-package/">Continue reading</a></p></li><li><span class="post-meta">Jul 14, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/07/14/enable-ipv4-forwarding/">
+              Enable ipv4 forwarding
+            </a>
+          </h3><p class="post-snippet">enable ipv4 forwarding (not permanent over reboots!)</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/07/14/enable-ipv4-forwarding/">Continue reading</a></p></li><li><span class="post-meta">Jun 19, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/06/19/install-closed-source-nvidia-drivers-for-quadro-5000-on-centos-6-5-using-elrepo/">
+              Install closed source nVidia drivers for Quadro 5000 on CentOS 6.5 using ELRepo
+            </a>
+          </h3><p class="post-snippet">rpm --import http://elrepo.org/RPM-GPG-KEY-elrepo.org
+rpm -Uvh http://elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
+yum install kmod-nvidia
+reboot</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/06/19/install-closed-source-nvidia-drivers-for-quadro-5000-on-centos-6-5-using-elrepo/">Continue reading</a></p></li><li><span class="post-meta">Feb 18, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/02/18/rename-a-windows-computer-using-command-line-powershell/">
+              Rename a Windows computer using command line powershell
+            </a>
+          </h3><p class="post-snippet">netdom renamecomputer "$env:COMPUTERNAME" /Newname "myname"</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/02/18/rename-a-windows-computer-using-command-line-powershell/">Continue reading</a></p></li><li><span class="post-meta">Jan 27, 2014 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2014/01/27/manually-install-xenserver-6-2-0-service-pack-1/">
+              Manually Install XenServer 6.2.0 Service Pack 1
+            </a>
+          </h3><p class="post-snippet">Download the file from Citrix Unpack the zip and copy the files to the root home dir on your machine SSH in and type xe patch-upload file-name=XS62ESP1.xsupdate Wait a few mins and it’ll spit out a UUID when it’s done. Use this for the next command. xe patch-apply...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2014/01/27/manually-install-xenserver-6-2-0-service-pack-1/">Continue reading</a></p></li><li><span class="post-meta">Oct 22, 2013 • 2 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/10/22/install-git-stash-and-import-svn-on-ubuntu-12-04-xenserver-guest/">
+              Install Git, Stash and import SVN on Ubuntu 12.04 XenServer guest
+            </a>
+          </h3><p class="post-snippet">Goal</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/10/22/install-git-stash-and-import-svn-on-ubuntu-12-04-xenserver-guest/">Continue reading</a></p></li><li><span class="post-meta">Oct 16, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/10/16/turn-off-synology-leds/">
+              Turn off Synology LEDs
+            </a>
+          </h3><p class="post-snippet"># Power LED off
+echo \\6 &gt;/dev/ttyS1
+# Status LED off
+echo \\7 &gt; /dev/ttyS1
+# Copy LED off
+echo \\B &gt; /dev/ttyS1</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/10/16/turn-off-synology-leds/">Continue reading</a></p></li><li><span class="post-meta">Oct 11, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/10/11/upgrade-cisco-ios-and-asdm-from-ubuntu-linux/">
+              Upgrade Cisco IOS and ASDM from Ubuntu Linux
+            </a>
+          </h3><p class="post-snippet">Make sure PC can ping (or contact) ASA.
+Install tftpd-hpa (defaults work fine, but conf is /etc/default/tftpd-hpa)
+Run it:</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/10/11/upgrade-cisco-ios-and-asdm-from-ubuntu-linux/">Continue reading</a></p></li><li><span class="post-meta">Oct 11, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/10/11/reset-cisco-switch-to-factory-settings/">
+              Reset Cisco switch to factory settings
+            </a>
+          </h3><p class="post-snippet">Reset Cisco switch to factory settings
+enable  
+config  
+config factory-settings  
+copy run start  
+reload
+
+show IOS version
+show version ###### show all file systems  
+show file system ###### show files on file system  
+show (flash0|disk0 etc):</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/10/11/reset-cisco-switch-to-factory-settings/">Continue reading</a></p></li><li><span class="post-meta">Sep 24, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/09/24/xenserver-6-2-iscsi-wont-connect-to-synology-4-3/">
+              XenServer 6.2 iSCSI won&#39;t connect to Synology 4.3
+            </a>
+          </h3><p class="post-snippet">When attaching an iSCSI LUN to a XenServer pool - only the master connects and the rest remain unplugged.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/09/24/xenserver-6-2-iscsi-wont-connect-to-synology-4-3/">Continue reading</a></p></li><li><span class="post-meta">Sep 18, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/09/18/updateupgrade-dell-poweredge-server-firmware-under-xenserver-6-2/">
+              Update/upgrade Dell PowerEdge Server firmware under XenServer 6.2
+            </a>
+          </h3><p class="post-snippet">Run these command on all of your host machines. Don’t reboot the pool master if using pools - change it to a machine that has already rebooted and settled before rebooting the original master.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/09/18/updateupgrade-dell-poweredge-server-firmware-under-xenserver-6-2/">Continue reading</a></p></li><li><span class="post-meta">Sep 6, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/09/06/quickly-open-a-dell-powerconnect-or-anything-serial-console-in-linux/">
+              Quickly open a Dell PowerConnect (or anything) serial console in Linux
+            </a>
+          </h3><p class="post-snippet">Find your serial port(s)</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/09/06/quickly-open-a-dell-powerconnect-or-anything-serial-console-in-linux/">Continue reading</a></p></li><li><span class="post-meta">Aug 28, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/08/28/quickly-install-telnet-client-on-windows-server/">
+              Quickly install telnet client on Windows server
+            </a>
+          </h3><p class="post-snippet">pkgmgr /iu:"TelnetClient"</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/08/28/quickly-install-telnet-client-on-windows-server/">Continue reading</a></p></li><li><span class="post-meta">Apr 12, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/04/12/run-windows-8-from-an-encrypted-external-usb-drive-on-your-macbook-pro/">
+              Run Windows 8 from an encrypted external USB drive on your Macbook Pro
+            </a>
+          </h3><p class="post-snippet">I need windows for work and gaming and I didn’t want to give up space to bootcamp on my internal drive so I installed Windows on an external USB drive by doing this:</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/04/12/run-windows-8-from-an-encrypted-external-usb-drive-on-your-macbook-pro/">Continue reading</a></p></li><li><span class="post-meta">Mar 11, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/03/11/reset-dell-bios-password/">
+              Reset Dell BIOS password
+            </a>
+          </h3><p class="post-snippet">Explanation.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/03/11/reset-dell-bios-password/">Continue reading</a></p></li><li><span class="post-meta">Mar 8, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/03/08/cant-install-aws-sdk-gem/">
+              Can&#39;t install aws-sdk gem
+            </a>
+          </h3><p class="post-snippet">Error:
+user@host:~$ sudo gem install aws-sdk
+Building native extensions. This could take a while...
+ERROR: Error installing aws-sdk:
+ERROR: Failed to build gem native extension.
+/usr/bin/ruby1.8 extconf.rb
+checking for libxml/parser.h... no
+-----
+libxml2 is missing. please visit http://nokogiri.org/tutorials/installing_nokogiri.html for help with installing dependencies.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/03/08/cant-install-aws-sdk-gem/">Continue reading</a></p></li><li><span class="post-meta">Mar 3, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/03/03/headphones-not-working-on-dell-latitude-e4310-on-windows-8/">
+              Headphones not working on Dell Latitude E4310 on Windows 8
+            </a>
+          </h3><p class="post-snippet">Spontaneously stopped producing sound when plugged in. Were still being recognized as being connected but totally silent.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/03/03/headphones-not-working-on-dell-latitude-e4310-on-windows-8/">Continue reading</a></p></li><li><span class="post-meta">Feb 14, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/02/14/scrub-synology-raid-disks/">
+              Scrub Synology RAID disks
+            </a>
+          </h3><p class="post-snippet">UPDATE 2014-09-25: fsck command updated for Synology DSM 5.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/02/14/scrub-synology-raid-disks/">Continue reading</a></p></li><li><span class="post-meta">Feb 8, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/02/08/convert-aws-ec2-volumewriteops-to-opss/">
+              Convert AWS EC2 VolumeWriteOps to Ops/s
+            </a>
+          </h3><p class="post-snippet">When looking at the volume monitoring tab in EC2 you’ll see write throughput measured in ops/s. In CloudWatch however you are given VolumeWriteOps, and it’s not immediately obvious that this is per minute.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/02/08/convert-aws-ec2-volumewriteops-to-opss/">Continue reading</a></p></li><li><span class="post-meta">Jan 24, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/01/24/activate-windows-8/">
+              Activate Windows 8
+            </a>
+          </h3><p class="post-snippet">Open an administrator command prompt by moving your mouse to the bottom left corner of the screen, right clicking when the start panel icon appears and then click ‘Command Prompt (Admin)’. Install your product key using slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx where xxxxx is your product key. Type slmgr /ato...</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/01/24/activate-windows-8/">Continue reading</a></p></li><li><span class="post-meta">Jan 18, 2013 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2013/01/18/deletebackspace-doesnt-work-in-terminal-or-some-programs-when-sshd/">
+              Delete/backspace doesn&#39;t work in terminal or some programs when SSH&#39;d
+            </a>
+          </h3><p class="post-snippet">Encountered during an OSSEC install - when pressing delete, ^H is printed instead.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2013/01/18/deletebackspace-doesnt-work-in-terminal-or-some-programs-when-sshd/">Continue reading</a></p></li><li><span class="post-meta">Aug 14, 2012 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2012/08/14/office365-user-can-use-owa-but-not-connect-with-outlook-after-deleting-and-recreating-user/">
+              Office 365 user can use OWA but not connect with Outlook after deleting and recreating user.
+            </a>
+          </h3><p class="post-snippet">Problem is that soft deleted user in AD recycle bin is conflicting with newly created user.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2012/08/14/office365-user-can-use-owa-but-not-connect-with-outlook-after-deleting-and-recreating-user/">Continue reading</a></p></li><li><span class="post-meta">May 28, 2012 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2012/05/28/how-to-log-in-as-window-domain-admin-without-knowing-the-domain/">
+              How to log in as Windows domain admin without knowing the domain
+            </a>
+          </h3><p class="post-snippet">Want to log in as the domain administrator but don’t know the domain?
+Use the following username:</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2012/05/28/how-to-log-in-as-window-domain-admin-without-knowing-the-domain/">Continue reading</a></p></li><li><span class="post-meta">May 25, 2012 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2012/05/25/disable-windows-firewall-on-an-unresponsive-aws-machine/">
+              Disable Windows firewall on an unresponsive AWS machine
+            </a>
+          </h3><p class="post-snippet">Courtesy of AWS support</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2012/05/25/disable-windows-firewall-on-an-unresponsive-aws-machine/">Continue reading</a></p></li><li><span class="post-meta">May 3, 2012 • 1 min read</span>
+          <h3>
+            <a class="post-link" href="/aioue/aioue.github.io/design-preview/2012/05/03/renaming-ossec-hosts/">
+              Renaming OSSEC hosts
+            </a>
+          </h3><p class="post-snippet">OSSEC hosts can be centrally renamed by editing the etc/client-keys file.</p>
+            <p class="post-snippet-more"><a href="/aioue/aioue.github.io/design-preview/2012/05/03/renaming-ossec-hosts/">Continue reading</a></p></li></ul>
+
+    </div>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+<style>
+  .site-footer .social-media-list {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+  }
+</style>
+<footer class="site-footer h-card">
+  <data class="u-url" value="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col" style="text-align: right;">
+        <p>Technical notes. Nondescript.</p>
+        <p><a href="https://github.com/aioue/aioue.github.io/actions/workflows/pages/pages-build-deployment"><img alt="GitHub Actions Workflow Status" src="https://github.com/aioue/aioue.github.io/actions/workflows/pages/pages-build-deployment/badge.svg"></a></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/aioue" target="_blank" title="GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://aioue.net/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<script src="/aioue/aioue.github.io/design-preview/assets/js/copy-code.js" defer></script>
+<script src="/aioue/aioue.github.io/design-preview/assets/js/github-embed.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+<script>
+  anchors.options = {
+    placement: 'left',
+    visible: 'hover',
+    icon: '#'
+  };
+  anchors.add('main h2, main h3, main h4, main h5, main h6');
+</script>
+</body>
+</html>

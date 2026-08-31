@@ -1,0 +1,211 @@
+/* Monokai syntax highlighting for Rouge */
+/* Override Minima's CSS variables for code blocks */
+div.highlighter-rouge,
+figure.highlight {
+  --minima-code-background-color: #272822;
+}
+
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2 !important;
+  background-color: #272822 !important;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kc {
+  color: #ae81ff;
+}
+.highlight .kt {
+  color: #ae81ff;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #e6db74;
+}
+.highlight .sa {
+  color: #f92672;
+}
+.highlight .sr {
+  color: #a6e22e;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .n {
+  color: #f8f8f2;
+}
+.highlight .nv, .highlight .vm, .highlight .vi, .highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f4bf75;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #66d9ef;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .gu {
+  color: #75715e;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+
+/* Code block styling - force dark background in both light and dark modes */
+div.highlighter-rouge,
+figure.highlight,
+div.highlighter-rouge pre,
+figure.highlight pre,
+div.highlighter-rouge pre.highlight,
+figure.highlight pre.highlight,
+.post-content div.highlighter-rouge,
+.post-content figure.highlight,
+.post-content div.highlighter-rouge pre,
+.post-content figure.highlight pre {
+  background-color: #272822 !important;
+  border-color: #272822 !important;
+}
+
+/* Target pre and code inside highlighter more specifically */
+div.highlighter-rouge > div.highlight > pre,
+div.highlighter-rouge > div.highlight > pre > code,
+figure.highlight > pre,
+figure.highlight > pre > code {
+  background-color: #272822 !important;
+  color: #f8f8f2 !important;
+}
+
+div.highlighter-rouge, figure.highlight {
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper injected by copy-code.html JS */
+.code-block-wrapper {
+  position: relative;
+  margin: 1em 0;
+}
+
+/* Copy button */
+.copy-code-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.15em 0.5em;
+  font-size: 0.72em;
+  font-family: sans-serif;
+  background: rgba(61, 61, 47, 0.85);
+  color: #a8a8a0;
+  border: 1px solid #555544;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+  user-select: none;
+  z-index: 2;
+  line-height: 1.5;
+}
+
+.code-block-wrapper:hover .copy-code-btn {
+  opacity: 1;
+}
+
+.copy-code-btn:hover {
+  background: rgba(85, 85, 68, 0.95);
+  color: #f8f8f2;
+}
+
+.copy-code-btn.copied {
+  color: #a6e22e;
+  border-color: #a6e22e;
+}
+
+pre.highlight {
+  padding: 1em;
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+/* Live GitHub file embeds (see _includes/github-embed.html) */
+.github-embed-meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.85em;
+}
+
+.github-embed .highlighter-rouge pre {
+  max-height: 36rem;
+}
