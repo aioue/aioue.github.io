@@ -26,6 +26,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://aioue.net"
 github_username: aioue
 
+# Design preview (design/* branches only — unset on master)
+design_theme: morphe-supabase
+
 agent_engagement:
   github_owner: aioue
   github_repo: aioue.github.io

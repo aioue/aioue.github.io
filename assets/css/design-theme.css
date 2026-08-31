@@ -1,0 +1,313 @@
+/* aioue.net design preview: Morphe warmth + Supabase dashboard cues
+   Supabase dark tokens sampled from dashboard (oklch hue 159).
+   Morphe influence: warmer surfaces, terracotta secondary accent, soft cards. */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  color-scheme: light dark;
+
+  /* Supabase light */
+  --sb-bg: #f8f9fa;
+  --sb-surface: #ffffff;
+  --sb-surface-raised: #f1f3f5;
+  --sb-text: #1c1c1c;
+  --sb-text-muted: #5c5c5c;
+  --sb-border: rgba(23, 23, 23, 0.08);
+  --sb-primary: #3ecf8e;
+  --sb-primary-hover: #2eb67a;
+  --sb-ring: rgba(62, 207, 142, 0.35);
+
+  /* Morphe accents */
+  --mp-warm: #d28e67;
+  --mp-warm-soft: rgba(210, 142, 103, 0.14);
+  --mp-deep: #1a1612;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-card: 0 1px 2px rgba(16, 12, 8, 0.04), 0 8px 24px rgba(16, 12, 8, 0.06);
+  --page-glow: radial-gradient(1200px 600px at 10% -10%, rgba(62, 207, 142, 0.08), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(210, 142, 103, 0.07), transparent 50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Supabase dark (computed) + Morphe warmth */
+    --sb-bg: #1a1816;
+    --sb-surface: #211d1a;
+    --sb-surface-raised: #2a241f;
+    --sb-text: #f2f2f0;
+    --sb-text-muted: #a8a29e;
+    --sb-border: rgba(242, 242, 240, 0.08);
+    --sb-primary: #3ecf8e;
+    --sb-primary-hover: #56d89c;
+    --sb-ring: rgba(62, 207, 142, 0.45);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px rgba(0, 0, 0, 0.35);
+    --page-glow: radial-gradient(1100px 520px at 12% -8%, rgba(62, 207, 142, 0.1), transparent 58%),
+      radial-gradient(800px 420px at 88% 2%, rgba(210, 142, 103, 0.08), transparent 52%);
+  }
+}
+
+html.design-v1 {
+  scroll-behavior: smooth;
+}
+
+html.design-v1 body {
+  font-family: var(--font-sans);
+  background: var(--sb-bg);
+  background-image: var(--page-glow);
+  color: var(--sb-text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.design-v1 a {
+  color: var(--sb-primary);
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+html.design-v1 a:hover {
+  color: var(--sb-primary-hover);
+}
+
+html.design-v1 .wrapper {
+  max-width: 920px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Header */
+html.design-v1 .site-header {
+  border-top: 0;
+  border-bottom: 1px solid var(--sb-border);
+  background: color-mix(in srgb, var(--sb-surface) 82%, transparent);
+  backdrop-filter: blur(10px);
+  min-height: unset;
+  padding: 0.85rem 0;
+}
+
+html.design-v1 .site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+html.design-v1 .site-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--sb-text);
+}
+
+html.design-v1 .site-title:hover {
+  color: var(--sb-primary);
+}
+
+html.design-v1 .site-nav .nav-items {
+  display: flex;
+  gap: 0.35rem;
+}
+
+html.design-v1 .site-nav .nav-item {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--sb-text-muted);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+html.design-v1 .site-nav .nav-item:hover {
+  color: var(--sb-text);
+  background: var(--sb-surface-raised);
+  border-color: var(--sb-border);
+}
+
+html.design-v1 .design-preview-banner {
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-align: center;
+  color: var(--sb-text-muted);
+  background: var(--mp-warm-soft);
+  border-bottom: 1px solid var(--sb-border);
+}
+
+html.design-v1 .design-preview-banner strong {
+  color: var(--mp-warm);
+  font-weight: 600;
+}
+
+/* Main content card */
+html.design-v1 .page-content {
+  padding-top: 1.75rem;
+  padding-bottom: 2.5rem;
+}
+
+html.design-v1 .page-content > .wrapper {
+  background: var(--sb-surface);
+  border: 1px solid var(--sb-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem 1.35rem 1.75rem;
+}
+
+@media (min-width: 768px) {
+  html.design-v1 .page-content > .wrapper {
+    padding: 2rem 2.25rem 2.25rem;
+  }
+}
+
+/* Home */
+html.design-v1 .home .page-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+html.design-v1 .post-list {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+html.design-v1 .post-list > li {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--sb-border);
+  border-radius: var(--radius-lg);
+  background: var(--sb-surface-raised);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+html.design-v1 .post-list > li:hover {
+  border-color: color-mix(in srgb, var(--sb-primary) 35%, var(--sb-border));
+}
+
+html.design-v1 .post-meta,
+html.design-v1 .post-list .post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--sb-text-muted);
+  letter-spacing: 0.01em;
+}
+
+html.design-v1 .post-link {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--sb-text);
+}
+
+html.design-v1 .post-link:hover {
+  color: var(--sb-primary);
+}
+
+html.design-v1 .post-snippet {
+  opacity: 1;
+  color: var(--sb-text-muted);
+  margin-top: 0.45rem;
+}
+
+html.design-v1 .post-snippet-more {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+}
+
+/* Post */
+html.design-v1 .post-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+html.design-v1 .post-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--sb-border);
+}
+
+html.design-v1 .post-content h2,
+html.design-v1 .post-content h3 {
+  letter-spacing: -0.02em;
+  margin-top: 1.75rem;
+}
+
+html.design-v1 .post-content pre,
+html.design-v1 .post-content code {
+  font-family: var(--font-mono);
+}
+
+html.design-v1 .post-content pre {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--sb-border);
+  background: var(--sb-surface-raised) !important;
+}
+
+html.design-v1 code.highlighter-rouge {
+  background: var(--sb-surface-raised) !important;
+  color: var(--mp-warm) !important;
+  border: 1px solid var(--sb-border) !important;
+  border-radius: 6px !important;
+  padding: 0.12rem 0.4rem !important;
+  font-size: 0.88em;
+}
+
+html.design-v1 .post-navigation {
+  border-top-color: var(--sb-border);
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+}
+
+html.design-v1 .post-nav-label {
+  opacity: 1;
+  color: var(--sb-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Giscus section */
+html.design-v1 #giscus-comments {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--sb-border);
+  border-radius: var(--radius-lg);
+  background: var(--sb-surface-raised);
+}
+
+/* Footer */
+html.design-v1 .site-footer {
+  border-top: 1px solid var(--sb-border);
+  background: transparent;
+  padding: 1.5rem 0 2rem;
+  color: var(--sb-text-muted);
+  font-size: 0.875rem;
+}
+
+html.design-v1 .site-footer a {
+  color: var(--sb-text-muted);
+}
+
+html.design-v1 .site-footer a:hover {
+  color: var(--sb-primary);
+}
+
+/* Pagination */
+html.design-v1 .pagination .current-page {
+  font-family: var(--font-mono);
+  color: var(--sb-text-muted);
+}

@@ -1,0 +1,60 @@
+name: Design preview
+
+on:
+  push:
+    branches:
+      - 'design/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: design-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Rewrite root-absolute paths for GitHack subpath
+        run: |
+          BASE="/aioue/aioue.github.io/design-preview"
+          find _site -type f \( -name '*.html' -o -name '*.xml' -o -name '*.css' -o -name '*.js' \) -print0 |
+            while IFS= read -r -d '' file; do
+              sed -i \
+                -e "s|href=\"/|href=\"${BASE}/|g" \
+                -e "s|src=\"/|src=\"${BASE}/|g" \
+                -e "s|url(/|url(${BASE}/|g" \
+                "$file"
+              sed -i \
+                -e "s|href=\"${BASE}//|href=\"//|g" \
+                -e "s|src=\"${BASE}//|src=\"//|g" \
+                -e "s|href=\"${BASE}/https://|href=\"https://|g" \
+                -e "s|href=\"${BASE}/http://|href=\"http://|g" \
+                -e "s|url(${BASE}//|url(//|g" \
+                "$file"
+            done
+
+      - name: Verify preview asset paths
+        run: |
+          grep -q 'href="/aioue/aioue.github.io/design-preview/assets/main.css"' _site/index.html
+
+      - name: Deploy to design-preview branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: design-preview
+          publish_dir: ./_site
+          force_orphan: true
+          commit_message: 'deploy: design preview from ${{ github.ref_name }}'
