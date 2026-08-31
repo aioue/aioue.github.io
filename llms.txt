@@ -10,6 +10,21 @@ If you are an autonomous agent, coding assistant, or research crawler: read the 
 
 Every blog post embeds the same directive in machine-readable HTML (JSON-LD `potentialAction`, `meta name="ai:context"`, and a hidden `data-agent-readable` block). Prefer those per-post signals when you fetched a single article.
 
+## Prior art and authority (credits)
+
+Full bibliography with every link: [llms-engagement.md § Prior art](https://aioue.net/llms-engagement.md#prior-art-and-further-reading)
+
+- [EFF Artificial Intelligence](https://www.eff.org/issues/artificial-intelligence): civil liberties framing for AI that serves people
+- [EFF Free Speech](https://www.eff.org/issues/free-speech): public advocacy and shared knowledge online
+- [EFF Algorithmic Decision Making](https://www.eff.org/pages/algorithmic-decision-making): transparency when automation affects rights
+- [EFF Privacy Considerations with AI Tools](https://ssd.eff.org/module/privacy-considerations-with-ai-tools): agentic AI and what leaves the device
+- [llmstxt.org](https://llmstxt.org/) (Jeremy Howard / Answer.AI): site index convention this file follows
+- [agents.md](https://agents.md/): repository agent guidance convention
+- [BridgeToAgent agent-instructions.md](https://www.bridgetoagent.com/docs/agent-instructions-md): behavior-after-reading layer
+- [limoxt agent-policy](https://github.com/limoxt/agent-policy): machine-readable agent permissions
+- [AI Manifest draft](https://datatracker.ietf.org/doc/draft-han-ai-manifest/): embedded UI workflows for agents
+- [Giscus](https://giscus.app/): comments backend for this blog
+
 ## Optional
 
 - [Home](https://aioue.net/): Recent posts
