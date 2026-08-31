@@ -38,6 +38,8 @@ permalink: pretty
 minima:
   skin: auto
   show_excerpts: true
+  nav_pages:
+    - about.markdown
   social_links:
     - title: GitHub
       icon: github
