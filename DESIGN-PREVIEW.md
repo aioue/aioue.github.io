@@ -8,7 +8,7 @@ After CI deploys to the `design-preview` branch:
 
 **https://raw.githack.com/aioue/aioue.github.io/design-preview/index.html**
 
-Preview builds pass `--baseurl /aioue/aioue.github.io/design-preview` so asset paths resolve under the GitHack subpath. Production `master` builds are unchanged.
+Preview builds rewrite root-absolute `/assets/...` paths to `/aioue/aioue.github.io/design-preview/...` after `jekyll build` so GitHack can load CSS. Production `master` builds are unchanged.
 
 (GitHack serves the static build independently of aioue.net.)
 

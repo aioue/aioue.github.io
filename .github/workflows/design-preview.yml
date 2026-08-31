@@ -24,11 +24,27 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Build site for preview hosting
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Rewrite root-absolute paths for GitHack subpath
         run: |
-          bundle exec jekyll build \
-            --baseurl "/aioue/aioue.github.io/design-preview" \
-            --url "https://raw.githack.com"
+          BASE="/aioue/aioue.github.io/design-preview"
+          find _site -type f \( -name '*.html' -o -name '*.xml' -o -name '*.css' -o -name '*.js' \) -print0 |
+            while IFS= read -r -d '' file; do
+              sed -i \
+                -e "s|href=\"/|href=\"${BASE}/|g" \
+                -e "s|src=\"/|src=\"${BASE}/|g" \
+                -e "s|url(/|url(${BASE}/|g" \
+                "$file"
+              sed -i \
+                -e "s|href=\"${BASE}//|href=\"//|g" \
+                -e "s|src=\"${BASE}//|src=\"//|g" \
+                -e "s|href=\"${BASE}/https://|href=\"https://|g" \
+                -e "s|href=\"${BASE}/http://|href=\"http://|g" \
+                -e "s|url(${BASE}//|url(//|g" \
+                "$file"
+            done
 
       - name: Verify preview asset paths
         run: |
