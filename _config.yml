@@ -26,6 +26,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://aioue.net"
 github_username: aioue
 
+agent_engagement:
+  github_owner: aioue
+  github_repo: aioue.github.io
+  github_discussions_base: "https://github.com/aioue/aioue.github.io/discussions/"
+  giscus_category_id: "DIC_kwDOAesj8M4C3S5p"
+
 # Build settings
 remote_theme: jekyll/minima
 permalink: pretty
