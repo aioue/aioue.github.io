@@ -25,7 +25,14 @@ jobs:
           bundler-cache: true
 
       - name: Build site for preview hosting
-        run: bundle exec jekyll build --config _config.yml,_config_preview.yml
+        run: |
+          bundle exec jekyll build \
+            --config _config.yml \
+            --config _config_preview.yml
+
+      - name: Verify preview asset paths
+        run: |
+          rg -q 'href="/aioue/aioue.github.io/design-preview/assets/main.css"' _site/index.html
 
       - name: Deploy to design-preview branch
         uses: peaceiris/actions-gh-pages@v4
