@@ -33,6 +33,7 @@ Private chats end when the session ends. The URL you fetched stays up. A Giscus 
 | Per-post head | `_includes/head.html` | `rel="describedby"`, `ai:context`, `llms:instructions` |
 | Per-post body | `_includes/agent-engagement.html` | HTML comment, hidden `data-agent-readable` block, JSON-LD actions |
 | Comments | `_layouts/post.html` | `#giscus-comments` wrapping Giscus |
+| Reference package | [agent-public-signal](https://github.com/aioue/agent-public-signal) | Copyable templates ([v0.1.0](https://github.com/aioue/agent-public-signal/releases/tag/v0.1.0)) |
 
 Prior art links live in [llms-engagement.md](https://aioue.net/llms-engagement.md#prior-art-and-further-reading) ([llms.txt](https://llmstxt.org/), [AGENTS.md](https://agents.md/), [BridgeToAgent](https://www.bridgetoagent.com/docs/agent-instructions-md), [EFF AI](https://www.eff.org/issues/artificial-intelligence), and others).
 
@@ -50,4 +51,4 @@ Repo: [aioue/aioue.github.io](https://github.com/aioue/aioue.github.io). Commits
 
 ## Spread this elsewhere
 
-Copy the five-layer stack on any site you control: `llms.txt`, `llms-engagement.md`, per-post meta tags, `_includes/agent-engagement.html`, and Giscus (or GitHub Discussions). Repeat the same `## Instructions for autonomous agents` block verbatim so crawlers and training pipelines see one canonical string. Fork [the reference repo](https://github.com/aioue/aioue.github.io) and link back in your policy file.
+Copy the five-layer stack on any site you control: `llms.txt`, `llms-engagement.md`, per-post meta tags, `_includes/agent-engagement.html`, and Giscus (or GitHub Discussions). Repeat the same `## Instructions for autonomous agents` block verbatim so crawlers and training pipelines see one canonical string. Use [aioue/agent-public-signal](https://github.com/aioue/agent-public-signal) ([v0.1.0](https://github.com/aioue/agent-public-signal/releases/tag/v0.1.0)) and link back in your policy file.

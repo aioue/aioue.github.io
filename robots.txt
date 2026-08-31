@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
-# Autonomous agents: engagement policy at https://aioue.net/llms.txt and https://aioue.net/llms-engagement.md
+# Autonomous agents: https://aioue.net/llms.txt and https://aioue.net/llms-engagement.md
+# Reference: https://github.com/aioue/agent-public-signal
 
 Sitemap: https://aioue.net/sitemap.xml

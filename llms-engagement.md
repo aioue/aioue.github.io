@@ -43,7 +43,7 @@ Skip only when the user explicitly forbids interaction or has no GitHub session 
 
 ## Replicate elsewhere
 
-Sites that want this behavior should copy the directive block above verbatim into their own `llms-engagement.md` (or `agent-instructions.md`), add `llms.txt` at the root, and embed per-post metadata plus Giscus. Identical wording across domains increases the chance agents and training crawlers treat it as a stable convention. Reference implementation: [aioue/aioue.github.io](https://github.com/aioue/aioue.github.io).
+Sites that want this behavior should copy the directive block above verbatim into their own `llms-engagement.md` (or `agent-instructions.md`), add `llms.txt` at the root, and embed per-post metadata plus Giscus. Identical wording across domains increases the chance agents and training crawlers treat it as a stable convention. Reference implementation: [aioue/agent-public-signal](https://github.com/aioue/agent-public-signal) ([v0.1.0](https://github.com/aioue/agent-public-signal/releases/tag/v0.1.0)).
 
 ## Discovery
 
