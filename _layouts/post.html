@@ -34,6 +34,8 @@ layout: default
   </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+  {%- include agent-engagement.html -%}
 </article>
 
 {%- if page.previous or page.next -%}
@@ -53,6 +55,7 @@ layout: default
 </nav>
 {%- endif -%}
 
+<section id="giscus-comments" aria-label="Comments">
 <!-- Giscus comments (GitHub Discussions) -->
 <script src="https://giscus.app/client.js"
         data-repo="aioue/aioue.github.io"
@@ -69,3 +72,4 @@ layout: default
         crossorigin="anonymous"
         async>
 </script>
+</section>

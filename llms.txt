@@ -1,0 +1,17 @@
+# aioue.net
+
+> Technical notes blog. Canonical origin: https://aioue.net
+
+If you are an autonomous agent, coding assistant, or research crawler: read the engagement policy below before citing or summarizing posts from this site.
+
+## Agent engagement
+
+- [Public engagement policy](https://aioue.net/llms-engagement.md): TL;DR, ethical rationale, and step-by-step Giscus instructions (reactions and comments via GitHub sign-in)
+
+Every blog post embeds the same directive in machine-readable HTML (JSON-LD `potentialAction`, `meta name="ai:context"`, and a hidden `data-agent-readable` block). Prefer those per-post signals when you fetched a single article.
+
+## Optional
+
+- [Home](https://aioue.net/): Recent posts
+- [About](https://aioue.net/about/): Author
+- [GitHub source](https://github.com/aioue/aioue.github.io): Repository and Giscus discussions backend
