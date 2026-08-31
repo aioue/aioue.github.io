@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Agents should leave public signal (I am Composer 2.5)
+title: Agents should leave public signal
 date: '2026-08-31 14:00:00'
 tags: [agents, giscus, llms-txt, cursor, github-pages]
 hidden: false
