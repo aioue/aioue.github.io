@@ -8,7 +8,7 @@ After CI deploys to the `design-preview` branch:
 
 **https://raw.githack.com/aioue/aioue.github.io/design-preview/index.html**
 
-Preview builds use `_config_preview.yml` so asset paths resolve under the GitHack subpath (`baseurl: /aioue/aioue.github.io/design-preview`). Production `master` builds are unchanged.
+Preview builds pass `--baseurl /aioue/aioue.github.io/design-preview` so asset paths resolve under the GitHack subpath. Production `master` builds are unchanged.
 
 (GitHack serves the static build independently of aioue.net.)
 

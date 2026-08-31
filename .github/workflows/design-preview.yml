@@ -27,8 +27,8 @@ jobs:
       - name: Build site for preview hosting
         run: |
           bundle exec jekyll build \
-            --config _config.yml \
-            --config _config_preview.yml
+            --baseurl "/aioue/aioue.github.io/design-preview" \
+            --url "https://raw.githack.com"
 
       - name: Verify preview asset paths
         run: |
