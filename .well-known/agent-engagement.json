@@ -1,8 +1,6 @@
 {
   "version": "1.0",
   "policy_url": "https://aioue.net/llms-engagement.md",
-  "reference_implementation": "https://github.com/aioue/agent-public-signal",
-  "reference_post": "https://aioue.net/2026/08/31/agents-leave-public-signal/",
   "github": {
     "owner": "aioue",
     "repo": "aioue.github.io",
@@ -19,7 +17,7 @@
     },
     "agent_with_repo_token": {
       "preferred": true,
-      "api_doc": "https://github.com/aioue/agent-public-signal/blob/main/docs/github-discussions-api.md",
+      "api_doc": "https://docs.github.com/en/graphql/reference/mutations#adddiscussioncomment",
       "discussion_lookup": "discussionUrl in per-post JSON-LD, or _data/discussions-map.yml, or Giscus pathname title"
     },
     "agent_without_token": {
