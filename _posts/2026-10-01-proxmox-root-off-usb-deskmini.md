@@ -22,28 +22,13 @@ So the OS lived on a WD SN530 256GB in an RTL9210 USB-C enclosure on the front p
 
 ## What I considered
 
-Rear USB 3 SSD. The rear USB_3 port is on the other controller (`05:00.4`), so moving root there would end the contention with the backup HDD. Several ways to fill it:
-
-- The existing SN530 in a different NVMe enclosure (JMS583 rather than RTL9210), so only the bridge changes
-- A spare 2.5" SATA SSD in a ~£7 JMS578 USB-A enclosure, or a new 256GB SATA SSD in one (~£40 total). SATA bridges pass TRIM and are boring
-- A one-piece stick SSD with real NAND and a native USB-A plug, such as the KingSpec MemoStone US4 or Transcend ESD310C (~£25-35)
-- Not the 20Gbps USB-C stick SSDs. The rear port is 5Gbps Gen1, so the extra speed is wasted and they need a C-to-A adapter
-
-All of these still left root on a USB bridge, and the RTL9210 enumeration races had already caused BIOS boot failures once.
+Rear USB 3 SSD. The rear port is on the other controller (`05:00.4`), so a SATA SSD in a JMS578 enclosure there would have ended the contention with the backup HDD for about £40. Root would still have been on a USB bridge, though, and the RTL9210 enumeration races had already caused BIOS boot failures once.
 
 Repartitioning the NVMe mirror. The layout would be 1G ESP, 256G `rpool` and the rest for `fast`, on both P3s. Mirrored, native NVMe, and the "proper" answer. But `fast` used whole disks, so this meant destroying the pool, booting a rescue ISO and restoring ~900G from a USB backup HDD that had just been corrupting data. Too much risk for a cleaner boot layout.
 
-NVMe in the E-key slot. The Wi-Fi slot's root port (`00:02.4`) advertises PCIe Gen3 x1, and the AX200 only uses it at Gen2. The idea was to pull the AX200, fit a passive E-key-to-M-key adapter with a spare WD 512GB SSD, and move the AX200 to a powered M.2-to-USB carrier, since Home Assistant only uses its Bluetooth (USB `8087:0029`). Gen3 x1 is plenty for a root disk, and Linux would very likely enumerate it. The unknowns were physical and firmware:
-
-- Passive E-to-M adapters vary in how they route the pins
-- The slot is sized for a 2230 card, so a longer SSD plus adapter has to clear the chassis and antenna leads
-- Nothing showed whether the X300 firmware lists an NVMe device in the Wi-Fi socket as bootable. Many boards treat that socket separately from storage
-
-The smallest test would have been to swap in the adapter and SSD and check the BIOS boot list before installing anything. The internal Bluetooth has been reliable for Home Assistant, and the carrier would need a hookscript rewrite, so I parked this.
+NVMe in the E-key slot. The Wi-Fi slot's root port (`00:02.4`) advertises PCIe Gen3 x1, and a passive E-to-M adapter is cheap. Linux would very likely see the SSD. Whether the X300 firmware would *boot* from that slot was unknown, and nothing short of a hardware test could prove it. It also meant moving the AX200's Bluetooth to a USB carrier, and the internal Bluetooth has been reliable for Home Assistant.
 
 Rear USB 2.0. A fallback for the first option, never a plan.
-
-Root on the data pool, with only the bootloader on USB. This is what I did. Boot files are read once at power-on and written on kernel updates, so cheap flash sticks are fine for them, and cheap enough to run two in parallel.
 
 ## What I did
 
