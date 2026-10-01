@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting Proxmox root off USB on a DeskMini with no free slots
-date: '2026-10-01T00:00:00+01:00'
+date: '2026-10-01 00:20:00'
 tags: [proxmox, zfs, uefi, usb, homelab, deskmini]
 hidden: false
 ---
