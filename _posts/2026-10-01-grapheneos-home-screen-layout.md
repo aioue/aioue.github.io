@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Restoring a GrapheneOS home screen from XML
-date: '2026-10-01 23:45:00'
+date: '2026-10-01 22:30:00'
 tags: [grapheneos, android, launcher]
 hidden: false
 ---
