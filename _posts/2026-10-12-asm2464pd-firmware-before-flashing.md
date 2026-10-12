@@ -69,7 +69,7 @@ Two other REA findings are about tooling. REA's firmware tools lean on binwalk, 
 
 ## E2 and the dump you cannot get
 
-`E2 <region> <len u32 big-endian>` reads the flash. It cannot seek: each read returns the start of the selected window, capped at `0xFF00` (65,280) bytes per transfer. Two reads, `E2 50` then `E2 D0`, give 130,560 bytes. That covers the 98,016-byte image plus `FF` padding. A longer second read fails with CHECK CONDITION, ILLEGAL REQUEST 05/24. The flash is a 512 KiB Puya P25D40H (per a [teardown](https://www.chongdiantou.com/archives/304319.html)), so about 381 KiB is out of reach over `E2`.
+`E2 <region> <len u32 big-endian>` reads the flash. It cannot seek: each read returns the start of the selected window, capped at `0xFF00` (65,280) bytes per transfer. Two reads, `E2 50` then `E2 D0`, give 130,560 bytes. That covers the 98,016-byte image plus `FF` padding. A longer second read fails with CHECK CONDITION, ILLEGAL REQUEST 05/24. The flash is a 512 KiB Puya P25D40H (per a [CM642 teardown on chongdiantou.com](https://www.chongdiantou.com/archives/304319.html), in Chinese), so about 381 KiB is out of reach over `E2`.
 
 The unreachable part includes things you would want in a backup. The config tables sit at SPI `0x000-0x0FF` and the bootstub at `0x100`, below the window. The config bytes appear nowhere in the 130,560 bytes I read (that layout comes from [tinygrad commit c2c36aa](https://github.com/tinygrad/asm2464pd-firmware/commit/c2c36aa9023fa15d40ffb77ea54c54221ff07bec), not from reading the chip). Config comes out over `E0` instead, and the bootstub is not backed up at all.
 
@@ -111,7 +111,7 @@ A one-minute sustained read on a sacrificial WD SN530, on `240229` and again on 
 - [ASMedia MPTool user manual](https://egpu.io/wp-content/uploads/wpforo/attachments/16981/16713-ASM2464PDMPToolUserManual.pdf) (egpu.io mirror): Update FW scope, INI keys
 - [Station-Drivers ASM2464 list](https://www.station-drivers.com/index.php/en/component/remository/Drivers/Asmedia/ASM-2464-NVMe-USB-4.x-Controller-(40Gbps)/orderby,2/page,3/lang,en-gb/?Itemid=0): the `250417_85_00_00` bin
 - [r/UsbCHardware thread](https://www.reddit.com/r/UsbCHardware/comments/1bt10ue/ugreen_40gbps_nvme_ssd_enclosure_mac_os/): one CM642-15976 owner's firmware history
-- [Teardown](https://www.chongdiantou.com/archives/304319.html): flash chip part number
+- [CM642 teardown on chongdiantou.com](https://www.chongdiantou.com/archives/304319.html) (Chinese): flash chip part number
 - `ASM246xMPTool.exe`, its INI and the production logs on UGREEN's and ASMedia's tools: downgrade gate, identity rewrite
 
 I did this with Cursor agents (Claude doing most of the work, with GLM models reviewing the notes before the writes). I made the decisions about what to write to the unit.
