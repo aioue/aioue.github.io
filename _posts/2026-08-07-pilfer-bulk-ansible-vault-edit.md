@@ -2,6 +2,7 @@
 layout: post
 title: Bulk edit Ansible vault files with pilfer
 date: '2026-08-07 17:00:00'
+last_modified_at: '2026-08-09'
 tags: [ansible, vault, secrets, python, cli]
 hidden: false
 ---

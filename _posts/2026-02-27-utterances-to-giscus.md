@@ -2,6 +2,7 @@
 layout: post
 title: Moving blog comments from Utterances to Giscus
 date: '2026-02-27 21:00:00'
+last_modified_at: '2026-08-07'
 tags: [github-pages, giscus, utterances, security]
 hidden: false
 ---

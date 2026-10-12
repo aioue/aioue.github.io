@@ -2,6 +2,7 @@
 layout: post
 title: Jekyll Minima remote_theme CSS not loading on GitHub Pages
 date: '2026-01-21 16:00:00'
+last_modified_at: '2026-08-07'
 tags: [jekyll, github-pages, minima, css]
 hidden: false
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: Deconstructing an ASRock X300 BIOS for Proxmox power tuning
 date: '2026-04-25 13:30:00'
+last_modified_at: '2026-08-09'
 tags: [proxmox, bios, homelab, power]
 hidden: false
 ---

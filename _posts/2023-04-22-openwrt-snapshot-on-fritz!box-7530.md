@@ -2,6 +2,7 @@
 layout: post
 title: OpenWrt Snapshot on FRITZ!Box 7530
 date: '2023-04-22 21:45:00'
+last_modified_at: '2026-02-27'
 hidden: false
 ---
 

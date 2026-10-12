@@ -2,6 +2,7 @@
 layout: post
 title: Ansible Proxmox Inventory and DHCP VMs
 date: '2026-02-26 23:00:00'
+last_modified_at: '2026-08-07'
 tags: [ansible, proxmox, inventory, qemu, dhcp]
 hidden: false
 ---

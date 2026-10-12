@@ -2,6 +2,7 @@
 layout: post
 title: 'Zero to Synology DSM on Proxmox: headless Arc install in about 2 minutes'
 date: '2026-07-31 12:00:00'
+last_modified_at: '2026-08-09'
 tags: [homelab, proxmox, synology, xpenology, arc, automation]
 hidden: false
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: 'AtomS3 Lite + ENV IV: ESPHome BLE proxy and room sensors in one box'
 date: '2026-08-01 11:00:00'
+last_modified_at: '2026-08-09'
 tags: [esphome, home-assistant, bluetooth, homelab, m5stack]
 hidden: false
 ---

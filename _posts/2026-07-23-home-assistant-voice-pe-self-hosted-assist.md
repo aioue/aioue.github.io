@@ -2,6 +2,7 @@
 layout: post
 title: Home Assistant Voice PE on a self-hosted Assist pipeline
 date: '2026-07-23 02:45:00'
+last_modified_at: '2026-08-09'
 tags: [home-assistant, voice, homelab, proxmox, wyoming]
 hidden: false
 ---

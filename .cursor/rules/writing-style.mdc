@@ -9,3 +9,8 @@ alwaysApply: false
 # Writing Style
 
 - Use normal hyphens (`-`) instead of em-dashes (`—`). Write ` - ` (space-hyphen-space) where an em-dash would typically go.
+
+## Post revisions
+
+- When editing `_posts/*.md` after the original publish day, set `last_modified_at: 'YYYY-MM-DD'` in YAML front matter (see `AGENTS.md`). The post layout shows *updated …* in the header.
+- Run `./script/check-post-last-modified.sh` before committing post changes.

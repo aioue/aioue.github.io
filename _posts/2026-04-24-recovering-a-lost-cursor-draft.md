@@ -2,6 +2,7 @@
 layout: post
 title: Recovering a lost Cursor chat draft with SQLite and Lexical JSON
 date: '2026-04-24 12:00:00'
+last_modified_at: '2026-08-09'
 tags: [cursor, sqlite, debugging, productivity]
 hidden: false
 ---

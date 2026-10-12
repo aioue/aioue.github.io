@@ -2,6 +2,7 @@
 layout: post
 title: Ubuntu Desktop VM for RDP on OpenNebula
 date: '2026-01-21 17:00:00'
+last_modified_at: '2026-08-07'
 tags: [opennebula, ubuntu, rdp, gnome-remote-desktop, virtualization]
 hidden: false
 ---

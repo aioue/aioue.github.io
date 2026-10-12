@@ -2,7 +2,7 @@
 layout: post
 title: Teaching an LLM to tune idle power on a DeskMini
 date: '2026-07-22 23:15:00'
-last_modified_at: '2026-07-25'
+last_modified_at: '2026-08-09'
 tags: [proxmox, bios, homelab, power, llm, cursor]
 hidden: false
 ---

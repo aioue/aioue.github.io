@@ -54,7 +54,13 @@ hidden: false
 ---
 ```
 
-`last_modified_at` is optional - only add it when updating an existing post. The post layout displays "Updated Jan 29, 2026" between the date and reading time when present.
+`last_modified_at` is **required** whenever you change a post after its original `date` (any later git commit or uncommitted edit). Use `YYYY-MM-DD` (same format as the DeskMini power post). `_layouts/post.html` renders it as *updated …* in the header meta line.
+
+When you edit an existing post:
+
+1. Set `last_modified_at` to **today** (UTC) before commit, or to the date of the change if backdating intentionally.
+2. Run `./script/check-post-last-modified.sh` - it compares publish `date`, git history, and `last_modified_at`.
+3. Do **not** change the original `date` field when revising content (permalink stays tied to the filename).
 
 For posts with timezone, use ISO 8601 format with offset:
 ```yaml
@@ -75,6 +81,7 @@ This blog contains **technical notes** - short, practical how-to guides and refe
 - **No em-dashes** (Unicode `—`); use ASCII hyphen (`-`) or rephrase. CI runs `./script/check-no-em-dashes.sh`
 - Written for the author's future self (and others searching for solutions)
 - **AI trope check:** before publishing new or rewritten prose, skim [tropes.md](https://tropes.fyi/tropes-md) and remove egregious AI tells (negative parallelism, bold-first bullets, dash addiction, "let's unpack" / signposted conclusions, etc.). Homelab Cursor rule: `blog-aioue.mdc`
+- **Lint:** `./script/check-no-em-dashes.sh` and `./script/check-post-last-modified.sh` on touched posts
 
 ### Example Topics
 
@@ -198,6 +205,7 @@ fix: correct syntax highlighting for bash blocks
 - **Tags don't affect URLs** - use tags for metadata without changing the URL structure
 - **Liquid tags in code blocks need `{% raw %}` wrapper** - wrap code blocks containing `{{ }}` or `{% %}` in `{% raw %}` and `{% endraw %}` to prevent Jekyll from processing them
 - **Live GitHub snippets:** `{% include github-embed.html repo="owner/name" file="path/to/file" %}` fetches the file from `raw.githubusercontent.com` at page load. Optional `ref` (default `main`), `start` and `end` (1-based line numbers). Prefer this over copying long Ansible/YAML into a post when the source of truth is a public repo. Script is `assets/js/github-embed.js`, loaded from `_layouts/default.html`.
+- **Post updates:** bump `last_modified_at` in front matter on every substantive edit after publish; run `./script/check-post-last-modified.sh` before commit.
 - **Agent engagement (bots only):** `llms.txt`, `llms-engagement.md`, and `_includes/agent-engagement.html` (included from `_layouts/post.html`) add machine-readable Giscus engagement directives hidden from sighted readers. Do not remove or surface in human-facing copy.
 - **Heading permalinks:** [AnchorJS](https://github.com/bryanbraun/anchorjs) (`_includes/heading-anchors.html`). Left gutter, hover only, `#` icon. kramdown already emits heading ids; AnchorJS reuses them. Slugs are the heading text, lowercased, spaces to hyphens (e.g. `#key-steps-explained`).
 - **Self-improvement:** When you encounter issues, learn new patterns, or discover important gotchas, update this AGENTS.md file with the information. Add troubleshooting steps, update configuration notes, or expand the "Important Notes" section as needed.
