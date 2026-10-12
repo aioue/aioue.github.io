@@ -27,7 +27,6 @@ layout: base
           {%- assign words = post.content | number_of_words -%}
           {%- assign mins = words | divided_by: 250 -%}
           {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
-          <span class="post-meta">{{ post.date | date: date_format }} • {{ mins }} min read</span>
           <h3>
             <a class="post-link" href="{{ post.url | relative_url }}">
               {{ post.title | escape }}
@@ -38,6 +37,7 @@ layout: base
             {%- assign snippet_text = post.excerpt | strip_html | strip -%}
             <p class="post-snippet">{{ snippet_text | truncatewords: 48, "..." }}</p>
           {%- endif -%}
+          <span class="post-meta">{{ post.date | date: date_format }} • {{ mins }} min read</span>
         </li>
         {%- endunless -%}
       {%- endfor -%}
