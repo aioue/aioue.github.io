@@ -35,8 +35,13 @@
 }
 
 // Homepage post list: short plain-text blurbs under each title
+.home .post-list .post-meta {
+  display: block;
+  text-align: right;
+}
+
 .post-snippet {
-  margin: 0.4rem 0 0.5rem;
+  margin: 0.4rem 0 0.15rem;
   font-size: 0.92em;
   line-height: 1.45;
   color: $text-color;
