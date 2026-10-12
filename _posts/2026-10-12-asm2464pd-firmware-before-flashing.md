@@ -102,7 +102,103 @@ I found nothing in the bridge's flash window or its vendor commands that touches
 
 ## So far
 
-A one-minute sustained read on a sacrificial WD SN530, on `240229` and again on `250417`, gave zero disconnects and about 1 GB/s both times. `diskutil` and the Thunderbolt link fields on the Mac are unchanged, and the DROM is identical. One minute says nothing about the failure I actually have, which shows up after hours and after sleep. I am running the real SSD on it now, with the original image, config tables and INI saved for a rollback.
+Not worse, will comment after using the upgraded FW for a while.
+
+The INI I flashed with, serial blanked:
+
+```ini
+[ini_version]
+version=1008
+[usb_func]
+format_enable=0
+format_drive_type=2
+partition_drive_type=1
+drive_label_name=gpt-exfat
+wr_test_enable=0
+wr_test_binary_name=rwtest.bin
+wr_test_count=1
+auto_mp=0
+auto_mp_DevNum=1
+preload_enable=0
+preload_folder_path=D:\temp
+Check_USBStatus_enable=0
+Check_USBStatus=0
+Check_SerialNumber=0
+Auto_Safe_Remove=0
+Scan_BarCode=0
+uiRemove_after_finish=0
+Speed_test_enable=0
+Scan_HDDSN=0
+check_config=0
+SN_EditType=1
+USB4_ComponentID_EditType=5
+CmdLineTimeOut=35
+USB4_BcdSync=0
+
+[Speed_Test]
+read_speed=
+write_speed=
+speed_test_file_size=123
+
+[usb_fw]
+fw_enable=0
+fw_binary_name=AS_USB4_250417_85_00_00.bin
+fw_reload=0
+rescan_after_relink=0
+ext_fw_enable=0
+pd_fw_enable=0
+mcu_fw_enable=0
+pd_binary_name=
+mcu_binary_name=
+
+[usb_config]
+config_format=4
+vendor_id=174C
+product_id=2463
+device_revision=2942
+manufacturer_string=Ugreen
+product_string=Ugreen Storage Device
+manufacturer_string_T10=ASMT
+product_string_T10=2462 NVME
+SN_Numbers=12
+serial_number=XXXXXXXXXXXX
+serial_number_increase=0
+serial_number_increase_HEX=1
+serial_number_increase_DEC=0
+SN_fix_length=0
+SN_remain_value_enable=1
+SN_remain_value_length=12
+standby_timer=0
+hdd_standby=0
+image0=1
+image1=1
+crc32=0
+
+[USB4_Config]
+USB4_VendorName=Ugreen
+USB4_ModelName=Ugreen Storage Device
+USB4_VendorID=174C
+USB4_ProductID=2463
+USB4_TestID=C0000666
+USB4_BcdProductFWRevision=2942
+USB4_ProductHWRevision=5A
+USB4_TBT3VendorID=00B8
+USB4_TBT3ModelID=2463
+USB4_TBT3ModelRevision=E3
+USB4_U4Mode=3
+
+[PCIE]
+PCIE_Scan=1
+PCIE_VendorID=1B21
+PCIE_DeviceID=2463
+PCIE_SSDRelinkTime=10
+
+[usb_mode]
+cd_rom_mode=0
+
+[Target_Chip]
+target_chip=
+```
 
 ## Sources
 
