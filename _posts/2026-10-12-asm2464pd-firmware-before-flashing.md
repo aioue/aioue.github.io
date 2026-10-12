@@ -210,4 +210,4 @@ target_chip=
 - [CM642 teardown on chongdiantou.com](https://www.chongdiantou.com/archives/304319.html): flash chip part number
 - `ASM246xMPTool.exe`, its INI and the production logs on UGREEN's and ASMedia's tools: downgrade gate, identity rewrite
 
-I did this with Cursor agents (Claude doing most of the work, with GLM models reviewing the notes before the writes). I made the decisions about what to write to the unit.
+I did this with Cursor agents (Composer doing most of the work, with GLM models reviewing the notes before the writes). I made the decisions about what to write to the unit.
