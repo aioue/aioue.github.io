@@ -2,6 +2,7 @@
 layout: post
 title: TRMNL e-ink dashboard
 date: '2026-10-04 01:00:00'
+last_modified_at: '2026-10-19'
 tags: [homelab, gadgets]
 hidden: false
 ---
@@ -12,4 +13,4 @@ TRMNL has a plugin marketplace and a private-plugin webhook. You POST JSON, they
 
 For todos I run [anydown](https://aioue.net/2026/03/22/anydown-backup-any-do-tasks/) on Proxmox to back up Any.do. A Python sidecar polls that backup and POSTs a short task list to a TRMNL private plugin. The OG cycles through due items while I am at the desk.
 
-If you want one, my referral link: https://trmnl.com?ref=tom10 (disclosure: I get credit if you buy through it).
+If you want one, [my referral link](https://trmnl.com?ref=tom10) (disclosure: I get credit if you buy through it).
