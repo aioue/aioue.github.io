@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "llama.cpp on a Vega 7 iGPU: the GPU won, the tuning knobs did not"
-date: '2026-10-19 05:20:00'
+date: '2026-10-19T05:20:00+01:00'
 last_modified_at: '2026-10-19'
 tags: [llama.cpp, vulkan, amd, igpu, homelab, benchmark]
 hidden: false
