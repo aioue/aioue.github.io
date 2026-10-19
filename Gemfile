@@ -8,7 +8,7 @@ gem "activesupport", ">= 8.1.2.1"
 gem "addressable", ">= 2.9.0"
 gem "concurrent-ruby", ">= 1.3.7"
 gem "faraday", ">= 2.14.3"
-gem "json", ">= 2.19.2"
+gem "json", ">= 2.21.2"
 gem "nokogiri", ">= 1.19.4"
 
 group :jekyll_plugins do
