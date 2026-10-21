@@ -1,6 +1,27 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  (function () {
+    var KEY = "aioue-color-scheme";
+    var root = document.documentElement;
+    try {
+      var params = new URLSearchParams(location.search);
+      var q = params.get("theme");
+      if (q === "light" || q === "dark") {
+        localStorage.setItem(KEY, q);
+        root.setAttribute("data-theme", q);
+        return;
+      }
+      var t = localStorage.getItem(KEY);
+      if (t === "light" || t === "dark") {
+        root.setAttribute("data-theme", t);
+      }
+    } catch (e) {
+      /* private mode */
+    }
+  })();
+</script>
 {%- if page.layout == 'post' -%}
 <link rel="describedby" href="{{ '/llms.txt' | absolute_url }}">
 <link rel="alternate" type="application/json" href="{{ '/.well-known/agent-engagement.json' | absolute_url }}" title="Agent engagement metadata">
@@ -13,10 +34,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/assets/css/theme-toggle.css" | relative_url }}">
 <link rel="stylesheet" href="{{ "/assets/css/syntax.css" | relative_url }}">
 <style>
+  html[data-theme="light"] code.highlighter-rouge {
+    background-color: #e8e8e4 !important;
+    color: #272822 !important;
+    border: none !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+  }
+  html[data-theme="dark"] code.highlighter-rouge {
+    background-color: var(--minima-background-color) !important;
+    color: #f8f8f2 !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
   @media (prefers-color-scheme: light) {
-    code.highlighter-rouge {
+    html:not([data-theme="dark"]) code.highlighter-rouge {
       background-color: #e8e8e4 !important;
       color: #272822 !important;
       border: none !important;
@@ -25,7 +61,7 @@
     }
   }
   @media (prefers-color-scheme: dark) {
-    code.highlighter-rouge {
+    html:not([data-theme="light"]) code.highlighter-rouge {
       background-color: var(--minima-background-color) !important;
       color: #f8f8f2 !important;
       border: none !important;

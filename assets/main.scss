@@ -82,4 +82,57 @@ code.highlighter-rouge {
   font-family: $code-font-family;
 }
 
+.site-nav .nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 $spacing-unit * 0.5;
+}
+
+.site-nav .theme-toggle {
+  appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 5px 0;
+  font: inherit;
+  line-height: $base-line-height;
+  color: $text-color;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $link-base-color;
+    outline-offset: 2px;
+  }
+}
+
+.theme-toggle-icon {
+  display: block;
+}
+
+.theme-toggle--is-dark .theme-toggle-icon--to-light {
+  display: block;
+}
+
+.theme-toggle--is-dark .theme-toggle-icon--to-dark {
+  display: none;
+}
+
+.theme-toggle--is-light .theme-toggle-icon--to-light {
+  display: none;
+}
+
+.theme-toggle--is-light .theme-toggle-icon--to-dark {
+  display: block;
+}
+
 
