@@ -1,0 +1,51 @@
+<script>
+  (function () {
+    var OVERRIDE = "aioue-theme-override";
+    var SESSION = "aioue-theme-session";
+    var LEGACY = "aioue-color-scheme";
+    var root = document.documentElement;
+
+    function resolveTheme() {
+      try {
+        localStorage.removeItem(LEGACY);
+      } catch (e) {
+        /* private mode */
+      }
+
+      try {
+        var params = new URLSearchParams(location.search);
+        var q = params.get("theme");
+        if (q === "system" || q === "auto") {
+          localStorage.removeItem(OVERRIDE);
+          sessionStorage.removeItem(SESSION);
+          root.removeAttribute("data-theme");
+          return;
+        }
+        if (q === "light" || q === "dark") {
+          sessionStorage.setItem(SESSION, q);
+          root.setAttribute("data-theme", q);
+          return;
+        }
+
+        var session = sessionStorage.getItem(SESSION);
+        if (session === "light" || session === "dark") {
+          root.setAttribute("data-theme", session);
+          return;
+        }
+
+        var override = localStorage.getItem(OVERRIDE);
+        if (override === "light" || override === "dark") {
+          root.setAttribute("data-theme", override);
+          return;
+        }
+      } catch (e) {
+        /* private mode */
+      }
+
+      root.removeAttribute("data-theme");
+    }
+
+    resolveTheme();
+    window.__aioueResolveTheme = resolveTheme;
+  })();
+</script>

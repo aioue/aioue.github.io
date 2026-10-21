@@ -1,5 +1,6 @@
 (function () {
-  var KEY = "aioue-color-scheme";
+  var OVERRIDE = "aioue-theme-override";
+  var SESSION = "aioue-theme-session";
 
   function systemTheme() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -7,9 +8,21 @@
       : "light";
   }
 
-  function storedTheme() {
+  function overrideTheme() {
     try {
-      var t = localStorage.getItem(KEY);
+      var t = localStorage.getItem(OVERRIDE);
+      if (t === "light" || t === "dark") {
+        return t;
+      }
+    } catch (e) {
+      /* private mode */
+    }
+    return null;
+  }
+
+  function sessionTheme() {
+    try {
+      var t = sessionStorage.getItem(SESSION);
       if (t === "light" || t === "dark") {
         return t;
       }
@@ -20,13 +33,20 @@
   }
 
   function effectiveTheme() {
-    return storedTheme() || systemTheme();
+    var attr = document.documentElement.getAttribute("data-theme");
+    if (attr === "light" || attr === "dark") {
+      return attr;
+    }
+    return systemTheme();
   }
 
-  function applyTheme(theme) {
+  function applyTheme(theme, persist) {
     document.documentElement.setAttribute("data-theme", theme);
     try {
-      localStorage.setItem(KEY, theme);
+      if (persist) {
+        localStorage.setItem(OVERRIDE, theme);
+        sessionStorage.removeItem(SESSION);
+      }
     } catch (e) {
       /* private mode */
     }
@@ -55,20 +75,20 @@
     if (!btn) {
       return;
     }
-    if (!document.documentElement.getAttribute("data-theme")) {
-      var stored = storedTheme();
-      if (stored) {
-        document.documentElement.setAttribute("data-theme", stored);
-      }
+    if (typeof window.__aioueResolveTheme === "function") {
+      window.__aioueResolveTheme();
     }
     updateToggle();
     btn.addEventListener("click", function () {
-      applyTheme(effectiveTheme() === "dark" ? "light" : "dark");
+      applyTheme(effectiveTheme() === "dark" ? "light" : "dark", true);
     });
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", function () {
-        if (!storedTheme()) {
+        if (!overrideTheme() && !sessionTheme()) {
+          if (typeof window.__aioueResolveTheme === "function") {
+            window.__aioueResolveTheme();
+          }
           updateToggle();
         }
       });

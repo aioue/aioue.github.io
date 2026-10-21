@@ -1,27 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-  (function () {
-    var KEY = "aioue-color-scheme";
-    var root = document.documentElement;
-    try {
-      var params = new URLSearchParams(location.search);
-      var q = params.get("theme");
-      if (q === "light" || q === "dark") {
-        localStorage.setItem(KEY, q);
-        root.setAttribute("data-theme", q);
-        return;
-      }
-      var t = localStorage.getItem(KEY);
-      if (t === "light" || t === "dark") {
-        root.setAttribute("data-theme", t);
-      }
-    } catch (e) {
-      /* private mode */
-    }
-  })();
-</script>
+{%- include theme-init.html -%}
 {%- if page.layout == 'post' -%}
 <link rel="describedby" href="{{ '/llms.txt' | absolute_url }}">
 <link rel="alternate" type="application/json" href="{{ '/.well-known/agent-engagement.json' | absolute_url }}" title="Agent engagement metadata">
