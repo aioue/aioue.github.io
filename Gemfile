@@ -4,12 +4,12 @@ source "https://rubygems.org"
 gem "github-pages", "~> 232", group: :jekyll_plugins
 
 # Transitive security pins (Dependabot). Relax when github-pages pulls these in.
-gem "activesupport", ">= 8.1.2.1"
-gem "addressable", ">= 2.9.0"
+gem "activesupport", ">= 8.1.4.1"
+gem "addressable", ">= 2.9.1"
 gem "concurrent-ruby", ">= 1.3.7"
 gem "faraday", ">= 2.14.3"
 gem "json", ">= 2.21.2"
-gem "nokogiri", ">= 1.19.4"
+gem "nokogiri", ">= 1.19.5"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
